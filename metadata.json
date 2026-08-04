@@ -1,0 +1,8 @@
+{
+  "name": "Remix HELIBAL",
+  "description": "Premium helicopter rentals and private jet charter services since 2003. Helicopter Ibiza, Mallorca Ibiza helicopter, Monaco Helicopter, Malta helicopter, Mallorca Ibiza charter helicopter. Direct operator prices, seasoned pilots.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HeliBaleares | Redirecting...</title>
+    <script type="text/javascript">
+      // Redirect SPA subpaths to root on GitHub Pages
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/?p=' + encodeURIComponent(l.pathname) +
+        (l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

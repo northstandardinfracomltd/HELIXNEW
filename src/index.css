@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'CustomTitleFont';
+  src: url('https://civilprom.s3.eu-north-1.amazonaws.com/vWR7GWx4KqajxwskmIF1feNXg4A.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "CustomTitleFont", "Cormorant Garamond", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-stone-500: #000000;
+  --color-stone-600: #000000;
+  --color-stone-700: #000000;
+  --color-stone-800: #000000;
+  --color-stone-900: #000000;
+}
+
+/* Custom scrollbar styling for an ultra-clean minimalist aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc; /* slate-50 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+/* All titles and section badges in uppercase */
+h1, h2, h3, h4, h5, h6, span.font-serif.italic {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
