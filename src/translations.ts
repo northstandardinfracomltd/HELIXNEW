@@ -1,4 +1,4 @@
-import { TranslationContent, BaseInfo, AircraftInfo, UseCase } from './types';
+import { TranslationContent, BaseInfo, AircraftInfo, UseCase, Language } from './types';
 
 export const translations: Record<string, TranslationContent> = {
   en: {

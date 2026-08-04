@@ -88,10 +88,11 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
       : (formData.timeSlot || '');
 
     // Map fields exactly to requested Google Sheet headers:
-    // FullName | EmailAddress | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
+    // FullName | EmailAddress | PhoneWhatsApp | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
     const payload = {
       FullName: formData.name,
       EmailAddress: formData.email,
+      PhoneWhatsApp: "",
       RouteDest: formData.route,
       Aircraft: formData.aircraft || (isFr ? "Non spécifié" : "Not specified"),
       DateTime: dateTimeStr || (isFr ? "Non spécifié" : "Not specified"),

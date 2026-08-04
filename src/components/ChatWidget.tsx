@@ -22,6 +22,70 @@ interface ChatMessage {
   isRecap?: boolean;
 }
 
+// Helper to generate date + time slot proposals starting at 4-5 days out
+const getSuggestedDateSlotOptions = (lang: Language) => {
+  const options: { label: string; value: string }[] = [];
+  const now = new Date();
+  
+  const slotsByLang: Record<string, string[]> = {
+    fr: ["Matin (08:00 - 12:00)", "Après-midi (12:00 - 17:00)", "Soirée (17:00 - 21:00)", "Matin (08:00 - 12:00)"],
+    en: ["Morning (08:00 - 12:00)", "Afternoon (12:00 - 17:00)", "Evening (17:00 - 21:00)", "Morning (08:00 - 12:00)"],
+    de: ["Morgen (08:00 - 12:00)", "Nachmittag (12:00 - 17:00)", "Abend (17:00 - 21:00)", "Morgen (08:00 - 12:00)"],
+    nl: ["Ochtend (08:00 - 12:00)", "Middag (12:00 - 17:00)", "Avond (17:00 - 21:00)", "Ochtend (08:00 - 12:00)"],
+    es: ["Mañana (08:00 - 12:00)", "Tarde (12:00 - 17:00)", "Tarde/Noche (17:00 - 21:00)", "Mañana (08:00 - 12:00)"]
+  };
+
+  const localeMap: Record<string, string> = {
+    fr: 'fr-FR',
+    en: 'en-US',
+    de: 'de-DE',
+    nl: 'nl-NL',
+    es: 'es-ES'
+  };
+
+  const currentSlots = slotsByLang[lang] || slotsByLang.en;
+  const locale = localeMap[lang] || 'fr-FR';
+
+  // Propose date options starting at +4 and +5 days out (+4, +5, +6, +7 days)
+  const dayOffsets = [4, 5, 6, 7];
+
+  dayOffsets.forEach((daysAhead, index) => {
+    const targetDate = new Date();
+    targetDate.setDate(now.getDate() + daysAhead);
+
+    const dayName = targetDate.toLocaleDateString(locale, { weekday: 'short' });
+    const dayNum = targetDate.getDate();
+    const monthName = targetDate.toLocaleDateString(locale, { month: 'short' });
+
+    const formattedDate = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)} ${dayNum} ${monthName}`;
+    const slotText = currentSlots[index % currentSlots.length];
+    const fullLabel = `${formattedDate} - ${slotText}`;
+
+    options.push({
+      label: fullLabel,
+      value: fullLabel
+    });
+  });
+
+  return options;
+};
+
+// Helper function to render bold formatted text from markdown **bold**
+const renderFormattedText = (text: string) => {
+  if (!text || !text.includes('**')) return text;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={index} className="font-semibold text-slate-900 block mt-1">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 export default function ChatWidget({ currentLang, selectedAircraft, onClearSelectedAircraft }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<number>(0);
@@ -195,20 +259,15 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
         id: `bot-${Date.now()}`,
         sender: 'bot',
         text: isFr 
-          ? `Quelle est la Date de vol et le Créneau horaire envisagé ?`
+          ? `Quelle est la Date de vol et le Créneau horaire envisagé ?\n\n**Sélectionnez ci-dessous parmi les options ou saisissez manuellement dans le champ votre demande de date/créneau.**`
           : isDe
-          ? `Wann ist Ihr gewünschtes Flugdatum und Zeitfenster?`
+          ? `Wann ist Ihr gewünschtes Flugdatum und Zeitfenster?\n\n**Wählen Sie unten eine der Optionen oder geben Sie Ihre Datum/Zeit-Anfrage manuell im Feld ein.**`
           : isNl
-          ? `Wat is uw gewenste Vluchtdatum en tijdstip?`
+          ? `Wat is uw gewenste Vluchtdatum en tijdstip?\n\n**Kies hieronder uit de opties of voer uw datum/tijd-aanvraag handmatig in het veld in.**`
           : isEs
-          ? `¿Cuál es la Fecha de vuelo y franja horaria deseada?`
-          : `What is your Flight Date and preferred time slot?`,
-        options: [
-          { label: isFr ? "Matin (08:00 - 12:00)" : "Morning (08:00 - 12:00)", value: "Morning (08:00 - 12:00)" },
-          { label: isFr ? "Après-midi (12:00 - 17:00)" : "Afternoon (12:00 - 17:00)", value: "Afternoon (12:00 - 17:00)" },
-          { label: isFr ? "Soirée (17:00 - 21:00)" : "Evening (17:00 - 21:00)", value: "Evening (17:00 - 21:00)" },
-          { label: isFr ? "Date flexible / À définir" : "Flexible Date", value: "Flexible Date" }
-        ]
+          ? `¿Cuál es la Fecha de vuelo y franja horaria deseada?\n\n**Seleccione a continuación entre las opciones o escriba manualmente en el campo su solicitud de fecha/horario.**`
+          : `What is your preferred Flight Date and Time Slot?\n\n**Select from the options below or manually enter your date/slot request in the input field.**`,
+        options: getSuggestedDateSlotOptions(currentLang)
       };
     } else if (nextStep === 6) {
       botMsg = {
@@ -285,7 +344,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     else if (step === 1) advanceStep(val, { email: val });
     else if (step === 2) advanceStep(val, { phone: val });
     else if (step === 3) advanceStep(val, { route: val });
-    else if (step === 5) advanceStep(val, { date: val });
+    else if (step === 5) advanceStep(val, { date: val, timeSlot: isFr ? "Saisie manuelle" : "Manual entry" });
     else if (step === 6) advanceStep(val, { passengers: val });
     else if (step === 7) advanceStep(val, { notes: val });
   };
@@ -293,7 +352,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
   const handleOptionClick = (opt: { label: string; value: string }) => {
     if (step === 2) advanceStep(opt.label, { phone: opt.value });
     else if (step === 4) advanceStep(opt.label, { aircraft: opt.value });
-    else if (step === 5) advanceStep(opt.label, { timeSlot: opt.value });
+    else if (step === 5) advanceStep(opt.label, { date: opt.label, timeSlot: opt.value });
     else if (step === 6) advanceStep(opt.label, { passengers: opt.value });
     else if (step === 7) advanceStep(opt.label, { notes: opt.value });
   };
@@ -302,7 +361,9 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     setIsSubmitting(true);
 
     const dateTimeStr = answers.date 
-      ? `${answers.date} (${answers.timeSlot})`
+      ? (answers.timeSlot && answers.timeSlot !== "Saisie manuelle" && answers.timeSlot !== "Manual entry" && !answers.date.includes(answers.timeSlot) 
+          ? `${answers.date} (${answers.timeSlot})` 
+          : answers.date)
       : answers.timeSlot;
 
     const payload = {
@@ -340,16 +401,16 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     setIsSuccess(true);
     if (onClearSelectedAircraft) onClearSelectedAircraft();
 
-    // Single clear localized confirmation message
+    // Single clear localized confirmation message indicating infos@helibaleares.com recipient
     const confirmationText = isFr 
-      ? "✅ Votre demande a bien été transmise à notre équipe dispatch. Notre département Concierge prendra contact avec vous dans les plus brefs délais."
+      ? "✅ Votre demande a bien été transmise à notre équipe dispatch (infos@helibaleares.com). Notre département Concierge prendra contact avec vous dans les plus brefs délais."
       : isDe
-      ? "✅ Ihre Anfrage wurde an unser Flugbetriebsteam übermittelt. Unser Concierge-Service wird sich in Kürze mit Ihnen in Verbindung setzen."
+      ? "✅ Ihre Anfrage wurde an unser Flugbetriebsteam (infos@helibaleares.com) übermittelt. Unser Concierge-Service wird sich in Kürze mit Ihnen in Verbindung setzen."
       : isNl
-      ? "✅ Uw aanvraag is doorgestuurd naar ons team. Onze Concierge service neemt zo snel mogelijk contact met u op."
+      ? "✅ Uw aanvraag is doorgestuurd naar ons team (infos@helibaleares.com). Onze Concierge service neemt zo snel mogelijk contact met u op."
       : isEs
-      ? "✅ Su solicitud ha sido registrada correctamente. Nuestro departamento de Concierge se pondrá en contacto con usted a la mayor brevedad."
-      : "✅ Your charter inquiry has been transmitted to our dispatch team. Our Concierge desk will be in touch with you shortly.";
+      ? "✅ Su solicitud ha sido registrada correctamente en nuestro departamento de operaciones (infos@helibaleares.com). Nos pondremos en contacto con usted a la mayor brevedad."
+      : "✅ Your charter inquiry has been transmitted to our dispatch team (infos@helibaleares.com). Our Concierge desk will be in touch with you shortly.";
 
     const finalMsg: ChatMessage = {
       id: `bot-final-${Date.now()}`,
@@ -409,7 +470,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                       : 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-xs'
                   }`}
                 >
-                  <p className="whitespace-pre-line text-xs sm:text-sm font-normal tracking-tight">{msg.text}</p>
+                  <p className="whitespace-pre-line text-xs sm:text-sm font-normal tracking-tight">{renderFormattedText(msg.text)}</p>
 
                   {/* Recap Card rendering inside bot bubble */}
                   {msg.isRecap && (
@@ -499,27 +560,24 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
               onSubmit={handleSendInput}
               className="p-3 bg-white border-t border-slate-200 flex items-center gap-2"
             >
-              {step === 5 ? (
-                <input
-                  type="date"
-                  value={answers.date}
-                  onChange={(e) => setAnswers(prev => ({ ...prev, date: e.target.value }))}
-                  className="flex-1 bg-slate-50 border border-slate-200 text-slate-900 text-xs rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#721489]"
-                />
-              ) : (
-                <input
-                  type={step === 1 ? 'email' : 'text'}
-                  value={inputVal}
-                  disabled={step === 4}
-                  onChange={(e) => setInputVal(e.target.value)}
-                  placeholder={step === 4 ? (isFr ? "Veuillez choisir ci-dessus" : "Please select above") : texts.inputPlaceholder}
-                  className="flex-1 bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[#721489] placeholder-slate-400 disabled:bg-slate-100 disabled:cursor-not-allowed"
-                />
-              )}
+              <input
+                type={step === 1 ? 'email' : 'text'}
+                value={inputVal}
+                disabled={step === 4}
+                onChange={(e) => setInputVal(e.target.value)}
+                placeholder={
+                  step === 4 
+                    ? (isFr ? "Veuillez choisir ci-dessus" : "Please select above") 
+                    : step === 5
+                    ? (isFr ? "Sélectionnez ci-dessus ou saisissez vos dates..." : "Select above or type custom date...")
+                    : texts.inputPlaceholder
+                }
+                className="flex-1 bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[#721489] placeholder-slate-400 disabled:bg-slate-100 disabled:cursor-not-allowed"
+              />
 
               <button
                 type="submit"
-                disabled={step === 4 || (!inputVal.trim() && step !== 2 && step !== 5 && step !== 7)}
+                disabled={step === 4 || (!inputVal.trim() && step !== 2 && step !== 7)}
                 className="p-2.5 bg-[#721489] hover:bg-[#861ca1] disabled:opacity-30 text-white font-medium rounded-lg transition-all flex items-center justify-center shrink-0"
               >
                 <Send className="w-4 h-4" />
