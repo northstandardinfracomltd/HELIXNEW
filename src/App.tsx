@@ -12,6 +12,7 @@ import ContactForm from './components/ContactForm';
 import IbizaOperations from './components/IbizaOperations';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import SuccessPage from './components/SuccessPage';
 
 const getSeoCity = (): string => {
   try {
@@ -27,6 +28,19 @@ const getSeoCity = (): string => {
     console.warn("Failed to parse pathname:", e);
   }
   return "";
+};
+
+const getIsSuccessPage = (): boolean => {
+  try {
+    const cleanPath = window.location.pathname.toLowerCase().replace(/\/$/, "");
+    if (cleanPath.endsWith("/success")) return true;
+    const params = new URLSearchParams(window.location.search);
+    const pParam = params.get('p')?.toLowerCase() || '';
+    if (pParam.endsWith('/success') || pParam === 'success') return true;
+  } catch (e) {
+    console.warn("Failed to parse pathname for success page:", e);
+  }
+  return false;
 };
 
 export default function App() {
@@ -46,10 +60,12 @@ export default function App() {
   });
   const [selectedAircraft, setSelectedAircraft] = useState<string>('');
   const [seoCity, setSeoCity] = useState<string>(getSeoCity);
+  const [isSuccessPage, setIsSuccessPage] = useState<boolean>(getIsSuccessPage);
 
   useEffect(() => {
     const handleLocationChange = () => {
       setSeoCity(getSeoCity());
+      setIsSuccessPage(getIsSuccessPage());
     };
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
@@ -202,6 +218,19 @@ export default function App() {
       console.warn("Failed to update lang URL parameter:", e);
     }
   };
+
+  if (isSuccessPage) {
+    return (
+      <SuccessPage 
+        currentLang={currentLang} 
+        onGoHome={() => {
+          setIsSuccessPage(false);
+          window.history.pushState({}, '', '/');
+          window.dispatchEvent(new Event('popstate'));
+        }} 
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#fafaf9] text-black selection:bg-black selection:text-white overflow-x-hidden antialiased font-sans">
