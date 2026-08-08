@@ -123,7 +123,50 @@ Remarques: ${formData.notes || 'N/A'}`;
       Requirements: formData.notes || ""
     };
 
-    // Automatic background server dispatch
+    // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
+    if (appsScriptUrl) {
+      try {
+        await fetch(appsScriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Apps Script submission error:', err);
+      }
+    }
+
+    // 2. Direct client backup email relay to infos@helibaleares.com via FormSubmit
+    try {
+      await fetch('https://formsubmit.co/ajax/infos@helibaleares.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `⚠️ Demande de vol HeliBaleares - ${formData.name || 'Client'}`,
+          _template: 'table',
+          "Nom Client": formData.name,
+          "Email": formData.email,
+          "Telephone": formData.phone,
+          "Itineraire": formData.route,
+          "Appareil": formData.aircraft,
+          "Date et Creneau": dateTimeStr,
+          "Passagers": formData.passengers,
+          "Double Pilote": formData.twoPilots ? 'Oui' : 'Non',
+          "Exigences": formData.notes || 'Aucune'
+        })
+      });
+    } catch (fsErr) {
+      console.warn('FormSubmit backup relay handled:', fsErr);
+    }
+
+    // 3. Optional Node Express backend call if hosted on full-stack server
     try {
       await fetch('/api/send-email', {
         method: 'POST',
@@ -133,23 +176,7 @@ Remarques: ${formData.notes || 'N/A'}`;
         body: JSON.stringify(payload)
       });
     } catch (error) {
-      console.warn('Backend email dispatch error:', error);
-    }
-
-    // Direct client fetch to Google Apps Script Web App (inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
-    if (appsScriptUrl) {
-      try {
-        await fetch(appsScriptUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
-        console.warn('Direct Apps Script submit error:', err);
-      }
+      // Ignore 405 on static hosting
     }
 
     setIsSubmitting(false);
