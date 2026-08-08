@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# XML Sitemap for Search Engine Crawlers
 Sitemap: https://helibaleares.com/sitemap.xml

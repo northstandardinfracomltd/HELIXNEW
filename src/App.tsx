@@ -165,14 +165,21 @@ export default function App() {
       const ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.setAttribute('content', finalDescription);
 
-      // 5. Update Canonical link for Google Search Console
+      // 5. Compute dynamic Canonical link for Google Search Console (Resolves "Page avec redirection")
+      let targetCanonical = 'https://helibaleares.com/';
+      if (seoCity) {
+        targetCanonical = `https://helibaleares.com/${seoCity}`;
+      } else if (isSuccessPage) {
+        targetCanonical = 'https://helibaleares.com/success';
+      }
+
       let canonicalLink = document.querySelector('link[rel="canonical"]');
       if (!canonicalLink) {
         canonicalLink = document.createElement('link');
         canonicalLink.setAttribute('rel', 'canonical');
         document.head.appendChild(canonicalLink);
       }
-      canonicalLink.setAttribute('href', 'https://helibaleares.com/');
+      canonicalLink.setAttribute('href', targetCanonical);
 
       let ogUrlMeta = document.querySelector('meta[property="og:url"]');
       if (!ogUrlMeta) {
@@ -180,7 +187,7 @@ export default function App() {
         ogUrlMeta.setAttribute('property', 'og:url');
         document.head.appendChild(ogUrlMeta);
       }
-      ogUrlMeta.setAttribute('content', 'https://helibaleares.com/');
+      ogUrlMeta.setAttribute('content', targetCanonical);
     } catch (error) {
       console.warn("SEO head updates deferred:", error);
     }

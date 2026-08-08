@@ -238,6 +238,33 @@ Remarques: ${formData.notes || 'N/A'}`;
                   infos@helibaleares.com
                 </a>
               </div>
+
+              {/* Group Hotline Card */}
+              <div className="bg-[#fafaf9] border border-stone-200 p-6 space-y-3" style={{ borderRadius: '13px' }}>
+                <div className="text-black">
+                  <span className="font-sans text-xs font-semibold text-black">
+                    {isFr ? "Hotline Groupe (EN / ES)" : isDe ? "Hotline der Gruppe (EN / ES)" : isNl ? "Groep Hotline (EN / ES)" : isEs ? "Línea Directa Grupo (EN / ES)" : "Group Hotline (EN / ES)"}
+                  </span>
+                </div>
+                <p className="text-xs text-black leading-relaxed font-sans font-light whitespace-pre-line">
+                  {isFr 
+                    ? "Assistance téléphonique du groupe (Anglais & Espagnol).\nOuvert du Lundi au Vendredi : 09h00–12h00 & 14h00–16h00."
+                    : isDe 
+                    ? "Telefonischer Support der Gruppe (Englisch & Spanisch).\nGeöffnet von Montag bis Freitag: 09:00–12:00 & 14:00–16:00."
+                    : isNl 
+                    ? "Telefonische ondersteuning van de groep (Engels & Spaans).\nGeopend van maandag tot vrijdag: 09:00–12:00 & 14:00–16:00."
+                    : isEs 
+                    ? "Asistencia telefónica del grupo (Inglés y Español).\nAbierto de lunes a viernes: 09:00–12:00 y 14:00–16:00."
+                    : "Group telephone support (English & Spanish).\nOpen Monday to Friday: 09:00–12:00 & 14:00–16:00."}
+                </p>
+                <a
+                  href="tel:+441416734044"
+                  className="block w-full bg-[#721489] hover:bg-[#5a106d] text-white font-sans font-medium py-3.5 px-4 text-center transition-all duration-200 shadow active:scale-98"
+                  style={{ borderRadius: '11px', fontSize: '15px' }}
+                >
+                  Call us
+                </a>
+              </div>
             </div>
 
           </div>

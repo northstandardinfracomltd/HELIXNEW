@@ -121,31 +121,31 @@ export default function Safety({ t }: SafetyProps) {
     if (isFr) {
       return {
         title: "Information de paiement & Protection",
-        desc: "Helibaleares ne vous demandera jamais de paiement ou de transfert d'argent avant notre rencontre sur le site de départ. Vous pourrez régler votre vol par carte bancaire, espèces (maximum 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement instantané uniquement en direct lors de notre rencontre. Nous demandons simplement une empreinte bancaire sécurisée pour confirmer votre réservation ; en cas d'absence non signalée (no-show), des frais seront prélevés."
+        desc: "Helibaleares ne vous demandera jamais de règlement intégral avant notre rencontre sur le site de départ. Nous demandons simplement une pré-autorisation bancaire (empreinte) équivalente à 50% du montant du vol, à effectuer en ligne via un lien sécurisé afin de confirmer votre réservation. Lors du vol, la somme retenue (hold) est, au choix du client, soit déduite du montant total à régler sur place, soit intégralement remboursée. Le règlement du solde ou du montant total peut s'effectuer en direct par carte bancaire, espèces (jusqu'à 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement instantané."
       };
     }
     if (isDe) {
       return {
         title: "Zahlungsinformationen & Sicherheit",
-        desc: "Helibaleares wird Sie niemals vor unserem persönlichen Treffen vor Ort um eine Zahlung oder Geldüberweisung bitten. Sie können Ihren Flug per Kreditkarte, bar (maximal 1.000 € für steuerlich in Spanien Ansässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung ausschließlich direkt vor Ort bezahlen, wenn wir uns treffen. Zur Sicherung Ihrer Buchung benötigen wir lediglich eine sichere Kreditkarten-Präautorisierung; im Falle eines unentschuldigten Nichterscheinens (No-Show) wird eine Gebühr erhoben."
+        desc: "Helibaleares fordert niemals eine vollständige Zahlung vor unserem persönlichen Treffen vor Ort. Wir verlangen lediglich eine sichere Online-Präautorisierung (Kreditkartenreservierung) in Höhe von 50 % des Flugbetrags über einen sicheren Link zur Bestätigung Ihrer Buchung. Der reservierte Betrag (Hold) wird beim Treffen nach Wahl des Kunden entweder vom zu zahlenden Betrag abgezogen oder vollständig erstattet. Die Bezahlung kann vor Ort per Kreditkarte, bar (bis zu 1.000 € für in Spanien Steueransässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung erfolgen."
       };
     }
     if (isNl) {
       return {
         title: "Betalingsinformatie & Beveiliging",
-        desc: "Helibaleares zal u nooit om een betaling of geldovermaking vragen voordat we elkaar persoonlijk ontmoeten op de locatie. U kunt uw vlucht betalen met creditcard, contant geld (maximaal € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving uitsluitend direct ter plaatse wanneer we elkaar ontmoeten. Om uw reservering te garanderen, vragen we alleen om een beveiligde creditcard-pre-autorisatie; in het geval van een no-show zonder voorafgaande kennisgeving, worden er no-show kosten in rekening gebracht."
+        desc: "Helibaleares zal u nooit om een volledige betaling vragen voordat we elkaar ontmoeten op de locatie. Wij vragen enkel om een veilige online pre-autorisatie van 50% van het vluchtbedrag via een beveiligde link om uw boeking te bevestigen. Het gereserveerde bedrag (hold) wordt bij de vlucht naar keuze van de klant ingehouden op het te betalen bedrag of volledig terugbetaald. U kunt ter plaatse betalen met creditcard, contant geld (tot € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving."
       };
     }
     if (isEs) {
       return {
         title: "Información de Pago y Seguridad",
-        desc: "Helibaleares nunca le solicitará ningún pago o transferencia de dinero antes de conocernos en persona en el lugar. Podrá pagar por su vuelo con tarjeta de crédito, efectivo (máximo 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea únicamente en directo cuando nos encontremos. Simplemente solicitamos una preautorización segura de tarjeta de crédito para confirmar su reserva; en caso de no presentarse sin previo aviso (no-show), se aplicará un cargo por incomparecencia."
+        desc: "Helibaleares nunca le solicitará el pago total antes de encontrarnos en persona. Únicamente requerimos una preautorización bancaria en línea equivalente al 50% del importe del vuelo a través de un enlace seguro para confirmar su reserva. El importe retenido (hold) puede ser, a elección del cliente, deducido del importe a pagar en el lugar o reembolsado íntegramente. Podrá abonar el pago en directo mediante tarjeta de crédito, efectivo (hasta 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea."
       };
     }
     // Default English
     return {
       title: "Payment Information & Protection",
-      desc: "Helibaleares will never ask for any payment or money transfer before meeting you in person on-site. You can pay for your flight by credit card, cash (maximum €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer exclusively in person when we meet. We simply require a secure credit card pre-authorization to confirm your booking; in the event of a no-show without prior notice, a no-show fee will be charged."
+      desc: "Helibaleares will never ask for full payment prior to meeting on site. We simply require a secure online credit card pre-authorization equivalent to 50% of the flight amount via a dedicated secure link to confirm your booking. Upon meeting for your flight, the pre-authorized hold can either be deducted from the amount payable on site or fully refunded, according to your preference. Payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer."
     };
   })();
 

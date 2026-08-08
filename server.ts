@@ -168,6 +168,19 @@ async function startServer() {
     }
   });
 
+  // SEO Static Files Direct Serve (sitemap.xml & robots.txt)
+  app.get("/sitemap.xml", (req, res) => {
+    res.header("Content-Type", "application/xml; charset=utf-8");
+    const sitemapPath = path.join(process.cwd(), process.env.NODE_ENV === "production" ? "dist" : "public", "sitemap.xml");
+    res.sendFile(sitemapPath);
+  });
+
+  app.get("/robots.txt", (req, res) => {
+    res.header("Content-Type", "text/plain; charset=utf-8");
+    const robotsPath = path.join(process.cwd(), process.env.NODE_ENV === "production" ? "dist" : "public", "robots.txt");
+    res.sendFile(robotsPath);
+  });
+
   // Serve frontend with Vite in dev mode, static files in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
@@ -179,7 +192,7 @@ async function startServer() {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      res.status(200).sendFile(path.join(distPath, "index.html"));
     });
   }
 
