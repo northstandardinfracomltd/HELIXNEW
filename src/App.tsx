@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Hero, { cityNames } from './components/Hero';
 import About from './components/About';
 import Bases from './components/Bases';
+import PopularRoutes from './components/PopularRoutes';
 import Fleet from './components/Fleet';
 import Safety from './components/Safety';
 import UseCases from './components/UseCases';
@@ -76,32 +77,32 @@ export default function App() {
       // Dynamically update page language for Google crawler
       document.documentElement.lang = currentLang;
 
-      // Ultra-optimized localized SEO Meta definitions
+      // Ultra-optimized localized SEO Meta definitions targeting high-intent routes
       const seoMeta: Record<Language, { title: string; description: string; keywords: string }> = {
         en: {
-          title: "Helibaleares | Helicopter Charter Balearics - Ibiza, Mallorca, Menorca",
-          description: "Direct operator of private helicopter flights in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia since 2003 with our Airbus H135 twin-engine helicopter.",
-          keywords: "helicopter ibiza, helicopter charter balearics, helicopter formentera, helicopter transfer mallorca, helicopter menorca, Airbus H135 helicopter"
+          title: "HeliBaleares | Helicopter Flight Mallorca to Ibiza - Direct Operator",
+          description: "Book direct private helicopter flights from Mallorca (PMI) to Ibiza (IBZ) & Formentera in 35 minutes with HeliBaleares S.A., direct operator since 2003 with twin-engine Airbus H135.",
+          keywords: "helicopter flight mallorca ibiza, helicopter transfer mallorca to ibiza, helicopter flight mallorca to ibiza, private helicopter mallorca ibiza, helicopter charter mallorca ibiza, helicopter ibiza, helicopter transfer formentera, helicopter mallorca, Airbus H135 helicopter"
         },
         fr: {
-          title: "Helibaleares | Hélicoptère Ibiza, Majorque, Minorque, Formentera",
-          description: "Opérateur direct de vols hélicoptère aux Baléares depuis 2003. Réservez vos vols en hélicoptère à Ibiza, Formentera, Majorque et Minorque en direct exploitant.",
-          keywords: "helicoptere ibiza, helicoptere baléares, helicoptere formentera, helicoptere majorque, helicoptere minorque, airbus h135"
+          title: "HeliBaleares | Vol Hélicoptère Majorque - Ibiza (Direct Exploitant)",
+          description: "Réservez votre vol privé en hélicoptère entre Majorque (PMI) et Ibiza (IBZ) en 35 minutes avec HeliBaleares S.A., opérateur direct depuis 2003 avec Airbus H135 bimoteur.",
+          keywords: "vol helicoptere majorque ibiza, transfert helicoptere majorque ibiza, vol prive majorque ibiza, helicoptere ibiza, helicoptere majorque, airbus h135"
         },
         de: {
-          title: "Helibaleares | Hubschrauber Charter Balearen - Ibiza, Mallorca, Menorca",
-          description: "Direkter Betreiber von Privatflügen seit 2003 auf den Balearen mit zweimotorigem Airbus H135 Hubschrauber.",
-          keywords: "hubschrauber ibiza, hubschrauber balearen, hubschrauber formentera, hubschrauber mallorca, airbus h135"
+          title: "HeliBaleares | Hubschrauberflug Mallorca nach Ibiza - Direktbetreiber",
+          description: "Buchen Sie direkte Hubschrauberflüge von Mallorca (PMI) nach Ibiza (IBZ) in 35 Minuten mit HeliBaleares S.A., Direktbetreiber seit 2003 mit zweimotorigem Airbus H135.",
+          keywords: "hubschrauberflug mallorca ibiza, hubschrauber transfer mallorca ibiza, privatflug mallorca ibiza, hubschrauber ibiza, hubschrauber mallorca"
         },
         nl: {
-          title: "Helibaleares | Helikopter Charter Balearen - Ibiza, Mallorca, Menorca",
-          description: "Directe operator van privé helikoptervluchten op de Balearen sinds 2003. Airbus H135 helikopter.",
-          keywords: "helikopter ibiza, helikopter balearen, helikopter formentera, helikopter mallorca, airbus h135"
+          title: "HeliBaleares | Helikoptervlucht Mallorca naar Ibiza - Directe Operator",
+          description: "Boek een rechtstreekse helikoptervlucht van Mallorca (PMI) naar Ibiza (IBZ) in 35 minuten met HeliBaleares S.A., directe operator sinds 2003 met Airbus H135.",
+          keywords: "helikoptervlucht mallorca ibiza, helikopter transfer mallorca ibiza, privé helikopter mallorca ibiza, helikopter ibiza"
         },
         es: {
-          title: "Helibaleares | Chárter de Helicópteros Baleares - Ibiza, Mallorca, Menorca",
-          description: "Operador directo de vuelos en helicóptero en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia desde 2003 con Airbus H135.",
-          keywords: "helicoptero ibiza, helicoptero baleares, helicoptero formentera, helicoptero mallorca, airbus h135"
+          title: "HeliBaleares | Vuelo en Helicóptero Mallorca a Ibiza - Operador Directo",
+          description: "Reserve vuelos privados en helicóptero entre Mallorca (PMI) e Ibiza (IBZ) en 35 minutos con HeliBaleares S.A., operador directo desde 2003 con Airbus H135 bimotor.",
+          keywords: "vuelo helicoptero mallorca ibiza, traslado helicoptero mallorca ibiza, vuelo privado mallorca ibiza, helicoptero ibiza, helicoptero mallorca"
         }
       };
 
@@ -260,6 +261,9 @@ export default function App() {
 
         {/* Premium Airport Bases served (Ibiza, Mallorca, Monaco, Malta) */}
         <Bases t={t} currentLang={currentLang} />
+
+        {/* Popular Inter-Island Routes (Mallorca to Ibiza, Ibiza to Formentera) */}
+        <PopularRoutes currentLang={currentLang} />
 
         {/* Fleet listing (Helicopters & Business Jets) */}
         <Fleet 
