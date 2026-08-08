@@ -358,35 +358,6 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     else if (step === 7) advanceStep(opt.label, { notes: opt.value });
   };
 
-  const buildMailtoUrlFromAnswers = () => {
-    const dateTimeStr = answers.date 
-      ? (answers.timeSlot && answers.timeSlot !== "Saisie manuelle" && answers.timeSlot !== "Manual entry" && !answers.date.includes(answers.timeSlot) 
-          ? `${answers.date} (${answers.timeSlot})` 
-          : answers.date)
-      : answers.timeSlot;
-
-    const subject = encodeURIComponent(`Demande de Vol LiveChat HeliBaleares - ${answers.name || 'Client'}`);
-    const bodyText = 
-`Bonjour l'équipe HeliBaleares,
-
-Voici une nouvelle demande de vol soumise via le Live Chat :
-
-• Nom / Client : ${answers.name || 'N/A'}
-• E-mail : ${answers.email || 'N/A'}
-• Téléphone / WhatsApp : ${answers.phone || 'N/A'}
-• Itinéraire / Destination : ${answers.route || 'N/A'}
-• Appareil : ${answers.aircraft || 'Airbus H135'}
-• Date & Créneau : ${dateTimeStr || 'À convenir'}
-• Passagers : ${answers.passengers || '1'}
-• Option 2 Pilotes : ${answers.twoPilots ? 'Oui' : 'Non'}
-• Exigences / Remarques : ${answers.notes || 'Aucune'}
-
----
-Message envoyé depuis le Live Chat helibaleares.com`;
-
-    return `mailto:infos@helibaleares.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
-  };
-
   const handleSubmitFinal = async () => {
     setIsSubmitting(true);
 
@@ -408,28 +379,17 @@ Message envoyé depuis le Live Chat helibaleares.com`;
       Requirements: answers.notes ? `[Chatbot Inquiry] ${answers.notes}` : "[Submitted via Live Chat Widget]"
     };
 
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL;
-
-    if (appsScriptUrl) {
-      try {
-        await fetch(appsScriptUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
-        console.warn('Apps script submit handled:', err);
-      }
-    }
-
-    // Attempt direct mailto trigger so client email app opens pre-filled
-    const mailtoUrl = buildMailtoUrlFromAnswers();
+    // Automatic background server dispatch to infos@helibaleares.com
     try {
-      window.location.href = mailtoUrl;
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
     } catch (err) {
-      console.warn('Mailto popup blocked:', err);
+      console.warn('Backend email dispatch error:', err);
     }
 
     setIsSubmitting(false);
@@ -564,13 +524,9 @@ Message envoyé depuis le Live Chat helibaleares.com`;
                           )}
                         </button>
                       ) : (
-                        <a
-                          href={buildMailtoUrlFromAnswers()}
-                          className="w-full mt-2 py-2 px-3 bg-[#721489] hover:bg-[#861ca1] text-white font-medium rounded-md shadow-xs transition-all flex items-center justify-center gap-1.5 text-xs cursor-pointer"
-                        >
-                          <Mail className="w-3.5 h-3.5" />
-                          <span>{isFr ? "Envoyer par e-mail à infos@helibaleares.com" : "Send via email to infos@helibaleares.com"}</span>
-                        </a>
+                        <div className="w-full mt-2 py-2 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 font-medium rounded-md text-center text-xs">
+                          {isFr ? "✅ Demande transmise à infos@helibaleares.com" : "✅ Request sent to infos@helibaleares.com"}
+                        </div>
                       )}
                     </div>
                   )}

@@ -40,33 +40,6 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
   const isNl = t.navContact === "Aanvraag indienen";
   const isEs = t.navContact === "Solicitud de Vuelo";
 
-  const buildMailtoUrl = () => {
-    const dateTimeStr = formData.date 
-      ? `${formData.date}${formData.timeSlot ? ' (' + formData.timeSlot + ')' : ''}`
-      : (formData.timeSlot || (isFr ? 'Non spécifié' : 'Not specified'));
-
-    const subject = encodeURIComponent(`Demande de Vol HeliBaleares - ${formData.name || 'Client'}`);
-    
-    const bodyText = 
-`Bonjour l'équipe HeliBaleares,
-
-Voici une nouvelle demande de réservation de vol :
-
-• Nom / Client : ${formData.name || 'N/A'}
-• E-mail : ${formData.email || 'N/A'}
-• Itinéraire / Destination : ${formData.route || 'N/A'}
-• Appareil : ${formData.aircraft || 'Airbus H135'}
-• Date & Créneau : ${dateTimeStr}
-• Passagers : ${formData.passengers || '1'}
-• Option 2 Pilotes : ${formData.twoPilots ? 'Oui' : 'Non'}
-• Exigences / Remarques : ${formData.notes || 'Aucune'}
-
----
-Message envoyé depuis helibaleares.com`;
-
-    return `mailto:infos@helibaleares.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
-  };
-
   const handleCopyManifest = () => {
     const dateTimeStr = formData.date 
       ? `${formData.date}${formData.timeSlot ? ' (' + formData.timeSlot + ')' : ''}`
@@ -137,8 +110,7 @@ Remarques: ${formData.notes || 'N/A'}`;
       ? `${formData.date}${formData.timeSlot ? ' (' + formData.timeSlot + ')' : ''}`
       : (formData.timeSlot || '');
 
-    // Map fields exactly to requested Google Sheet headers:
-    // FullName | EmailAddress | PhoneWhatsApp | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
+    // Map fields exactly: FullName | EmailAddress | PhoneWhatsApp | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
     const payload = {
       FullName: formData.name,
       EmailAddress: formData.email,
@@ -151,28 +123,17 @@ Remarques: ${formData.notes || 'N/A'}`;
       Requirements: formData.notes || ""
     };
 
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL;
-
-    if (appsScriptUrl) {
-      try {
-        await fetch(appsScriptUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          },
-          body: JSON.stringify(payload)
-        });
-      } catch (error) {
-        console.warn('Google Apps Script submitted:', error);
-      }
-    }
-
-    // Attempt direct mailto launch so user's mail client opens pre-filled
-    const mailtoUrl = buildMailtoUrl();
+    // Automatic background server dispatch to infos@helibaleares.com
     try {
-      window.location.href = mailtoUrl;
-    } catch (err) {
-      console.warn('Mailto popup blocked:', err);
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.warn('Backend email dispatch error:', error);
     }
 
     setIsSubmitting(false);
@@ -445,12 +406,12 @@ Remarques: ${formData.notes || 'N/A'}`;
                       <CheckCircle className="w-6 h-6" />
                     </div>
                     <h3 className="font-serif text-2xl font-light text-black">
-                      {isFr ? "Demande Enregistrée" : "Request Registered"}
+                      {isFr ? "Demande Envoyée" : "Request Transmitted"}
                     </h3>
                     <p className="text-black font-sans font-medium max-w-lg mx-auto text-sm leading-relaxed">
                       {isFr 
-                        ? "Votre demande a été préparée pour notre équipe dispatch sur infos@helibaleares.com."
-                        : "Your inquiry has been prepared for our dispatch team at infos@helibaleares.com."}
+                        ? "✅ Votre demande de vol a été transmise automatiquement à notre équipe dispatch (infos@helibaleares.com). Notre service Concierge prendra contact avec vous rapidement."
+                        : "✅ Your flight request has been automatically sent to our dispatch team at infos@helibaleares.com. Our Concierge service will contact you shortly."}
                     </p>
                   </div>
 
@@ -458,7 +419,7 @@ Remarques: ${formData.notes || 'N/A'}`;
                   <div className="bg-white border border-stone-200 rounded-xl p-5 text-left max-w-md mx-auto space-y-3 font-sans font-light text-xs shadow-xs">
                     <div className="flex items-center justify-between border-b border-stone-100 pb-2">
                       <span className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">
-                        Manifeste de Vol — infos@helibaleares.com
+                        Manifeste de Vol — Transmis à infos@helibaleares.com
                       </span>
                       <button
                         onClick={handleCopyManifest}
@@ -501,23 +462,12 @@ Remarques: ${formData.notes || 'N/A'}`;
                     </div>
                   </div>
 
-                  {/* Direct Action Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
-                    <a
-                      href={buildMailtoUrl()}
-                      className="w-full sm:w-auto flex-1 bg-[#721489] hover:bg-[#861ca1] text-white font-sans text-xs font-semibold py-3 px-5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span>{isFr ? "Envoyer par e-mail à infos@helibaleares.com" : "Send via email to infos@helibaleares.com"}</span>
-                    </a>
-                  </div>
-
                   <div className="pt-2">
                     <button
                       onClick={handleReset}
                       className="text-stone-500 hover:text-black font-sans text-xs underline cursor-pointer transition-colors"
                     >
-                      {isFr ? "Nouvelle demande de vol" : "Submit another flight query"}
+                      {isFr ? "Effectuer une autre demande de vol" : "Submit another flight query"}
                     </button>
                   </div>
                 </div>
