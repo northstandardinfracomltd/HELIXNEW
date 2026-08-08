@@ -1,4 +1,4 @@
-import { Clock, ShieldCheck, MapPin, ArrowRight } from 'lucide-react';
+import { Clock, ArrowRight } from 'lucide-react';
 import { Language } from '../types';
 import { motion } from 'motion/react';
 
@@ -57,7 +57,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         : isEs
         ? "Cruce el mar Mediterráneo en solo 35 minutos de vuelo directo entre la terminal ejecutiva de Palma de Mallorca (PMI) y el terminal VIP de Ibiza (IBZ) o su villa privada. Evite ferrys y esperas con nuestro helicóptero bimotor Airbus H135."
         : "Cross the Mediterranean Sea in a 35-minute direct flight between Palma de Mallorca Executive Terminal (PMI) and Ibiza VIP Terminal (IBZ) or your private villa. Bypass ferry delays and airport waiting with our Airbus H135 twin-engine helicopter.",
-      image: "https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+-+Palma+Mallorca.png",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/Helibaleares+Image+Mallorca.jpg",
       tag: "PMI ➔ IBZ"
     },
     {
@@ -84,7 +84,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         : isEs
         ? "El traslado más rápido y cómodo a Formentera directamente desde el aeropuerto de Ibiza. Solo 12 minutos de vuelo panorámico sobre las aguas turquesas de Es Freus."
         : "The fastest and most comfortable transfer to Formentera directly from Ibiza Airport. Just 12 scenic minutes flying over the turquoise waters of Es Freus.",
-      image: "https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+-+Formentera.png",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/Helibaleares+Image+Ibiza.jpg",
       tag: "IBZ ➔ FORMENTERA"
     },
     {
@@ -111,7 +111,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         : isEs
         ? "Conecte Mallorca con Menorca en 25 minutos de vuelo a medida. Acceso directo a propiedades privadas en Menorca."
         : "Connect Mallorca to Menorca in a 25-minute tailored flight. Direct access to preserved private estates and helipads in Menorca.",
-      image: "https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+-+Menorca+Island.png",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/Helibaleares+Image+Menorca.jpg",
       tag: "PMI ➔ MAH"
     },
     {
@@ -138,7 +138,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         : isEs
         ? "Vuelo directo en helicóptero que conecta la costa peninsular (Alicante / Valencia) directamente con Ibiza y Mallorca."
         : "Direct helicopter charter connecting mainland coastal airports (Alicante / Valencia) directly to Ibiza and Mallorca.",
-      image: "https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+-+Valencia+Airport.png",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/Helibaleares+image+Costa+Blanca.jpg",
       tag: "MAINLAND ➔ BALEARICS"
     }
   ];
@@ -178,10 +178,6 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#721489]/30 border border-[#721489]/50 text-purple-300 text-xs px-3.5 py-1.5 rounded-full font-sans uppercase tracking-widest font-semibold">
-            <MapPin className="h-3.5 w-3.5 text-purple-400" />
-            <span>Inter-Island Charter Routes</span>
-          </div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,11 +237,10 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                 <div className="pt-2">
                   <button
                     onClick={() => scrollToContact(`${route.title} (${route.duration})`)}
-                    className="w-full bg-[#721489] hover:bg-[#5a106d] text-white py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer active:scale-98"
+                    className="w-full bg-[#721489] hover:bg-[#5a106d] text-white py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center shadow-md cursor-pointer active:scale-98"
                     style={{ borderRadius: '11px', fontSize: '15px' }}
                   >
                     <span>{btnText}</span>
-                    <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
               </div>
@@ -257,3 +252,4 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
     </section>
   );
 }
+
