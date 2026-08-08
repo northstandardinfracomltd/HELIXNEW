@@ -4,7 +4,8 @@ import {
   X, 
   Send, 
   CheckCircle2, 
-  ChevronRight
+  ChevronRight,
+  Mail
 } from 'lucide-react';
 import { Language } from '../types';
 
@@ -357,6 +358,35 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     else if (step === 7) advanceStep(opt.label, { notes: opt.value });
   };
 
+  const buildMailtoUrlFromAnswers = () => {
+    const dateTimeStr = answers.date 
+      ? (answers.timeSlot && answers.timeSlot !== "Saisie manuelle" && answers.timeSlot !== "Manual entry" && !answers.date.includes(answers.timeSlot) 
+          ? `${answers.date} (${answers.timeSlot})` 
+          : answers.date)
+      : answers.timeSlot;
+
+    const subject = encodeURIComponent(`Demande de Vol LiveChat HeliBaleares - ${answers.name || 'Client'}`);
+    const bodyText = 
+`Bonjour l'équipe HeliBaleares,
+
+Voici une nouvelle demande de vol soumise via le Live Chat :
+
+• Nom / Client : ${answers.name || 'N/A'}
+• E-mail : ${answers.email || 'N/A'}
+• Téléphone / WhatsApp : ${answers.phone || 'N/A'}
+• Itinéraire / Destination : ${answers.route || 'N/A'}
+• Appareil : ${answers.aircraft || 'Airbus H135'}
+• Date & Créneau : ${dateTimeStr || 'À convenir'}
+• Passagers : ${answers.passengers || '1'}
+• Option 2 Pilotes : ${answers.twoPilots ? 'Oui' : 'Non'}
+• Exigences / Remarques : ${answers.notes || 'Aucune'}
+
+---
+Message envoyé depuis le Live Chat helibaleares.com`;
+
+    return `mailto:infos@helibaleares.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+  };
+
   const handleSubmitFinal = async () => {
     setIsSubmitting(true);
 
@@ -392,9 +422,14 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
       } catch (err) {
         console.warn('Apps script submit handled:', err);
       }
-    } else {
-      console.log('Simulated Chat Payload:', payload);
-      await new Promise(resolve => setTimeout(resolve, 800));
+    }
+
+    // Attempt direct mailto trigger so client email app opens pre-filled
+    const mailtoUrl = buildMailtoUrlFromAnswers();
+    try {
+      window.location.href = mailtoUrl;
+    } catch (err) {
+      console.warn('Mailto popup blocked:', err);
     }
 
     setIsSubmitting(false);
@@ -513,7 +548,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                         </div>
                       )}
 
-                      {!isSuccess && (
+                      {!isSuccess ? (
                         <button
                           onClick={handleSubmitFinal}
                           disabled={isSubmitting}
@@ -528,6 +563,14 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                             </>
                           )}
                         </button>
+                      ) : (
+                        <a
+                          href={buildMailtoUrlFromAnswers()}
+                          className="w-full mt-2 py-2 px-3 bg-[#721489] hover:bg-[#861ca1] text-white font-medium rounded-md shadow-xs transition-all flex items-center justify-center gap-1.5 text-xs cursor-pointer"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          <span>{isFr ? "Envoyer par e-mail à infos@helibaleares.com" : "Send via email to infos@helibaleares.com"}</span>
+                        </a>
                       )}
                     </div>
                   )}

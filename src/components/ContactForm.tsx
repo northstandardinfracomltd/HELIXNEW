@@ -23,6 +23,7 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Sync selected aircraft from App state
   useEffect(() => {
@@ -38,6 +39,55 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
   const isDe = t.navContact === "Flug anfragen";
   const isNl = t.navContact === "Aanvraag indienen";
   const isEs = t.navContact === "Solicitud de Vuelo";
+
+  const buildMailtoUrl = () => {
+    const dateTimeStr = formData.date 
+      ? `${formData.date}${formData.timeSlot ? ' (' + formData.timeSlot + ')' : ''}`
+      : (formData.timeSlot || (isFr ? 'Non spécifié' : 'Not specified'));
+
+    const subject = encodeURIComponent(`Demande de Vol HeliBaleares - ${formData.name || 'Client'}`);
+    
+    const bodyText = 
+`Bonjour l'équipe HeliBaleares,
+
+Voici une nouvelle demande de réservation de vol :
+
+• Nom / Client : ${formData.name || 'N/A'}
+• E-mail : ${formData.email || 'N/A'}
+• Itinéraire / Destination : ${formData.route || 'N/A'}
+• Appareil : ${formData.aircraft || 'Airbus H135'}
+• Date & Créneau : ${dateTimeStr}
+• Passagers : ${formData.passengers || '1'}
+• Option 2 Pilotes : ${formData.twoPilots ? 'Oui' : 'Non'}
+• Exigences / Remarques : ${formData.notes || 'Aucune'}
+
+---
+Message envoyé depuis helibaleares.com`;
+
+    return `mailto:infos@helibaleares.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+  };
+
+  const handleCopyManifest = () => {
+    const dateTimeStr = formData.date 
+      ? `${formData.date}${formData.timeSlot ? ' (' + formData.timeSlot + ')' : ''}`
+      : (formData.timeSlot || 'N/A');
+
+    const text = 
+`DEMANDE DE VOL HELIBALEARES (infos@helibaleares.com)
+---------------------------------------------------
+Client: ${formData.name}
+Email: ${formData.email}
+Itinéraire: ${formData.route}
+Appareil: ${formData.aircraft}
+Date & Créneau: ${dateTimeStr}
+Passagers: ${formData.passengers}
+Deux Pilotes: ${formData.twoPilots ? 'Oui' : 'Non'}
+Remarques: ${formData.notes || 'N/A'}`;
+
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const avgResponseText = isFr 
     ? "Temps de réponse moyen : 15 minutes" 
@@ -108,30 +158,26 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
         await fetch(appsScriptUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'text/plain;charset=utf-8', // Plain text bypasses strict preflight block on older GAS
+            'Content-Type': 'text/plain;charset=utf-8',
           },
           body: JSON.stringify(payload)
         });
-        
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        onClearSelectedAircraft();
       } catch (error) {
-        console.warn('Google Apps Script submitted (with redirect/CORS):', error);
-        // Even if browser triggers a redirect/CORS exception, the Apps Script executes successfully.
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        onClearSelectedAircraft();
+        console.warn('Google Apps Script submitted:', error);
       }
-    } else {
-      // Fallback simulating submission if no environment variable is provided
-      console.log('Simulation: VITE_APPSCRIPT_URL is not set. Submitting payload:', payload);
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        onClearSelectedAircraft();
-      }, 1200);
     }
+
+    // Attempt direct mailto launch so user's mail client opens pre-filled
+    const mailtoUrl = buildMailtoUrl();
+    try {
+      window.location.href = mailtoUrl;
+    } catch (err) {
+      console.warn('Mailto popup blocked:', err);
+    }
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    onClearSelectedAircraft();
   };
 
   const handleReset = () => {
@@ -392,60 +438,88 @@ export default function ContactForm({ t, selectedAircraft, onClearSelectedAircra
                 </form>
               ) : (
                 /* Success Feedback State */
-                <div className="text-center py-10 space-y-6" id="form-success-state">
+                <div className="text-center py-8 space-y-6" id="form-success-state">
                   
                   <div className="space-y-2">
+                    <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-100">
+                      <CheckCircle className="w-6 h-6" />
+                    </div>
                     <h3 className="font-serif text-2xl font-light text-black">
-                      Request Dispatched Successfully
+                      {isFr ? "Demande Enregistrée" : "Request Registered"}
                     </h3>
-                    <p className="text-black font-sans font-light max-w-lg mx-auto text-sm leading-relaxed">
-                      {t.contactSuccessMessage}
+                    <p className="text-black font-sans font-medium max-w-lg mx-auto text-sm leading-relaxed">
+                      {isFr 
+                        ? "Votre demande a été préparée pour notre équipe dispatch sur infos@helibaleares.com."
+                        : "Your inquiry has been prepared for our dispatch team at infos@helibaleares.com."}
                     </p>
                   </div>
 
                   {/* Summary of what they inquired */}
-                  <div className="bg-white border border-stone-200 rounded p-5 text-left max-w-md mx-auto space-y-3 font-sans font-light text-xs">
-                    <span className="text-[10px] text-black block border-b border-stone-100 pb-1.5 font-sans font-bold uppercase tracking-wider">
-                      Flight Request Manifest
-                    </span>
+                  <div className="bg-white border border-stone-200 rounded-xl p-5 text-left max-w-md mx-auto space-y-3 font-sans font-light text-xs shadow-xs">
+                    <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                      <span className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">
+                        Manifeste de Vol — infos@helibaleares.com
+                      </span>
+                      <button
+                        onClick={handleCopyManifest}
+                        className="text-[11px] text-[#721489] hover:text-[#861ca1] font-medium flex items-center gap-1 cursor-pointer transition-colors"
+                      >
+                        <Clipboard className="w-3.5 h-3.5" />
+                        <span>{copied ? (isFr ? "Copié !" : "Copied!") : (isFr ? "Copier" : "Copy")}</span>
+                      </button>
+                    </div>
+
                     <div className="flex justify-between">
-                      <span className="text-black font-medium">CLIENT:</span>
+                      <span className="text-stone-500 font-medium">CLIENT:</span>
                       <span className="text-black font-semibold">{formData.name}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-black font-medium">EMAIL:</span>
-                      <span className="text-black">{formData.email}</span>
+                      <span className="text-stone-500 font-medium">EMAIL:</span>
+                      <span className="text-black font-semibold">{formData.email}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-black font-medium">ROUTE:</span>
+                      <span className="text-stone-500 font-medium">ROUTE:</span>
                       <span className="text-black font-semibold">{formData.route}</span>
                     </div>
                     {formData.aircraft && (
                       <div className="flex justify-between">
-                        <span className="text-black font-medium">AIRCRAFT:</span>
+                        <span className="text-stone-500 font-medium">APPAREIL:</span>
                         <span className="text-black font-semibold">{formData.aircraft}</span>
                       </div>
                     )}
                     {formData.date && (
                       <div className="flex justify-between">
-                        <span className="text-black font-medium">DATE & TIME:</span>
-                        <span className="text-black">
+                        <span className="text-stone-500 font-medium">DATE & CRENEAU:</span>
+                        <span className="text-black font-semibold">
                           {formData.date} {formData.timeSlot ? `(${timeSlots.find(s => s.value === formData.timeSlot)?.label || formData.timeSlot})` : ''}
                         </span>
                       </div>
                     )}
                     <div className="flex justify-between">
-                      <span className="text-black font-medium">PASSENGERS:</span>
+                      <span className="text-stone-500 font-medium">PASSAGERS:</span>
                       <span className="text-black font-semibold">{formData.passengers}</span>
                     </div>
                   </div>
 
-                  <button
-                    onClick={handleReset}
-                    className="bg-black hover:bg-stone-900 text-white font-sans font-light py-2 px-6 rounded text-xs transition-colors cursor-pointer"
-                  >
-                    Submit Another Query
-                  </button>
+                  {/* Direct Action Buttons */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
+                    <a
+                      href={buildMailtoUrl()}
+                      className="w-full sm:w-auto flex-1 bg-[#721489] hover:bg-[#861ca1] text-white font-sans text-xs font-semibold py-3 px-5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>{isFr ? "Envoyer par e-mail à infos@helibaleares.com" : "Send via email to infos@helibaleares.com"}</span>
+                    </a>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      onClick={handleReset}
+                      className="text-stone-500 hover:text-black font-sans text-xs underline cursor-pointer transition-colors"
+                    >
+                      {isFr ? "Nouvelle demande de vol" : "Submit another flight query"}
+                    </button>
+                  </div>
                 </div>
               )}
 
