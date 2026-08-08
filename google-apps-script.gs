@@ -1,28 +1,22 @@
 /**
- * Google Apps Script for HeliBaleares S.A. Flight Requests
+ * Google Apps Script pour HeliBaleares - Enregistrement des demandes de vol dans Google Sheets
  * 
- * INSTRUCTIONS:
- * 1. Open your Google Sheet where you added the following column headers on Sheet 1 (Feuille 1):
- *    FullName | EmailAddress | PhoneWhatsApp | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
- * 2. Click "Extensions" > "Apps Script".
- * 3. Delete any default code in Code.gs and paste this script.
- * 4. Click the blue "Deploy" button at the top right, then select "New deployment".
- * 5. Choose "Web app" as the deployment type:
- *    - Description: HeliBaleares Form Submissions
- *    - Execute as: Me (your-email@gmail.com)
- *    - Who has access: Anyone
- * 6. Click "Deploy", authorize the permissions, and copy the "Web app URL".
- * 7. Set this URL in the application environment variables as VITE_APPSCRIPT_URL.
+ * INSTRUCTIONS D'INSTALLATION :
+ * 1. Ouvrez un nouveau Google Sheet (Feuille de calcul Google).
+ * 2. Sur la première ligne (Ligne 1 / En-têtes), inscrivez dans les colonnes A à J :
+ *    Horodateur | Nom | Email | Téléphone | Itinéraire | Appareil | Date & Créneau | Passagers | Double Pilote | Exigences
+ * 3. Allez dans le menu "Extensions" > "Apps Script".
+ * 4. Effacez tout le code présent dans Code.gs et collez le script ci-dessous.
+ * 5. Cliquez sur "Enregistrer" (icône disquette), puis cliquez sur le bouton bleu "Déployer" > "Nouveau déploiement".
+ * 6. Cliquez sur l'icône pignon à côté de "Sélectionner le type" et choisissez "Application Web" (Web app) :
+ *    - Description : HeliBaleares Submissions
+ *    - Exécuter en tant que : Moi (votre adresse Gmail / Google Workspace)
+ *    - Qui a accès : Tout le monde (Anyone)  <-- TRÈS IMPORTANT !
+ * 7. Cliquez sur "Déployer", autorisez les accès Google si demandé, puis COPIEZ l'URL de l'application Web générée.
+ * 8. Ajoutez cette URL dans les variables d'environnement (Settings) comme VITE_APPSCRIPT_URL.
  */
 
 function doPost(e) {
-  // Handle CORS Preflight / POST response headers
-  var headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  };
-  
   try {
     var data;
     if (e && e.postData && e.postData.contents) {
@@ -30,15 +24,18 @@ function doPost(e) {
     } else if (e && e.parameter) {
       data = e.parameter;
     } else {
-      throw new Error("No payload or parameters detected.");
+      throw new Error("Aucune donnée reçue dans le corps de la requête.");
     }
 
-    // Get the first sheet of the active spreadsheet
+    // Récupérer la première feuille du Google Sheet
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
     
-    // Add row to spreadsheet with exact requested headers matching properties:
-    // FullName | EmailAddress | PhoneWhatsApp | RouteDest | Aircraft | DateTime | Passengers | Dual | Requirements
+    // Horodateur de la demande
+    var timestamp = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Madrid" });
+
+    // Ajout d'une nouvelle ligne dans le Google Sheet avec les en-têtes correspondants
     sheet.appendRow([
+      timestamp,
       data.FullName || "",
       data.EmailAddress || "",
       data.PhoneWhatsApp || "",
@@ -49,41 +46,42 @@ function doPost(e) {
       data.Dual || "",
       data.Requirements || ""
     ]);
-    
-    // Send email notification to infos@helibaleares.com
-    var recipient = "infos@helibaleares.com";
-    var subject = "⚠️ Nouvelle demande de vol - HeliBaleares (" + (data.FullName || "Client") + ")";
-    
-    var emailBody = "Une nouvelle demande de vol a été reçue pour HeliBaleares :\n\n" +
-                    "• Nom Complet : " + (data.FullName || "N/A") + "\n" +
-                    "• Adresse E-mail : " + (data.EmailAddress || "N/A") + "\n" +
-                    "• Téléphone / WhatsApp : " + (data.PhoneWhatsApp || "N/A") + "\n" +
-                    "• Itinéraire / Destination : " + (data.RouteDest || "N/A") + "\n" +
-                    "• Appareil sélectionné : " + (data.Aircraft || "N/A") + "\n" +
-                    "• Date & Heure : " + (data.DateTime || "N/A") + "\n" +
-                    "• Nombre de Passagers : " + (data.Passengers || "N/A") + "\n" +
-                    "• Option Double Pilote (Dual) : " + (data.Dual || "N/A") + "\n" +
-                    "• Exigences particulières : \n" + (data.Requirements || "Aucune") + "\n\n" +
-                    "— Message envoyé automatiquement depuis helibaleares.com.";
 
-    MailApp.sendEmail(recipient, subject, emailBody);
+    // Notification email automatique vers infos@helibaleares.com
+    try {
+      var recipient = "infos@helibaleares.com";
+      var subject = "⚠️ Nouvelle demande de vol - " + (data.FullName || "Client");
+      var emailBody = "Une nouvelle demande de vol a été enregistrée dans votre Google Sheet :\n\n" +
+                      "• Horodateur : " + timestamp + "\n" +
+                      "• Nom Complet : " + (data.FullName || "N/A") + "\n" +
+                      "• Adresse E-mail : " + (data.EmailAddress || "N/A") + "\n" +
+                      "• Téléphone / WhatsApp : " + (data.PhoneWhatsApp || "N/A") + "\n" +
+                      "• Itinéraire / Destination : " + (data.RouteDest || "N/A") + "\n" +
+                      "• Appareil : " + (data.Aircraft || "N/A") + "\n" +
+                      "• Date & Créneau : " + (data.DateTime || "N/A") + "\n" +
+                      "• Nombre de Passagers : " + (data.Passengers || "N/A") + "\n" +
+                      "• Option Double Pilote : " + (data.Dual || "N/A") + "\n" +
+                      "• Exigences / Remarques : " + (data.Requirements || "Aucune") + "\n\n" +
+                      "— Message envoyé automatiquement depuis helibaleares.com.";
+
+      MailApp.sendEmail(recipient, subject, emailBody);
+    } catch (emailError) {
+      Logger.log("Info/Avertissement envoi email: " + emailError.toString());
+    }
 
     return ContentService.createTextOutput(JSON.stringify({ 
       status: "success", 
-      message: "Form submission added successfully. Email notification sent to infos@helibaleares.com." 
-    }))
-    .setMimeType(ContentService.MimeType.JSON);
+      message: "Demande enregistrée dans le Google Sheet avec succès !" 
+    })).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({ 
       status: "error", 
       message: error.toString() 
-    }))
-    .setMimeType(ContentService.MimeType.JSON);
+    })).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-function doOptions(e) {
-  var output = ContentService.createTextOutput();
-  return output;
+function doGet(e) {
+  return ContentService.createTextOutput("HeliBaleares Google Apps Script Web App active.");
 }

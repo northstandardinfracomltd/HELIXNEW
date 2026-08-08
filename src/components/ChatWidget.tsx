@@ -379,7 +379,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
       Requirements: answers.notes ? `[Chatbot Inquiry] ${answers.notes}` : "[Submitted via Live Chat Widget]"
     };
 
-    // Automatic background server dispatch to infos@helibaleares.com
+    // Automatic background server dispatch
     try {
       await fetch('/api/send-email', {
         method: 'POST',
@@ -390,6 +390,22 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
       });
     } catch (err) {
       console.warn('Backend email dispatch error:', err);
+    }
+
+    // Direct client fetch to Google Apps Script Web App (inserts directly into Google Sheet)
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
+    if (appsScriptUrl) {
+      try {
+        await fetch(appsScriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Direct Apps Script submit error:', err);
+      }
     }
 
     setIsSubmitting(false);

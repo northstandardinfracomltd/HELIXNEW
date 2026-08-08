@@ -100,8 +100,8 @@ async function startServer() {
         }
       }
 
-      // Method 3: Google Apps Script Web App
-      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL;
+      // Method 3: Google Apps Script Web App (Inserts directly into Google Sheet)
+      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
       if (appScriptUrl) {
         try {
           const gasResp = await fetch(appScriptUrl, {
@@ -111,7 +111,7 @@ async function startServer() {
           });
           if (gasResp.ok) {
             sent = true;
-            console.log("Submission forwarded to Google Apps Script.");
+            console.log("Submission successfully saved to Google Sheet via Apps Script!");
           }
         } catch (err: any) {
           console.error("Google Apps Script Error:", err.message);
