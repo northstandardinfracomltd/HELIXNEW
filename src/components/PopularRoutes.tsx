@@ -1,4 +1,3 @@
-import { Clock, ArrowRight } from 'lucide-react';
 import { Language } from '../types';
 import { motion } from 'motion/react';
 
@@ -196,7 +195,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
           {routes.map((route) => (
             <div
               key={route.id}
-              className="bg-black/80 border border-stone-800 hover:border-[#721489] transition-all duration-300 overflow-hidden flex flex-col justify-between group shadow-xl"
+              className="bg-black/80 border border-stone-800 transition-all duration-300 overflow-hidden flex flex-col justify-between group shadow-xl"
               style={{ borderRadius: '16px' }}
             >
               <div className="relative h-56 overflow-hidden bg-stone-950">
@@ -207,16 +206,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.85] contrast-[1.1]"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                
-                <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md border border-stone-700 text-white text-xs font-sans font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
-                  {route.tag}
-                </div>
-
-                <div className="absolute top-4 right-4 bg-[#721489] text-white text-xs font-sans font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
-                  <Clock className="h-3.5 w-3.5" />
-                  <span>{route.duration}</span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               </div>
 
               <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between space-y-4">
@@ -224,12 +214,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                   <h3 className="font-serif text-xl sm:text-2xl text-white font-normal group-hover:text-purple-300 transition-colors">
                     {route.title}
                   </h3>
-                  <div className="text-xs text-stone-400 font-sans flex items-center gap-2">
-                    <span className="text-purple-400 font-semibold">{route.origin}</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-stone-500" />
-                    <span className="text-white font-semibold">{route.destination}</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans font-light pt-2">
+                  <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans font-light pt-1">
                     {route.description}
                   </p>
                 </div>

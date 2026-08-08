@@ -262,9 +262,6 @@ export default function App() {
         {/* Premium Airport Bases served (Ibiza, Mallorca, Monaco, Malta) */}
         <Bases t={t} currentLang={currentLang} />
 
-        {/* Popular Inter-Island Routes (Mallorca to Ibiza, Ibiza to Formentera) */}
-        <PopularRoutes currentLang={currentLang} />
-
         {/* Fleet listing (Helicopters & Business Jets) */}
         <Fleet 
           t={t} 
@@ -277,6 +274,9 @@ export default function App() {
 
         {/* Custom use cases (Business, Pleasure, Repatriation, VIP Events) */}
         <UseCases t={t} />
+
+        {/* Popular Inter-Island Routes (Mallorca to Ibiza, Ibiza to Formentera) */}
+        <PopularRoutes currentLang={currentLang} />
 
         {/* Dispatch Form & Direct operator email contact@helibaleares.com */}
         <ContactForm 
