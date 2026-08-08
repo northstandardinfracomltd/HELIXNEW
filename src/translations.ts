@@ -69,7 +69,7 @@ export const translations: Record<string, TranslationContent> = {
     
     legalMentionsTitle: "Legal Mentions & Regulations",
     legalMentionsContent: "Helibaleares S.A. is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. Flight operations are subject to weather conditions and air traffic control clearance.",
-    footerRights: "© 2026 Helibaleares S.A. All rights reserved. Direct Operator.",
+    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helicopter transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia.",
     topAnnouncementBar: "Summer 2026: During high season, we kindly invite you to book your flight 4 to 6 days prior to your desired date to ensure the ultimate experience."
   },
@@ -141,7 +141,7 @@ export const translations: Record<string, TranslationContent> = {
     
     legalMentionsTitle: "Rechtliche Hinweise",
     legalMentionsContent: "Helibaleares S.A. ist ein lizenziertes Luftfahrtunternehmen. Gegründet 2003, betreiben wir unseren zweimotorigen Airbus H135 Helikopter.",
-    footerRights: "© 2026 Helibaleares S.A. Alle Rechte vorbehalten. Direktbetreiber.",
+    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikopter-Transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia.",
     topAnnouncementBar: "Sommer 2026: In der Hochsaison bitten wir Sie, Ihren Flug 4 bis 6 Tage vor dem gewünschten Datum zu buchen, um Ihnen das beste Erlebnis zu bieten."
   },
@@ -213,7 +213,7 @@ export const translations: Record<string, TranslationContent> = {
     
     legalMentionsTitle: "Juridische Vermeldingen",
     legalMentionsContent: "Helibaleares S.A. is een gelicentieerde luchtvaartmaatschappij. Opgericht in 2003, exploiteren we onze tweemotorige Airbus H135 helikopter.",
-    footerRights: "© 2026 Helibaleares S.A. Alle rechten voorbehouden. Directe Operator.",
+    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikoptertransfers in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia.",
     topAnnouncementBar: "Zomer 2026: In het hoogseizoen raden we u aan uw vlucht 4 tot 6 dagen voor de gewenste datum te boeken voor de beste ervaring."
   },
@@ -285,7 +285,7 @@ export const translations: Record<string, TranslationContent> = {
     
     legalMentionsTitle: "Menciones Legales",
     legalMentionsContent: "Helibaleares S.A. es una compañía aérea de transporte autorizada. Fundada en 2003, operamos nuestro helicóptero bimotor Airbus H135.",
-    footerRights: "© 2026 Helibaleares S.A. Todos los derechos reservados. Operador Directo.",
+    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Traslados en helicóptero en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia.",
     topAnnouncementBar: "Verano 2026: En temporada alta, le invitamos a reservar su vuelo de 4 a 6 días antes de la fecha deseada para ofrecerle la mejor experiencia."
   },
@@ -357,7 +357,7 @@ export const translations: Record<string, TranslationContent> = {
     
     legalMentionsTitle: "Mentions Légales",
     legalMentionsContent: "Helibaleares S.A. est un transporteur aérien certifié. Établie en 2003, la compagnie exploite son hélicoptère bimoteur Airbus H135.",
-    footerRights: "© 2026 Helibaleares S.A. Tous droits réservés. Opérateur Aérien Direct.",
+    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Transferts hélicoptère à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence.",
     topAnnouncementBar: "Été 2026 : En haute saison, nous vous invitons à réserver votre vol 4 à 6 jours avant la date souhaitée pour vous offrir la meilleure expérience."
   }

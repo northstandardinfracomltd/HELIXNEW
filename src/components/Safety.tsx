@@ -256,6 +256,17 @@ export default function Safety({ t }: SafetyProps) {
               </p>
             </div>
           </div>
+
+          {/* Safety & Certification Labels Image */}
+          <div className="mt-8 flex justify-center items-center">
+            <img
+              src="https://civilprom.s3.eu-north-1.amazonaws.com/labels.png"
+              alt="HeliBaleares AOC & Payment Protection Certifications"
+              className="max-w-2xl w-full h-auto object-contain mx-auto"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
