@@ -472,9 +472,6 @@ Remarques: ${formData.notes || 'N/A'}`;
                 <div className="text-center py-8 space-y-6" id="form-success-state">
                   
                   <div className="space-y-2">
-                    <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-100">
-                      <CheckCircle className="w-6 h-6" />
-                    </div>
                     <h3 className="font-serif text-2xl font-light text-black">
                       {isFr ? "Demande Envoyée" : "Request Transmitted"}
                     </h3>
@@ -487,19 +484,6 @@ Remarques: ${formData.notes || 'N/A'}`;
 
                   {/* Summary of what they inquired */}
                   <div className="bg-white border border-stone-200 rounded-xl p-5 text-left max-w-md mx-auto space-y-3 font-sans font-light text-xs shadow-xs">
-                    <div className="flex items-center justify-between border-b border-stone-100 pb-2">
-                      <span className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">
-                        Manifeste de Vol — Transmis à infos@helibaleares.com
-                      </span>
-                      <button
-                        onClick={handleCopyManifest}
-                        className="text-[11px] text-[#721489] hover:text-[#861ca1] font-medium flex items-center gap-1 cursor-pointer transition-colors"
-                      >
-                        <Clipboard className="w-3.5 h-3.5" />
-                        <span>{copied ? (isFr ? "Copié !" : "Copied!") : (isFr ? "Copier" : "Copy")}</span>
-                      </button>
-                    </div>
-
                     <div className="flex justify-between">
                       <span className="text-stone-500 font-medium">CLIENT:</span>
                       <span className="text-black font-semibold">{formData.name}</span>
