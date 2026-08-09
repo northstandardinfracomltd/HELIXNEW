@@ -120,32 +120,37 @@ export default function Safety({ t }: SafetyProps) {
   const alertText = (() => {
     if (isFr) {
       return {
-        title: "Information de paiement & Protection",
-        desc: "Helibaleares ne vous demandera jamais de règlement intégral avant notre rencontre sur le site de départ. Nous demandons simplement une pré-autorisation bancaire (empreinte) équivalente à 50% du montant du vol, à effectuer en ligne via un lien sécurisé afin de confirmer votre réservation. Lors du vol, la somme retenue (hold) est, au choix du client, soit déduite du montant total à régler sur place, soit intégralement remboursée. Le règlement du solde ou du montant total peut s'effectuer en direct par carte bancaire, espèces (jusqu'à 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement instantané."
+        title: "Prérequis du Vol & Dépôt de Garantie",
+        guarantee: "Dépôt de garantie : Une pré-autorisation bancaire (carte de crédit) équivalente à 45 % du montant total est requise pour sécuriser la réservation. Le jour du vol, cette empreinte peut soit être annulée/remboursée, soit être déduite du montant final réglé. Le règlement intégral ou du solde peut s'effectuer sur place par carte bancaire, espèces (jusqu'à 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement bancaire instantané.",
+        doc: "Documentation : Nous aurons besoin d'une pièce d'identité officielle avec photo d'un des passagers afin d'enregistrer l'ensemble des bagages à son nom."
       };
     }
     if (isDe) {
       return {
-        title: "Zahlungsinformationen & Sicherheit",
-        desc: "Helibaleares fordert niemals eine vollständige Zahlung vor unserem persönlichen Treffen vor Ort. Wir verlangen lediglich eine sichere Online-Präautorisierung (Kreditkartenreservierung) in Höhe von 50 % des Flugbetrags über einen sicheren Link zur Bestätigung Ihrer Buchung. Der reservierte Betrag (Hold) wird beim Treffen nach Wahl des Kunden entweder vom zu zahlenden Betrag abgezogen oder vollständig erstattet. Die Bezahlung kann vor Ort per Kreditkarte, bar (bis zu 1.000 € für in Spanien Steueransässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung erfolgen."
+        title: "Flugvoraussetzungen & Kautionshinterlegung",
+        guarantee: "Garantiekaution: Zur Sicherung der Reservierung ist eine Kreditkarten-Pre-Autorisierung in Höhe von 45 % des Gesamtbetrags erforderlich. Am Tag des Fluges kann dieser Einbehalt entweder storniert/erstattet oder vom zu zahlenden Endbetrag abgezogen werden. Die vollständige Zahlung oder Restzahlung kann vor Ort per Kreditkarte, bar (bis zu 1.000 € für in Spanien Steueransässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung erfolgen.",
+        doc: "Dokumentation: Wir benötigen einen behördlichen Lichtbildausweis von einem der Passagiere, um das gesamte Gepäck auf seinen Namen zu registrieren."
       };
     }
     if (isNl) {
       return {
-        title: "Betalingsinformatie & Beveiliging",
-        desc: "Helibaleares zal u nooit om een volledige betaling vragen voordat we elkaar ontmoeten op de locatie. Wij vragen enkel om een veilige online pre-autorisatie van 50% van het vluchtbedrag via een beveiligde link om uw boeking te bevestigen. Het gereserveerde bedrag (hold) wordt bij de vlucht naar keuze van de klant ingehouden op het te betalen bedrag of volledig terugbetaald. U kunt ter plaatse betalen met creditcard, contant geld (tot € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving."
+        title: "Vluchtvoorwaarden & Borgstelling",
+        guarantee: "Garantieborg: Een creditcard pre-autorisatie van 45% van het totale bedrag is vereist om de reservering te bevestigen. Op de dag van de vlucht kan deze inhouding worden geannuleerd/terugbetaald of worden ingehouden op het definitieve te betalen bedrag. De volledige of resterende betaling kan ter plaatse worden voldaan per creditcard, contant geld (tot € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving.",
+        doc: "Documentatie: We hebben een officieel identiteitsbewijs met foto van één van de passagiers nodig om alle bagage op diens naam te registreren."
       };
     }
     if (isEs) {
       return {
-        title: "Información de Pago y Seguridad",
-        desc: "Helibaleares nunca le solicitará el pago total antes de encontrarnos en persona. Únicamente requerimos una preautorización bancaria en línea equivalente al 50% del importe del vuelo a través de un enlace seguro para confirmar su reserva. El importe retenido (hold) puede ser, a elección del cliente, deducido del importe a pagar en el lugar o reembolsado íntegramente. Podrá abonar el pago en directo mediante tarjeta de crédito, efectivo (hasta 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea."
+        title: "Requisitos del Vuelo y Depósito de Garantía",
+        guarantee: "Depósito de garantía: Se requiere una preautorización con tarjeta de crédito equivalente al 45% del importe total para asegurar la reserva. El día del vuelo, esta retención puede ser cancelada/reembolsada o deducida del importe final abonado. El pago total o restante se puede liquidar en el lugar con tarjeta de crédito, efectivo (hasta 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea.",
+        doc: "Documentación: Necesitaremos un documento de identidad oficial con foto de uno de los pasajeros para registrar todo el equipaje a su nombre."
       };
     }
     // Default English
     return {
-      title: "Payment Information & Protection",
-      desc: "Helibaleares will never ask for full payment prior to meeting on site. We simply require a secure online credit card pre-authorization equivalent to 50% of the flight amount via a dedicated secure link to confirm your booking. Upon meeting for your flight, the pre-authorized hold can either be deducted from the amount payable on site or fully refunded, according to your preference. Payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer."
+      title: "Flight Prerequisites & Guarantee Deposit",
+      guarantee: "Guarantee Deposit: A credit card pre-authorization equivalent to 45% of the total amount is required to secure the reservation. On the day of the flight, this hold can either be canceled/refunded or deducted from the final amount paid. Full or remaining payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer.",
+      doc: "Documentation: We will need one government-issued photo ID from one passenger to register all luggage under their name."
     };
   })();
 
@@ -247,12 +252,15 @@ export default function Safety({ t }: SafetyProps) {
             className="text-white cursor-default"
             style={{ background: '#721489', borderRadius: '13px', border: 'none', padding: '0px' }}
           >
-            <div className="p-6 sm:p-8 space-y-2 cursor-default">
+            <div className="p-6 sm:p-8 space-y-3 cursor-default">
               <h4 className="font-serif text-lg font-normal text-white cursor-default">
                 {alertText.title}
               </h4>
-              <p className="text-sm font-light text-purple-100 leading-relaxed max-w-4xl cursor-default">
-                {alertText.desc}
+              <p className="text-sm font-light text-purple-100 leading-relaxed cursor-default">
+                {alertText.guarantee}
+              </p>
+              <p className="text-sm font-light text-purple-100 leading-relaxed cursor-default">
+                {alertText.doc}
               </p>
             </div>
           </div>

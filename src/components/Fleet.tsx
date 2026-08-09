@@ -1,4 +1,4 @@
-import { Users, Gauge, Compass } from 'lucide-react';
+import { Users, Gauge, Compass, ExternalLink } from 'lucide-react';
 import { TranslationContent, AircraftInfo, Language } from '../types';
 import { getAircraftData } from '../translations';
 
@@ -86,12 +86,24 @@ export default function Fleet({ t, currentLang, onSelectAircraft }: FleetProps) 
                 </div>
               </div>
 
-              <button
-                onClick={() => onSelectAircraft(h135.name)}
-                className="w-full bg-[#721489] hover:bg-[#5b106e] text-white font-sans font-medium py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer text-base active:scale-98 shadow-sm"
-              >
-                {t.fleetRequestBtn}
-              </button>
+              <div className="flex flex-col space-y-2.5">
+                <button
+                  onClick={() => onSelectAircraft(h135.name)}
+                  className="w-full bg-[#721489] hover:bg-[#5b106e] text-white font-sans font-medium py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer text-base active:scale-98 shadow-sm"
+                >
+                  {t.fleetRequestBtn}
+                </button>
+                <a
+                  href="https://www.airbus.com/en/products-services/helicopters/civil-helicopters/h135"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-300 font-sans font-medium py-3 px-6 rounded-xl transition-all duration-200 cursor-pointer text-sm active:scale-98 text-center flex items-center justify-center gap-2"
+                  id="airbus-h135-info-btn"
+                >
+                  <ExternalLink className="h-4 w-4 text-[#721489]" />
+                  <span>Airbus H135 Infos</span>
+                </a>
+              </div>
             </div>
           </div>
 

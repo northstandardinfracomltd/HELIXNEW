@@ -41,15 +41,15 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
     const upperCity = cityName.toUpperCase();
     
     if (currentLang === 'fr') {
-      return `${upperCity} - HELICOPTER CHARTER BALEARICS`;
+      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
     } else if (currentLang === 'de') {
-      return `${upperCity} HUBSCHRAUBER CHARTER BALEAREN`;
+      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
     } else if (currentLang === 'nl') {
-      return `${upperCity} HELIKOPTER CHARTER BALEAREN`;
+      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
     } else if (currentLang === 'es') {
-      return `${upperCity} CHÁRTER DE HELICÓPTEROS BALEARES`;
+      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
     }
-    return `${upperCity} HELICOPTER CHARTER BALEARICS`;
+    return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
   };
 
   return (

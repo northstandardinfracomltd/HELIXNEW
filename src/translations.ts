@@ -10,11 +10,11 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Our Legacy",
     navContact: "Inquire Now",
     
-    heroTitle: "Helicopter Charter Balearics",
-    heroSubtitle: "Book your bespoke helicopter flights with Helibaleares, established in 2003, operating in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia. Enjoy personalized service, direct operator pricing with no intermediary fees, and the absolute safety of our Airbus H135 twin-engine helicopter.",
+    heroTitle: "Helicopter Charter Flights Balearic",
+    heroSubtitle: "Book your bespoke helicopter charter flights with Helibaleares, established in 2003, operating in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia. Enjoy personalized service, direct operator pricing with no intermediary fees, and the absolute safety of our Airbus H135 twin-engine helicopter.",
     heroCta: "Book Your Flight",
     
-    aboutTitle: "Direct Helicopter Operator Since 2003",
+    aboutTitle: "Direct Helicopter Flight Operator Since 2003",
     aboutBadge: "Direct Booking Advantage",
     aboutP1: "We own, control, and operate our Airbus H135 twin-engine helicopter. When you book with Helibaleares, you deal directly with the flight operator and crew, securing the best pricing without broker markups.",
     aboutP2: "For over two decades, we have maintained impeccable safety standards, providing seamless VIP transfers between airports, private villas, estates, and superyachts across the Balearic archipelago.",
@@ -68,8 +68,8 @@ export const translations: Record<string, TranslationContent> = {
     contactDirectEmailText: "For urgent flight requests, contact our flight operations directly at:",
     
     legalMentionsTitle: "Legal Mentions & Regulations",
-    legalMentionsContent: "Helibaleares S.A. is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. Flight operations are subject to weather conditions and air traffic control clearance.",
-    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. All flight operations require a 45% credit card pre-authorization guarantee deposit to confirm reservations, and a government-issued photo ID from one passenger for luggage registration. Flights are subject to weather conditions and air traffic control clearance.",
+    footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helicopter transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia.",
     topAnnouncementBar: "Summer 2026: During high season, we kindly invite you to book your flight 4 to 6 days prior to your desired date to ensure the ultimate experience."
   },
@@ -82,11 +82,11 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Unsere Tradition",
     navContact: "Flug anfragen",
     
-    heroTitle: "Helikopter-Charter Balearen",
-    heroSubtitle: "Buchen Sie Ihre maßgeschneiderten Helikopterflüge mit Helibaleares, gegründet 2003, in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia. Genießen Sie persönlichen Service, Direktpreise ohne Zwischenhändler und die absolute Sicherheit unseres zweimotorigen Airbus H135.",
+    heroTitle: "Helikopter Charter Flüge Balearen",
+    heroSubtitle: "Buchen Sie Ihre maßgeschneiderten Helikopter-Charterflüge mit Helibaleares, gegründet 2003, in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia. Genießen Sie persönlichen Service, Direktpreise ohne Zwischenhändler und die absolute Sicherheit unseres zweimotorigen Airbus H135.",
     heroCta: "Flug anfragen",
     
-    aboutTitle: "Direkter Helikopter-Betreiber seit 2003",
+    aboutTitle: "Direkter Helikopter-Flugbetreiber seit 2003",
     aboutBadge: "Vorteil der Direktbuchung",
     aboutP1: "Wir besitzen, kontrollieren und betreiben unseren zweimotorigen Airbus H135 Helikopter. Wenn Sie bei Helibaleares buchen, sprechen Sie direkt mit der Crew und sichern sich den besten Preis ohne Vermittlergebühren.",
     aboutP2: "Seit über zwei Jahrzehnten halten wir höchste Sicherheitsstandards ein und bieten nahtlose VIP-Transfers zwischen Flughäfen, privaten Fincas, Anwesen und Yachten auf den Balearen.",
@@ -140,8 +140,8 @@ export const translations: Record<string, TranslationContent> = {
     contactDirectEmailText: "Für dringende Anfragen wenden Sie sich direkt an:",
     
     legalMentionsTitle: "Rechtliche Hinweise",
-    legalMentionsContent: "Helibaleares S.A. ist ein lizenziertes Luftfahrtunternehmen. Gegründet 2003, betreiben wir unseren zweimotorigen Airbus H135 Helikopter.",
-    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) ist ein lizenziertes Luftfahrtunternehmen nach EU-Sicherheitsstandards. Gegründet 2003, betreiben wir unseren zweimotorigen Airbus H135 Helikopter. Alle Flüge erfordern eine Kreditkarten-Pre-Autorisierung von 45 % als Garantiekaution sowie einen amtlichen Lichtbildausweis zur Registrierung des Gepäcks. Flugbetriebe unterliegen Wetterbedingungen und der Freigabe der Flugverkehrskontrolle.",
+    footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikopter-Transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia.",
     topAnnouncementBar: "Sommer 2026: In der Hochsaison bitten wir Sie, Ihren Flug 4 bis 6 Tage vor dem gewünschten Datum zu buchen, um Ihnen das beste Erlebnis zu bieten."
   },
@@ -154,11 +154,11 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Onze Erfenis",
     navContact: "Aanvraag indienen",
     
-    heroTitle: "Helikopter Charter Balearen",
-    heroSubtitle: "Boek uw helikoptervluchten op maat bij Helibaleares, opgericht in 2003, actief in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia. Geniet van persoonlijke service, directe operatortarieven zonder tussenpersonen en de absolute veiligheid van onze tweemotorige Airbus H135.",
+    heroTitle: "Helikopter Charter Vluchten Balearen",
+    heroSubtitle: "Boek uw helikopter chartervluchten op maat bij Helibaleares, opgericht in 2003, actief in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia. Geniet van persoonlijke service, directe operatortarieven zonder tussenpersonen en de absolute veiligheid van onze tweemotorige Airbus H135.",
     heroCta: "Boek uw vlucht",
     
-    aboutTitle: "Directe Helikopter Operator Sinds 2003",
+    aboutTitle: "Directe Helikopter Vlucht Operator Sinds 2003",
     aboutBadge: "Voordeel van Direct Boeken",
     aboutP1: "Wij bezitten, controleren en exploiteren onze tweemotorige Airbus H135 helikopter. Wanneer u bij Helibaleares boekt, spreekt u rechtstreeks met de bemanning voor de scherpste tarieven.",
     aboutP2: "Al meer dan twee decennia handhaven we onberispelijke veiligheidsnormen en verzorgen we VIP-transfers tussen luchthavens, privé-fincas, villa's en jachten op de Balearen.",
@@ -212,8 +212,8 @@ export const translations: Record<string, TranslationContent> = {
     contactDirectEmailText: "Voor dringende verzoeken kunt u rechtstreeks mailen naar:",
     
     legalMentionsTitle: "Juridische Vermeldingen",
-    legalMentionsContent: "Helibaleares S.A. is een gelicentieerde luchtvaartmaatschappij. Opgericht in 2003, exploiteren we onze tweemotorige Airbus H135 helikopter.",
-    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is een gelicentieerde luchtvaartmaatschappij volgens EU-veiligheidsprotocollen. Opgericht in 2003, exploiteren we onze tweemotorige Airbus H135 helikopter. Alle vluchten vereisen een creditcard pre-autorisatie van 45% als borgstelling en een officieel identiteitsbewijs met foto voor bagageregistratie. Vluchten zijn onderhevig aan weersomstandigheden en luchtverkeersleiding.",
+    footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikoptertransfers in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia.",
     topAnnouncementBar: "Zomer 2026: In het hoogseizoen raden we u aan uw vlucht 4 tot 6 dagen voor de gewenste datum te boeken voor de beste ervaring."
   },
@@ -226,11 +226,11 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Nuestra Historia",
     navContact: "Solicitud de Vuelo",
     
-    heroTitle: "Chárter de Helicópteros en Baleares",
-    heroSubtitle: "Reserve sus vuelos privados en helicóptero con Helibaleares, empresa fundada en 2003, operando en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia. Disfrute de un servicio personalizado, precios directos de operador sin comisiones de intermediarios y la máxima seguridad de nuestro helicóptero bimotor Airbus H135.",
+    heroTitle: "Vuelos Chárter de Helicópteros Baleares",
+    heroSubtitle: "Reserve sus vuelos chárter privados en helicóptero con Helibaleares, empresa fundada en 2003, operando en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia. Disfrute de un servicio personalizado, precios directos de operador sin comisiones de intermediarios y la máxima seguridad de nuestro helicóptero bimotor Airbus H135.",
     heroCta: "Solicitar Vuelo",
     
-    aboutTitle: "Operador Directo de Helicópteros desde 2003",
+    aboutTitle: "Operador Directo de Vuelos en Helicóptero desde 2003",
     aboutBadge: "Ventaja de Reserva Directa",
     aboutP1: "Somos propietarios y operadores de nuestro helicóptero bimotor Airbus H135. Al reservar con Helibaleares, trata directamente con la tripulación para obtener el mejor precio garantizado sin costes añadidos de agentes.",
     aboutP2: "Durante más de dos décadas, hemos mantenido estándares impecables de seguridad realizando traslados VIP entre aeropuertos, fincas privadas, villas y yates en el archipiélago balear.",
@@ -284,8 +284,8 @@ export const translations: Record<string, TranslationContent> = {
     contactDirectEmailText: "Para solicitudes urgentes, contacte directamente con operaciones:",
     
     legalMentionsTitle: "Menciones Legales",
-    legalMentionsContent: "Helibaleares S.A. es una compañía aérea de transporte autorizada. Fundada en 2003, operamos nuestro helicóptero bimotor Airbus H135.",
-    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) es una compañía aérea de transporte autorizada bajo protocolos de seguridad de la UE. Fundada en 2003, operamos nuestro helicóptero bimotor Airbus H135. Todos los vuelos requieren una preautorización con tarjeta del 45% como depósito de garantía y un documento de identidad oficial con foto para el registro de equipaje. Las operaciones están sujetas a condiciones meteorológicas y autorización del control aéreo.",
+    footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Traslados en helicóptero en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia.",
     topAnnouncementBar: "Verano 2026: En temporada alta, le invitamos a reservar su vuelo de 4 a 6 días antes de la fecha deseada para ofrecerle la mejor experiencia."
   },
@@ -298,11 +298,11 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Notre Histoire",
     navContact: "Nous Contacter",
     
-    heroTitle: "Location d’Hélicoptère aux Baléares",
-    heroSubtitle: "Réservez vos vols privés en hélicoptère avec Helibaleares, compagnie établie depuis 2003, opérant à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence. Bénéficiez d'un service sur-mesure, de tarifs directs exploitant sans frais d'intermédiaire et de la sécurité absolue de notre hélicoptère bimoteur Airbus H135.",
+    heroTitle: "Vols & Location d’Hélicoptère Charter Baléares",
+    heroSubtitle: "Réservez vos vols charter privés en hélicoptère avec Helibaleares, compagnie établie depuis 2003, opérant à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence. Bénéficiez d'un service sur-mesure, de tarifs directs exploitant sans frais d'intermédiaire et de la sécurité absolue de notre hélicoptère bimoteur Airbus H135.",
     heroCta: "Demander un Vol",
     
-    aboutTitle: "Opérateur Direct d'Hélicoptères Depuis 2003",
+    aboutTitle: "Opérateur Direct de Vols en Hélicoptère Depuis 2003",
     aboutBadge: "Avantage Réservation Directe",
     aboutP1: "Nous possédons, contrôlons et opérons directement notre hélicoptère bimoteur Airbus H135. En réservant directement auprès d'Helibaleares, vous échangez sans intermédiaire avec l'équipage au meilleur tarif garanti.",
     aboutP2: "Depuis plus de deux décennies, nous maintenons des standards de sécurité irréprochables pour vos transferts VIP entre aéroports, héliports privés, villas, domaines et yachts sur l'ensemble de l'archipel des Baléares.",
@@ -356,8 +356,8 @@ export const translations: Record<string, TranslationContent> = {
     contactDirectEmailText: "Pour toute demande urgente, contactez notre équipe opérationnelle directement sur :",
     
     legalMentionsTitle: "Mentions Légales",
-    legalMentionsContent: "Helibaleares S.A. est un transporteur aérien certifié. Établie en 2003, la compagnie exploite son hélicoptère bimoteur Airbus H135.",
-    footerRights: "© 2026 Eliance Civil Helibaleares S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) est un transporteur aérien certifié selon les normes de sécurité de l'UE. Établie en 2003, la compagnie exploite son hélicoptère bimoteur Airbus H135. Tous les vols nécessitent une pré-autorisation bancaire de 45 % comme dépôt de garantie ainsi qu'une pièce d'identité officielle avec photo pour l'enregistrement des bagages. Les vols sont soumis aux conditions météorologiques et aux autorisations de la circulation aérienne.",
+    footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Transferts hélicoptère à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence.",
     topAnnouncementBar: "Été 2026 : En haute saison, nous vous invitons à réserver votre vol 4 à 6 jours avant la date souhaitée pour vous offrir la meilleure expérience."
   }

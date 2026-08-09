@@ -23,6 +23,18 @@ export default function Bases({ t, currentLang }: BasesProps) {
     : isEs ? "Contáctenos" 
     : "Contact Us";
 
+  const mapUrls: Record<string, string> = {
+    'ibiza-airport': 'https://maps.app.goo.gl/8ZWPZMRm3C8qGjw99',
+    'ibiza-inland': 'https://maps.app.goo.gl/8ZWPZMRm3C8qGjw99',
+    'formentera': 'https://maps.app.goo.gl/gfSSWwqnAG1M5qEe8',
+    'palma-airport': 'https://maps.app.goo.gl/7uh7VC1waT7hbF756',
+    'palma-inland': 'https://maps.app.goo.gl/7uh7VC1waT7hbF756',
+    'menorca-airport': 'https://www.airbus.com/en/products-services/helicopters/civil-helicopters/h135',
+    'menorca-inland': 'https://www.airbus.com/en/products-services/helicopters/civil-helicopters/h135',
+    'alicante-airport': 'https://maps.app.goo.gl/Dq1UaohW7KfQSVXB7',
+    'valencia-airport': 'https://maps.app.goo.gl/1BeSDgP7HHKXkyZ38',
+  };
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -88,15 +100,31 @@ export default function Bases({ t, currentLang }: BasesProps) {
                   {base.description}
                 </p>
 
-                {/* Full-width Brand Button */}
-                <button
-                  onClick={scrollToContact}
-                  className="w-full bg-[#721489] text-white py-3 px-4 font-sans font-medium hover:bg-[#5a106d] transition-colors mt-auto cursor-pointer shadow-xs active:scale-98"
-                  style={{ borderRadius: '11px', fontSize: '15px' }}
-                  id={`base-contact-btn-${base.id}`}
-                >
-                  {contactText}
-                </button>
+                {/* Buttons Stack */}
+                <div className="flex flex-col space-y-2 mt-auto">
+                  <button
+                    onClick={scrollToContact}
+                    className="w-full bg-[#721489] text-white py-3 px-4 font-sans font-medium hover:bg-[#5a106d] transition-colors cursor-pointer shadow-xs active:scale-98"
+                    style={{ borderRadius: '11px', fontSize: '15px' }}
+                    id={`base-contact-btn-${base.id}`}
+                  >
+                    {contactText}
+                  </button>
+                  
+                  {mapUrls[base.id] && (
+                    <a
+                      href={mapUrls[base.id]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-300 py-2.5 px-4 font-sans font-medium transition-colors cursor-pointer flex items-center justify-center gap-2 text-xs sm:text-sm active:scale-98"
+                      style={{ borderRadius: '11px' }}
+                      id={`base-map-btn-${base.id}`}
+                    >
+                      <MapPin className="h-4 w-4 text-[#721489]" />
+                      <span>Maps Meeting Point</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

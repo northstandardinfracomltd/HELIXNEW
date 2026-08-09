@@ -114,7 +114,7 @@ export default function Footer({ t }: FooterProps) {
             <div className="mt-4 pt-4 border-t border-stone-100 text-xs text-black leading-relaxed font-sans font-light space-y-3" id="legal-content">
               <p>{t.legalMentionsContent}</p>
               <p>
-                <strong>Operator Compliance:</strong> All aircraft operated by Helibaleares S.A., including our Airbus H135 twin-engine helicopter, are fully certified under European Union Aviation Safety Agency (EASA) and Spanish AESA standards. Flight crew members undergo continuous simulator training and safety audits.
+                <strong>Operator Compliance:</strong> All aircraft operated by Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131), including our Airbus H135 twin-engine helicopter, are fully certified under European Union Aviation Safety Agency (EASA) and Spanish AESA standards. Flight crew members undergo continuous simulator training and safety audits.
               </p>
             </div>
           )}
@@ -141,7 +141,7 @@ export default function Footer({ t }: FooterProps) {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black pt-4" id="footer-copyright-bar">
           <div className="flex items-center gap-1.5 text-black font-sans">
             <Globe className="h-3.5 w-3.5 text-black" />
-            <span className="font-sans font-medium">Helibaleares S.A. — Direct Helicopter Operator since 2003.</span>
+            <span className="font-sans font-medium">Eliance Civil HIS GROUP S.A — Since 2003!</span>
           </div>
           <span className="font-sans text-xs text-black tracking-normal">
             {t.footerRights.replace('2026', currentYear.toString())}
