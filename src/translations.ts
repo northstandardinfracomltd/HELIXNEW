@@ -10,20 +10,20 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Our Legacy",
     navContact: "Inquire Now",
     
-    heroTitle: "Helicopter Charter Flights Balearic",
-    heroSubtitle: "Book your bespoke helicopter charter flights with Helibaleares, established in 2003, operating in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia. Enjoy personalized service, direct operator pricing with no intermediary fees, and the absolute safety of our Airbus H135 twin-engine helicopter.",
+    heroTitle: "Helicopter Flight & Helicopter Charter Ibiza & Mallorca",
+    heroSubtitle: "Book your bespoke helicopter flight in Ibiza or private helicopter charter in Mallorca with HeliBaleares, direct air operator since 2003. We provide direct transfers between Ibiza (IBZ), Formentera, Palma de Mallorca (PMI), Menorca, Alicante, and Valencia with our twin-engine Airbus H135. Enjoy direct operator pricing with zero broker fees.",
     heroCta: "Book Your Flight",
     
-    aboutTitle: "Direct Helicopter Flight Operator Since 2003",
+    aboutTitle: "Direct Helicopter Flight & Charter Operator Since 2003",
     aboutBadge: "Direct Booking Advantage",
-    aboutP1: "We own, control, and operate our Airbus H135 twin-engine helicopter. When you book with Helibaleares, you deal directly with the flight operator and crew, securing the best pricing without broker markups.",
+    aboutP1: "We own, control, and operate our Airbus H135 twin-engine helicopter. When you book a helicopter flight in Ibiza or a helicopter charter in Mallorca with HeliBaleares, you deal directly with the flight operator and crew, securing the best pricing without broker markups.",
     aboutP2: "For over two decades, we have maintained impeccable safety standards, providing seamless VIP transfers between airports, private villas, estates, and superyachts across the Balearic archipelago.",
     aboutLocationText: "HeliBaleares is based in Eivissa (Ibiza) and operates across the Balearic Islands as well as the Costa Blanca (from Alicante to Valencia).",
     aboutHighlightTitle: "Why Book Direct With Helibaleares?",
     aboutHighlightDesc: "By booking directly with Helibaleares, you skip middlemen, guarantee instant operational dispatch, and enjoy direct communication with our dedicated crew.",
     
     basesTitle: "Balearic Archipelago Destinations",
-    basesSubtitle: "Connecting Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia with direct helicopter flights.",
+    basesSubtitle: "Connecting Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia with bespoke helicopter flight and charter operations.",
     
     fleetTitle: "Our Aircraft: Airbus H135",
     fleetSubtitle: "The twin-engine Airbus H135 is the gold standard for luxury transfers, combining exceptional safety, high speed, quiet cabin comfort, and generous luggage capacity.",

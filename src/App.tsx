@@ -20,11 +20,21 @@ const getSeoCity = (): string => {
     const cleanPath = window.location.pathname.toLowerCase().replace(/\/$/, "");
     if (cleanPath.endsWith("/ibiza")) return "ibiza";
     if (cleanPath.endsWith("/mallorca")) return "mallorca";
-    if (cleanPath.endsWith("/monaco")) return "monaco";
-    if (cleanPath.endsWith("/malta")) return "malta";
-    if (cleanPath.endsWith("/zurich")) return "zurich";
-    if (cleanPath.endsWith("/london")) return "london";
-    if (cleanPath.endsWith("/megeve")) return "megeve";
+    if (cleanPath.endsWith("/menorca")) return "menorca";
+    if (cleanPath.endsWith("/valencia")) return "valencia";
+    if (cleanPath.endsWith("/alicante")) return "alicante";
+    if (cleanPath.endsWith("/formentera")) return "formentera";
+    if (cleanPath.endsWith("/balearic")) return "balearic";
+
+    const params = new URLSearchParams(window.location.search);
+    const pParam = params.get('p')?.toLowerCase() || params.get('city')?.toLowerCase() || '';
+    if (pParam.endsWith('/ibiza') || pParam === 'ibiza') return "ibiza";
+    if (pParam.endsWith('/mallorca') || pParam === 'mallorca') return "mallorca";
+    if (pParam.endsWith('/menorca') || pParam === 'menorca') return "menorca";
+    if (pParam.endsWith('/valencia') || pParam === 'valencia') return "valencia";
+    if (pParam.endsWith('/alicante') || pParam === 'alicante') return "alicante";
+    if (pParam.endsWith('/formentera') || pParam === 'formentera') return "formentera";
+    if (pParam.endsWith('/balearic') || pParam === 'balearic') return "balearic";
   } catch (e) {
     console.warn("Failed to parse pathname:", e);
   }
@@ -77,32 +87,32 @@ export default function App() {
       // Dynamically update page language for Google crawler
       document.documentElement.lang = currentLang;
 
-      // Ultra-optimized localized SEO Meta definitions targeting high-intent routes
+      // Ultra-optimized localized SEO Meta definitions targeting high-intent routes & exact target queries
       const seoMeta: Record<Language, { title: string; description: string; keywords: string }> = {
         en: {
-          title: "HeliBaleares | Helicopter Flight Mallorca to Ibiza - Direct Operator",
-          description: "Book direct private helicopter flights from Mallorca (PMI) to Ibiza (IBZ) & Formentera in 35 minutes with HeliBaleares S.A., direct operator since 2003 with twin-engine Airbus H135.",
-          keywords: "helicopter flight mallorca ibiza, helicopter transfer mallorca to ibiza, helicopter flight mallorca to ibiza, private helicopter mallorca ibiza, helicopter charter mallorca ibiza, helicopter ibiza, helicopter transfer formentera, helicopter mallorca, Airbus H135 helicopter"
+          title: "HeliBaleares | Helicopter Flight & Charter Ibiza, Mallorca - Direct Operator",
+          description: "Book direct helicopter flights & helicopter charters in Ibiza and Mallorca with HeliBaleares S.A., direct air operator since 2003. Fly between Ibiza (IBZ), Mallorca (PMI), Formentera & Menorca with our twin-engine Airbus H135.",
+          keywords: "helicopter flight ibiza, helicopter charter ibiza, helicopter flight mallorca, helicopter charter mallorca, helicopter flight mallorca to ibiza, helicopter charter mallorca ibiza, private helicopter ibiza, private helicopter mallorca, helicopter transfer ibiza, helicopter transfer mallorca, Airbus H135 helicopter"
         },
         fr: {
-          title: "HeliBaleares | Vol Hélicoptère Majorque - Ibiza (Direct Exploitant)",
-          description: "Réservez votre vol privé en hélicoptère entre Majorque (PMI) et Ibiza (IBZ) en 35 minutes avec HeliBaleares S.A., opérateur direct depuis 2003 avec Airbus H135 bimoteur.",
-          keywords: "vol helicoptere majorque ibiza, transfert helicoptere majorque ibiza, vol prive majorque ibiza, helicoptere ibiza, helicoptere majorque, airbus h135"
+          title: "HeliBaleares | Vol & Location Hélicoptère Ibiza, Majorque (Direct Exploitant)",
+          description: "Réservez votre vol en hélicoptère ou charter privé à Ibiza et Majorque avec HeliBaleares S.A., opérateur direct depuis 2003 avec Airbus H135 bimoteur.",
+          keywords: "vol helicoptere ibiza, charter helicoptere ibiza, vol helicoptere majorque, charter helicoptere majorque, vol helicoptere majorque ibiza, transfert helicoptere ibiza, helicoptere majorque, airbus h135"
         },
         de: {
-          title: "HeliBaleares | Hubschrauberflug Mallorca nach Ibiza - Direktbetreiber",
-          description: "Buchen Sie direkte Hubschrauberflüge von Mallorca (PMI) nach Ibiza (IBZ) in 35 Minuten mit HeliBaleares S.A., Direktbetreiber seit 2003 mit zweimotorigem Airbus H135.",
-          keywords: "hubschrauberflug mallorca ibiza, hubschrauber transfer mallorca ibiza, privatflug mallorca ibiza, hubschrauber ibiza, hubschrauber mallorca"
+          title: "HeliBaleares | Hubschrauberflug & Charter Ibiza, Mallorca - Direktbetreiber",
+          description: "Buchen Sie direkte Hubschrauberflüge und Hubschrauber-Charter in Ibiza und Mallorca mit HeliBaleares S.A., Direktbetreiber seit 2003 mit zweimotorigem Airbus H135.",
+          keywords: "hubschrauberflug ibiza, hubschrauber charter ibiza, hubschrauberflug mallorca, hubschrauber charter mallorca, hubschrauberflug mallorca ibiza, hubschrauber ibiza, hubschrauber mallorca"
         },
         nl: {
-          title: "HeliBaleares | Helikoptervlucht Mallorca naar Ibiza - Directe Operator",
-          description: "Boek een rechtstreekse helikoptervlucht van Mallorca (PMI) naar Ibiza (IBZ) in 35 minuten met HeliBaleares S.A., directe operator sinds 2003 met Airbus H135.",
-          keywords: "helikoptervlucht mallorca ibiza, helikopter transfer mallorca ibiza, privé helikopter mallorca ibiza, helikopter ibiza"
+          title: "HeliBaleares | Helikoptervlucht & Charter Ibiza, Mallorca - Directe Operator",
+          description: "Boek een rechtstreekse helikoptervlucht of helikopter charter op Ibiza en Mallorca bij HeliBaleares S.A., directe operator sinds 2003 met Airbus H135.",
+          keywords: "helikoptervlucht ibiza, helikopter charter ibiza, helikoptervlucht mallorca, helikopter charter mallorca, helikoptervlucht mallorca ibiza, helikopter ibiza, helikopter mallorca"
         },
         es: {
-          title: "HeliBaleares | Vuelo en Helicóptero Mallorca a Ibiza - Operador Directo",
-          description: "Reserve vuelos privados en helicóptero entre Mallorca (PMI) e Ibiza (IBZ) en 35 minutos con HeliBaleares S.A., operador directo desde 2003 con Airbus H135 bimotor.",
-          keywords: "vuelo helicoptero mallorca ibiza, traslado helicoptero mallorca ibiza, vuelo privado mallorca ibiza, helicoptero ibiza, helicoptero mallorca"
+          title: "HeliBaleares | Vuelo y Chárter en Helicóptero Ibiza, Mallorca - Operador Directo",
+          description: "Reserve sus vuelos en helicóptero y chárter privado en Ibiza y Mallorca con HeliBaleares S.A., operador directo desde 2003 con Airbus H135 bimotor.",
+          keywords: "vuelo helicoptero ibiza, charter helicoptero ibiza, vuelo helicoptero mallorca, charter helicoptero mallorca, vuelo helicoptero mallorca ibiza, traslado helicoptero ibiza, helicoptero mallorca"
         }
       };
 
@@ -112,30 +122,10 @@ export default function App() {
       let finalKeywords = currentMeta.keywords;
 
       if (seoCity) {
-        const cityName = cityNames[seoCity]?.[currentLang] || cityNames[seoCity]?.en || seoCity;
-        const upperCity = cityName.toUpperCase();
-
-        if (currentLang === 'fr') {
-          finalTitle = `Helibaleares | ${upperCity} - VOLS EN HÉLICOPTÈRE BALÉARES`;
-          finalDescription = `Réservez votre vol en hélicoptère à ${cityName} avec Helibaleares. Opérateur direct depuis 2003.`;
-          finalKeywords = `helicoptere ${cityName.toLowerCase()}, charter ${cityName.toLowerCase()}, vol prive ${cityName.toLowerCase()}`;
-        } else if (currentLang === 'de') {
-          finalTitle = `Helibaleares | ${upperCity} HUBSCHRAUBER CHARTER BALEAREN`;
-          finalDescription = `Buchen Sie Ihren Hubschrauberflug in ${cityName} mit Helibaleares. Direkter Betreiber seit 2003.`;
-          finalKeywords = `hubschrauber ${cityName.toLowerCase()}, charter ${cityName.toLowerCase()}, flug ${cityName.toLowerCase()}`;
-        } else if (currentLang === 'nl') {
-          finalTitle = `Helibaleares | ${upperCity} HELIKOPTER CHARTER BALEAREN`;
-          finalDescription = `Boek uw helikoptervlucht naar of van ${cityName} bij Helibaleares. Directe operator sinds 2003.`;
-          finalKeywords = `helikopter ${cityName.toLowerCase()}, charter ${cityName.toLowerCase()}`;
-        } else if (currentLang === 'es') {
-          finalTitle = `Helibaleares | ${upperCity} CHÁRTER DE HELICÓPTEROS BALEARES`;
-          finalDescription = `Reserve su helicóptero en ${cityName} con Helibaleares. Operador directo desde 2003.`;
-          finalKeywords = `helicoptero ${cityName.toLowerCase()}, charter ${cityName.toLowerCase()}, vuelo ${cityName.toLowerCase()}`;
-        } else {
-          finalTitle = `Helibaleares | ${upperCity} HELICOPTER CHARTER BALEARICS`;
-          finalDescription = `Book your bespoke helicopter charter flight in ${cityName} with Helibaleares. Direct operator since 2003.`;
-          finalKeywords = `helicopter ${cityName.toLowerCase()}, helicopter charter ${cityName.toLowerCase()}`;
-        }
+        const cityUpper = seoCity.toUpperCase();
+        finalTitle = `HeliBaleares | HELICOPTER CHARTER FLIGHTS ${cityUpper}`;
+        finalDescription = `Book direct helicopter charter flights in ${cityUpper} with HeliBaleares S.A., direct air operator since 2003. Fly with our twin-engine Airbus H135 helicopter.`;
+        finalKeywords = `helicopter charter flights ${seoCity}, helicopter flight ${seoCity}, helicopter charter ${seoCity}, private helicopter ${seoCity}, helibaleares ${seoCity}`;
       }
 
       // 1. Set document title

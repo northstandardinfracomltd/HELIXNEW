@@ -12,11 +12,11 @@ interface HeroProps {
 export const cityNames: Record<string, Record<Language, string>> = {
   ibiza: { en: "Ibiza", fr: "Ibiza", de: "Ibiza", nl: "Ibiza", es: "Ibiza" },
   mallorca: { en: "Mallorca", fr: "Majorque", de: "Mallorca", nl: "Mallorca", es: "Mallorca" },
-  monaco: { en: "Monaco", fr: "Monaco", de: "Monaco", nl: "Monaco", es: "Mónaco" },
-  malta: { en: "Malta", fr: "Malte", de: "Malta", nl: "Malta", es: "Malta" },
-  zurich: { en: "Zurich", fr: "Zurich", de: "Zürich", nl: "Zürich", es: "Zúrich" },
-  london: { en: "London", fr: "Londres", de: "London", nl: "Londen", es: "Londres" },
-  megeve: { en: "Megeve", fr: "Megève", de: "Megève", nl: "Megève", es: "Megève" }
+  menorca: { en: "Menorca", fr: "Menorca", de: "Menorca", nl: "Menorca", es: "Menorca" },
+  valencia: { en: "Valencia", fr: "Valence", de: "Valencia", nl: "Valencia", es: "Valencia" },
+  alicante: { en: "Alicante", fr: "Alicante", de: "Alicante", nl: "Alicante", es: "Alicante" },
+  formentera: { en: "Formentera", fr: "Formentera", de: "Formentera", nl: "Formentera", es: "Formentera" },
+  balearic: { en: "Balearic", fr: "Baléares", de: "Balearen", nl: "Balearen", es: "Baleares" }
 };
 
 export default function Hero({ t, seoCity, currentLang }: HeroProps) {
@@ -36,20 +36,11 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
   };
 
   const getHeroTitle = () => {
-    if (!seoCity) return t.heroTitle;
-    const cityName = cityNames[seoCity]?.[currentLang] || cityNames[seoCity]?.en || seoCity;
-    const upperCity = cityName.toUpperCase();
-    
-    if (currentLang === 'fr') {
-      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
-    } else if (currentLang === 'de') {
-      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
-    } else if (currentLang === 'nl') {
-      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
-    } else if (currentLang === 'es') {
-      return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
+    if (seoCity) {
+      const upperCity = seoCity.toUpperCase();
+      return `HELICOPTER CHARTER FLIGHTS ${upperCity}`;
     }
-    return `${upperCity} - HELICOPTER CHARTER FLIGHTS BALEARIC`;
+    return "HELICOPTER CHARTER FLIGHTS BALEARIC";
   };
 
   return (

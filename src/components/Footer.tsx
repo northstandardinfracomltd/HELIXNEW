@@ -10,8 +10,16 @@ export default function Footer({ t }: FooterProps) {
   const [showLegal, setShowLegal] = useState(false);
 
   const searchTerms = [
+    "Helicopter Flight Ibiza",
+    "Helicopter Charter Ibiza",
+    "Helicopter Flight Mallorca",
+    "Helicopter Charter Mallorca",
     "Helicopter Flight Ibiza Formentera",
     "Helicopter Charter Ibiza Airport",
+    "Helicopter Flight Mallorca to Ibiza",
+    "Helicopter Charter Mallorca to Ibiza",
+    "Private Helicopter Flight Ibiza",
+    "Private Helicopter Charter Mallorca",
     "Helicopter Transfer Ibiza Palma Mallorca",
     "Private Helicopter Palma Menorca",
     "Helicopter Charter Ibiza Alicante",
@@ -123,7 +131,7 @@ export default function Footer({ t }: FooterProps) {
         {/* Natural SEO Keywords Row */}
         <div className="text-center space-y-4 pt-8" id="footer-seo-terms-section">
           <p className="text-xs text-black max-w-2xl mx-auto leading-relaxed font-sans font-light">
-            Providing bespoke, direct operator helicopter flights across the Balearic Archipelago and mainland Spain. Our direct flight dispatches regularly include <span className="text-black font-semibold">Helicopter Ibiza</span> transfers, <span className="text-black font-semibold">Ibiza Formentera helicopter shuttles</span>, <span className="text-black font-semibold">Palma de Mallorca helicopter flights</span>, <span className="text-black font-semibold">Menorca helicopter transfers</span>, <span className="text-black font-semibold">Alicante helicopter charter</span>, and <span className="text-black font-semibold">Valencia helicopter shuttle</span>.
+            Providing bespoke, direct operator helicopter flights across the Balearic Archipelago and mainland Spain. Our direct dispatches specialize in <span className="text-black font-semibold">helicopter flight Ibiza</span>, <span className="text-black font-semibold">helicopter charter Ibiza</span>, <span className="text-black font-semibold">helicopter flight Mallorca</span>, and <span className="text-black font-semibold">helicopter charter Mallorca</span> transfers, with direct connections to Formentera, Menorca, Alicante, and Valencia.
           </p>
           <div className="pt-2 text-[11px] text-black font-sans font-light max-w-4xl mx-auto leading-relaxed text-center" id="footer-search-keywords">
             <div className="flex flex-wrap justify-center gap-x-2 gap-y-1">

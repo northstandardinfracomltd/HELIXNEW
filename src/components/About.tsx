@@ -175,10 +175,10 @@ export default function About({ t }: AboutProps) {
                     </div>
                   </div>
                   <div className="text-right flex flex-col items-end gap-1.5 shrink-0 ml-2 cursor-default">
-                    {/* Duration pill in Secondary 1 (#f2131e) */}
+                    {/* Duration pill in black */}
                     <span
                       className="font-sans px-3 py-1 rounded-full inline-block cursor-default font-medium whitespace-nowrap text-white text-[12px]"
-                      style={{ border: 'none', background: '#f2131e' }}
+                      style={{ border: 'none', background: '#000000' }}
                     >
                       {route.duration}
                     </span>

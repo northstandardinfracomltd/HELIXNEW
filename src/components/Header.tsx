@@ -112,19 +112,19 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
               {t.navUseCases}
             </button>
             
-            {/* Buttons close together */}
+            {/* Single CTA & Language selector */}
             <div className="flex items-center gap-2">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="font-sans transition-all active:scale-95 cursor-pointer flex items-center justify-center whitespace-nowrap shadow-xs hover:brightness-110"
+                className="font-sans transition-all active:scale-95 cursor-pointer flex items-center justify-center whitespace-nowrap shadow-xs"
                 style={{ 
                   fontSize: '18px', 
                   padding: '12px 18px', 
                   fontWeight: 500, 
                   letterSpacing: '0px', 
                   borderRadius: '13px', 
-                  border: '1px solid #721489',
-                  background: '#721489', 
+                  border: '1px solid #000000',
+                  background: '#000000', 
                   color: '#ffffff' 
                 }}
               >
@@ -176,34 +176,34 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
             />
           </div>
 
-          {/* Bottom row: Inquire Now & Lang dropdown, side-by-side, full-width (50%/50%) */}
+          {/* Bottom row: Inquire Now & Lang dropdown */}
           <div className="flex items-center gap-2.5 w-full px-2">
             <button
               onClick={() => scrollToSection('contact')}
-              className="font-sans transition-all active:scale-95 cursor-pointer flex items-center justify-center whitespace-nowrap shadow-xs"
+              className="font-sans transition-all active:scale-95 cursor-pointer flex items-center justify-center whitespace-nowrap shadow-xs text-center"
               style={{ 
-                fontSize: '18px', 
+                fontSize: '16px', 
                 padding: '12px 16px', 
                 fontWeight: 500, 
                 letterSpacing: '0px', 
                 borderRadius: '13px', 
-                border: '1px solid #721489',
-                background: '#721489', 
+                border: '1px solid #000000',
+                background: '#000000', 
                 color: '#ffffff',
-                width: '50%',
-                flex: '1 1 50%'
+                flex: '1 1 50%',
+                width: '50%'
               }}
             >
               {t.navContact}
             </button>
 
-            <div className="relative" style={{ width: '50%', flex: '1 1 50%' }}>
+            <div className="relative" style={{ flex: '1 1 50%', width: '50%' }}>
               <select
                 value={currentLang}
                 onChange={(e) => onLangChange(e.target.value as Language)}
                 className="font-sans transition-all active:scale-95 cursor-pointer appearance-none text-center font-medium block border-none outline-none"
                 style={{ 
-                  fontSize: '18px', 
+                  fontSize: '16px', 
                   padding: '12px 16px', 
                   fontWeight: 500, 
                   letterSpacing: '0px', 

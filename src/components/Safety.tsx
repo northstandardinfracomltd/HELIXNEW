@@ -214,8 +214,8 @@ export default function Safety({ t }: SafetyProps) {
               </div>
 
               {/* Two pilots notice */}
-              <div className="text-white p-5 cursor-default" style={{ background: '#721489', borderRadius: '13px' }}>
-                <p className="text-xs text-purple-100 font-sans font-light leading-relaxed cursor-default">
+              <div className="text-white p-5 cursor-default" style={{ background: '#000000', borderRadius: '13px' }}>
+                <p className="text-xs text-white font-sans font-light leading-relaxed cursor-default">
                   <strong className="text-white font-semibold flex items-center gap-2 mb-1.5 cursor-default">
                     <span>{titlePart} ({onDemandSuffix}).</span>
                   </strong>
@@ -250,16 +250,16 @@ export default function Safety({ t }: SafetyProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 cursor-default">
           <div
             className="text-white cursor-default"
-            style={{ background: '#721489', borderRadius: '13px', border: 'none', padding: '0px' }}
+            style={{ background: '#000000', borderRadius: '13px', border: 'none', padding: '0px' }}
           >
             <div className="p-6 sm:p-8 space-y-3 cursor-default">
               <h4 className="font-serif text-lg font-normal text-white cursor-default">
                 {alertText.title}
               </h4>
-              <p className="text-sm font-light text-purple-100 leading-relaxed cursor-default">
+              <p className="text-sm font-light text-white leading-relaxed cursor-default">
                 {alertText.guarantee}
               </p>
-              <p className="text-sm font-light text-purple-100 leading-relaxed cursor-default">
+              <p className="text-sm font-light text-white leading-relaxed cursor-default">
                 {alertText.doc}
               </p>
             </div>

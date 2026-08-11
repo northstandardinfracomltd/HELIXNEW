@@ -44,7 +44,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         ? "Helikoptervlucht Mallorca naar Ibiza"
         : isEs
         ? "Vuelo en Helicóptero Mallorca a Ibiza"
-        : "Helicopter Flight Mallorca to Ibiza",
+        : "Helicopter Flight & Charter Mallorca to Ibiza",
       duration: "35 MIN",
       seoBadge: "Popular Route #1",
       description: isFr
@@ -55,7 +55,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
         ? "Vlieg over de Middellandse Zee in slechts 35 minuten rechtstreekse vlucht tussen de executive terminal op Palma de Mallorca (PMI) en Ibiza (IBZ) of uw privé villa. Vermijd de veerboot en luchthavendrukte."
         : isEs
         ? "Cruce el mar Mediterráneo en solo 35 minutos de vuelo directo entre la terminal ejecutiva de Palma de Mallorca (PMI) y el terminal VIP de Ibiza (IBZ) o su villa privada. Evite ferrys y esperas con nuestro helicóptero bimotor Airbus H135."
-        : "Cross the Mediterranean Sea in a 35-minute direct flight between Palma de Mallorca Executive Terminal (PMI) and Ibiza VIP Terminal (IBZ) or your private villa. Bypass ferry delays and airport waiting with our Airbus H135 twin-engine helicopter.",
+        : "Cross the Mediterranean Sea in a 35-minute direct flight between Palma de Mallorca Executive Terminal (PMI) and Ibiza VIP Terminal (IBZ) or your private villa. Premier helicopter flight and helicopter charter connection between Mallorca and Ibiza with our Airbus H135 twin-engine helicopter.",
       image: "https://civilprom.s3.eu-north-1.amazonaws.com/Helibaleares+Image+Mallorca.jpg",
       tag: "PMI ➔ IBZ"
     },
@@ -195,7 +195,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
           {routes.map((route) => (
             <div
               key={route.id}
-              className="bg-black/80 border border-stone-800 transition-all duration-300 overflow-hidden flex flex-col justify-between group shadow-xl"
+              className="bg-black/80 border border-stone-800 overflow-hidden flex flex-col justify-between shadow-xl"
               style={{ borderRadius: '16px' }}
             >
               <div className="relative h-56 overflow-hidden bg-stone-950">
@@ -203,7 +203,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                   src={route.image}
                   alt={route.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.85] contrast-[1.1]"
+                  className="w-full h-full object-cover brightness-[0.85] contrast-[1.1]"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -211,7 +211,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
 
               <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between space-y-4">
                 <div className="space-y-2">
-                  <h3 className="font-serif text-xl sm:text-2xl text-white font-normal group-hover:text-purple-300 transition-colors">
+                  <h3 className="font-serif text-xl sm:text-2xl text-white font-normal">
                     {route.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans font-light pt-1">
