@@ -25,7 +25,7 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = window.innerWidth >= 768 ? 170 : 290; // adjust scroll offset based on desktop/mobile header height
+      const offset = window.innerWidth >= 768 ? 170 : 42; // adjust scroll offset: desktop full header, mobile top announcement bar
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({
@@ -54,9 +54,9 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
   return (
     <header
       id="header-navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
+      className={`relative w-full bg-white transition-all duration-300 md:fixed md:top-0 md:left-0 md:right-0 md:z-50 ${
         isScrolled
-          ? 'border-b border-stone-200/90 shadow-sm'
+          ? 'border-b border-stone-200/90 md:shadow-sm'
           : 'border-b border-stone-200/60'
       }`}
       style={{ padding: '0px', backgroundColor: '#ffffff' }}
@@ -64,7 +64,7 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
       {/* Top Announcement Sticky Bar in Primary Brand Background Color */}
       <div 
         id="top-announcement-bar"
-        className="w-full py-2 px-3 sm:px-6 text-center text-white text-[11px] sm:text-xs md:text-sm font-medium tracking-normal flex items-center justify-center gap-2 border-b border-purple-900/30 shadow-xs"
+        className="fixed top-0 left-0 right-0 z-50 md:relative md:top-auto md:left-auto md:right-auto md:z-auto w-full py-2 px-3 sm:px-6 text-center text-white text-[11px] sm:text-xs md:text-sm font-medium tracking-normal flex items-center justify-center gap-2 border-b border-purple-900/30 shadow-xs"
         style={{ backgroundColor: '#721489' }}
       >
         <span className="max-w-7xl leading-snug">
@@ -72,20 +72,23 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
         </span>
       </div>
 
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 pt-[64px] sm:pt-[48px] md:pt-0">
         {/* Desktop Layout (hidden on mobile) */}
         <div className="hidden md:flex items-center justify-between h-[110px]">
           {/* Logo */}
           <div 
             onClick={() => scrollToSection('hero')} 
-            className="flex items-center cursor-pointer h-[110px]"
+            className="flex flex-col justify-center cursor-pointer h-[110px]"
             id="logo-container"
           >
             <img 
               src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
               alt="Helibaleares" 
-              className="h-10 sm:h-12 object-contain hover:opacity-95 transition-opacity"
+              className="h-9 sm:h-11 object-contain hover:opacity-95 transition-opacity self-start"
             />
+            <span className="text-[11px] text-stone-500 font-sans tracking-normal font-normal mt-0.5">
+              A branch of Eliance Civil Spain ES.AOC.131 EC 135
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -162,18 +165,21 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
         </div>
 
         {/* Mobile Layout (hidden on desktop) */}
-        <div className="flex md:hidden flex-col items-center py-4 gap-4">
+        <div className="flex md:hidden flex-col items-center pt-3 pb-4 gap-4">
           {/* Centered Logo Row */}
           <div 
             onClick={() => scrollToSection('hero')} 
-            className="cursor-pointer flex justify-center items-center w-full"
+            className="cursor-pointer flex flex-col justify-center items-center w-full"
             id="logo-container-mobile"
           >
             <img 
               src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
               alt="Helibaleares" 
-              className="h-10 object-contain"
+              className="h-9 object-contain"
             />
+            <span className="text-[10px] text-stone-500 font-sans tracking-normal font-normal mt-0.5">
+              A branch of Eliance Civil Spain ES.AOC.131 EC 135
+            </span>
           </div>
 
           {/* Bottom row: Inquire Now & Lang dropdown */}

@@ -14,6 +14,7 @@ import IbizaOperations from './components/IbizaOperations';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import SuccessPage from './components/SuccessPage';
+import DepositPage from './components/DepositPage';
 
 const getSeoCity = (): string => {
   try {
@@ -54,6 +55,19 @@ const getIsSuccessPage = (): boolean => {
   return false;
 };
 
+const getIsDepositPage = (): boolean => {
+  try {
+    const cleanPath = window.location.pathname.toLowerCase().replace(/\/$/, "");
+    if (cleanPath.endsWith("/deposit")) return true;
+    const params = new URLSearchParams(window.location.search);
+    const pParam = params.get('p')?.toLowerCase() || '';
+    if (pParam.endsWith('/deposit') || pParam === 'deposit') return true;
+  } catch (e) {
+    console.warn("Failed to parse pathname for deposit page:", e);
+  }
+  return false;
+};
+
 export default function App() {
   // Default to English ('en') while offering premium instant translations for FR, DE, NL, ES.
   // Checks URL query parameter ?lang=... for search crawler optimization.
@@ -72,11 +86,13 @@ export default function App() {
   const [selectedAircraft, setSelectedAircraft] = useState<string>('');
   const [seoCity, setSeoCity] = useState<string>(getSeoCity);
   const [isSuccessPage, setIsSuccessPage] = useState<boolean>(getIsSuccessPage);
+  const [isDepositPage, setIsDepositPage] = useState<boolean>(getIsDepositPage);
 
   useEffect(() => {
     const handleLocationChange = () => {
       setSeoCity(getSeoCity());
       setIsSuccessPage(getIsSuccessPage());
+      setIsDepositPage(getIsDepositPage());
     };
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
@@ -216,6 +232,18 @@ export default function App() {
       console.warn("Failed to update lang URL parameter:", e);
     }
   };
+
+  if (isDepositPage) {
+    return (
+      <DepositPage 
+        onGoHome={() => {
+          setIsDepositPage(false);
+          window.history.pushState({}, '', '/');
+          window.dispatchEvent(new Event('popstate'));
+        }} 
+      />
+    );
+  }
 
   if (isSuccessPage) {
     return (
