@@ -89,6 +89,28 @@ export default function App() {
   const [isDepositPage, setIsDepositPage] = useState<boolean>(getIsDepositPage);
 
   useEffect(() => {
+    const checkContactRedirect = () => {
+      try {
+        const cleanPath = window.location.pathname.toLowerCase().replace(/\/$/, "");
+        const params = new URLSearchParams(window.location.search);
+        const pParam = params.get('p')?.toLowerCase() || '';
+
+        if (cleanPath.endsWith('/contact') || pParam.endsWith('/contact') || pParam === 'contact') {
+          window.history.replaceState({}, '', '/#contact');
+          window.dispatchEvent(new Event('hashchange'));
+          window.dispatchEvent(new Event('popstate'));
+        }
+      } catch (e) {
+        console.warn("Failed to check contact redirect:", e);
+      }
+    };
+
+    checkContactRedirect();
+    window.addEventListener('popstate', checkContactRedirect);
+    return () => window.removeEventListener('popstate', checkContactRedirect);
+  }, []);
+
+  useEffect(() => {
     const handleLocationChange = () => {
       setSeoCity(getSeoCity());
       setIsSuccessPage(getIsSuccessPage());
