@@ -344,7 +344,7 @@ export default function DepositPage({ onGoHome }: DepositPageProps) {
             2. Guarantee Deposit
           </h2>
           <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6 font-light">
-            We require a pre-authorization—typically representing 45% to 60% of the total flight cost—processed in increments of €1,000, or €1,500, or €2,500, etc. You may choose to have this amount either cancelled/refunded or applied as a deduction from the total during your final payment. The final payment is made in person (or at the time of the flight via bank card, cash, or instant transfer. If you are departing from Ibiza, the process takes place at our physical office; otherwise, it happens directly at the helicopter. The security deposit also allows us to protect ourselves against the risk of no-shows. The flight can be cancelled free of charge up to 48 hours before the flight time.
+            We require a pre-authorization—typically representing 45% to 60% of the total flight cost—processed in increments of €1,000, €1,500, or €2,500, etc. You may choose to have this amount either canceled/refunded or applied as a deduction from the total during your final payment. The final payment is made in person (or at the time of the flight) via bank card, cash, or instant transfer. If you are departing from Ibiza, the process takes place at our physical office; otherwise, it happens directly at the helicopter. The security deposit also allows us to protect ourselves against the risk of no-shows. The flight can be canceled free of charge up to 48 hours before the scheduled flight time.
           </p>
 
           {/* Section Subtitle above radio list */}
