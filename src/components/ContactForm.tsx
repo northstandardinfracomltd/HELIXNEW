@@ -203,7 +203,7 @@ Remarques: ${formData.notes || 'N/A'}`;
     <section id="contact" className="py-24 bg-white relative">
       <div className="absolute left-1/3 top-1/3 w-96 h-96 bg-stone-100/30 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div id="contact-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4" id="contact-header">

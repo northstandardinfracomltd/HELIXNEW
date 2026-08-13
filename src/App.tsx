@@ -105,6 +105,44 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (isDepositPage || isSuccessPage) return;
+
+    const handleHashScroll = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#contact' || hash === '#contact-form' || hash === '#contactform') {
+        const scrollToContact = () => {
+          const el = document.getElementById('contact-form') || document.getElementById('contact');
+          if (el) {
+            const offset = window.innerWidth >= 768 ? 140 : 42;
+            const elementPosition = el.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        };
+
+        scrollToContact();
+        const t1 = setTimeout(scrollToContact, 150);
+        const t2 = setTimeout(scrollToContact, 500);
+        return () => {
+          clearTimeout(t1);
+          clearTimeout(t2);
+        };
+      }
+    };
+
+    handleHashScroll();
+    window.addEventListener('hashchange', handleHashScroll);
+    window.addEventListener('popstate', handleHashScroll);
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll);
+      window.removeEventListener('popstate', handleHashScroll);
+    };
+  }, [isDepositPage, isSuccessPage]);
+
+  useEffect(() => {
     try {
       // Dynamically update page language for Google crawler
       document.documentElement.lang = currentLang;
