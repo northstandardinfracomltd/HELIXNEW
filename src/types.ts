@@ -36,6 +36,7 @@ export interface TranslationContent {
   navSafety: string;
   navUseCases: string;
   navAbout: string;
+  navOffice?: string;
   navContact: string;
   
   heroTitle: string;

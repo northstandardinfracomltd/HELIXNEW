@@ -222,7 +222,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                 <div className="pt-2">
                   <button
                     onClick={() => scrollToContact(`${route.title} (${route.duration})`)}
-                    className="w-full bg-[#721489] hover:bg-[#5a106d] text-white py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center shadow-md cursor-pointer active:scale-98"
+                    className="w-full bg-white hover:bg-stone-200 text-black border-none py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center shadow-md cursor-pointer active:scale-98"
                     style={{ borderRadius: '11px', fontSize: '15px' }}
                   >
                     <span>{btnText}</span>

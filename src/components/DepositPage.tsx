@@ -107,6 +107,7 @@ export default function DepositPage({ onGoHome }: DepositPageProps) {
   };
 
   const stripeLinks: Record<string, string> = {
+    '600': 'https://book.stripe.com/14AeVdgOd0tbdx3e6IdUY06',
     '1000': 'https://book.stripe.com/14A6oH8hH1xf8cJ2o0dUY01',
     '1500': 'https://book.stripe.com/dRm7sLdC17VD3WtgeQdUY02',
     '2000': 'https://book.stripe.com/3cI00jeG53Fn0Kh0fSdUY03',
@@ -115,6 +116,7 @@ export default function DepositPage({ onGoHome }: DepositPageProps) {
   };
 
   const depositOptions = [
+    { id: '600', label: 'Deposit : €600.' },
     { id: '1000', label: 'Deposit : €1,000.' },
     { id: '1500', label: 'Deposit : €1,500.' },
     { id: '2000', label: 'Deposit : €2,000.' },

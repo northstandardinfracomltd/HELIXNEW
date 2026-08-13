@@ -92,7 +92,7 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="flex items-center gap-8" id="desktop-nav">
+          <nav className="flex items-center gap-6 xl:gap-8" id="desktop-nav">
             <button
               onClick={() => scrollToSection('bases')}
               className="font-sans cursor-pointer hover:opacity-75 transition-opacity font-medium"
@@ -113,6 +113,13 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
               style={{ color: '#000000', fontSize: '18px', letterSpacing: '0px' }}
             >
               {t.navUseCases}
+            </button>
+            <button
+              onClick={() => scrollToSection('ibiza-operations')}
+              className="font-sans cursor-pointer hover:opacity-75 transition-opacity font-medium"
+              style={{ color: '#000000', fontSize: '18px', letterSpacing: '0px' }}
+            >
+              {t.navOffice || 'Meet Us'}
             </button>
             
             {/* Single CTA & Language selector */}

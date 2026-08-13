@@ -7,6 +7,7 @@ export const translations: Record<string, TranslationContent> = {
     navFleet: "Our Aircraft",
     navSafety: "Safety & Crew",
     navUseCases: "Activities",
+    navOffice: "Meet Us",
     navAbout: "Our Legacy",
     navContact: "Inquire Now",
     
@@ -79,6 +80,7 @@ export const translations: Record<string, TranslationContent> = {
     navFleet: "Unser Helikopter",
     navSafety: "Sicherheit & Crew",
     navUseCases: "Aktivitäten",
+    navOffice: "Unser Büro",
     navAbout: "Unsere Tradition",
     navContact: "Flug anfragen",
     
@@ -151,6 +153,7 @@ export const translations: Record<string, TranslationContent> = {
     navFleet: "Onze Helikopter",
     navSafety: "Veiligheid & Crew",
     navUseCases: "Activiteiten",
+    navOffice: "Ons Kantoor",
     navAbout: "Onze Erfenis",
     navContact: "Aanvraag indienen",
     
@@ -223,6 +226,7 @@ export const translations: Record<string, TranslationContent> = {
     navFleet: "Nuestra Aeronave",
     navSafety: "Seguridad y Tripulación",
     navUseCases: "Actividades",
+    navOffice: "Nuestra Oficina",
     navAbout: "Nuestra Historia",
     navContact: "Solicitud de Vuelo",
     
@@ -295,6 +299,7 @@ export const translations: Record<string, TranslationContent> = {
     navFleet: "Notre Appareil",
     navSafety: "Sécurité & Équipage",
     navUseCases: "Activités",
+    navOffice: "Notre Bureau",
     navAbout: "Notre Histoire",
     navContact: "Nous Contacter",
     

@@ -21,8 +21,6 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
     ? "Nuestra Oficina y Centro de Operaciones en Ibiza"
     : "Our Office & Operations Center in Ibiza";
 
-  const addressLabel = isFr ? "Adresse du Bureau" : isDe ? "Büroadresse" : isNl ? "Kantooradres" : isEs ? "Dirección de la Oficina" : "Office Address";
-
   const airportDescription = isFr
     ? "L'aéroport d'Ibiza (IATA : IBZ, OACI : LEIB) est l'aéroport international desservant les îles Baléares d'Ibiza et Formentera en Espagne, situé à 7 km au sud-ouest de la ville d'Ibiza. En tant que destination touristique majeure, il propose des liaisons domestiques annuelles et des dizaines de routes saisonnières. Les installations servent Ibiza et Formentera et accueillent 95 % des voyageurs de l'île. Au sein du terminal exécutif, l'équipe Helibaleares assure un accueil VIP sur mesure, un niveau maximal de sécurité et une gestion réactive de vos vols en hélicoptère."
     : isDe
@@ -32,6 +30,63 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
     : isEs
     ? "El Aeropuerto de Ibiza (IATA: IBZ, ICAO: LEIB) es el aeropuerto internacional que da servicio a las Islas Baleares de Ibiza y Formentera en España, ubicado a 7 km al suroeste de la ciudad de Ibiza. Las instalaciones dan servicio tanto a Ibiza como a Formentera y son utilizadas por el 95% de los turistas que visitan estas islas. En la terminal ejecutiva, el equipo de Helibaleares ofrece la máxima atención personalizada, seguridad y rapidez para sus vuelos en helicóptero."
     : "Ibiza Airport (IATA: IBZ, ICAO: LEIB) is the international airport serving the Balearic Islands of Ibiza and Formentera in Spain located 7 km (4.3 miles) southwest of Ibiza Town. As the island is a major European holiday destination, it features both year-round domestic services and several dozen seasonal routes to cities across Europe. The airport facilities serve both Ibiza and Formentera, and are used by 95% of the tourists visiting these islands. At the executive terminal, the Helibaleares team provides bespoke VIP reception, maximum safety and security, and responsive management for your helicopter flights.";
+
+  const teamSectionTitle = isFr
+    ? "Notre Équipe Locale à Ibiza"
+    : isDe
+    ? "Unser lokales Team in Ibiza"
+    : isNl
+    ? "Ons Lokale Team in Ibiza"
+    : isEs
+    ? "Nuestro Equipo Local en Ibiza"
+    : "Our Ibiza Local Team";
+
+  const teamMembers = [
+    {
+      name: "Devon",
+      role: "Booking Assistant & Concierge",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/helibaleares+Devon.jpg"
+    },
+    {
+      name: "Ricardo",
+      role: isFr
+        ? "Pilote d'Hélicoptère Senior"
+        : isDe
+        ? "Senior Helikopterpilot"
+        : isNl
+        ? "Senior Helikopterpiloot"
+        : isEs
+        ? "Piloto Senior de Helicóptero"
+        : "Senior Helicopter Pilot",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/helibaleares+ricardo.jpg"
+    },
+    {
+      name: "Igor",
+      role: isFr
+        ? "Pilote d'Hélicoptère Senior (Ancien Instructeur Airbus)"
+        : isDe
+        ? "Senior Helikopterpilot (Ehemaliger Airbus-Instruktor)"
+        : isNl
+        ? "Senior Helikopterpiloot (Voormalig Airbus-Instructeur)"
+        : isEs
+        ? "Piloto Senior de Helicóptero (Ex Instructor de Airbus)"
+        : "Senior Helicopter Pilot (Former Airbus Instructor)",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/helibaleares+igor.jpg"
+    },
+    {
+      name: "Dana",
+      role: isFr
+        ? "Coordinatrice Sécurité & Maintenance"
+        : isDe
+        ? "Sicherheits- & Wartungskoordinatorin"
+        : isNl
+        ? "Veiligheids- & Onderhoudscoördinator"
+        : isEs
+        ? "Coordinadora de Seguridad y Mantenimiento"
+        : "Safety and Maintenance Coordinator",
+      image: "https://civilprom.s3.eu-north-1.amazonaws.com/helibaleares+dana.jpg"
+    }
+  ];
 
   return (
     <section id="ibiza-operations" className="py-20 bg-black text-stone-100 border-t border-neutral-900">
@@ -50,16 +105,13 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
         </div>
 
         {/* Office Address & Overview (Left)  +  Google Maps (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
           
           {/* Office Address & Overview Box */}
-          <div className="bg-neutral-900/90 border border-neutral-800 rounded-2xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
+          <div className="flex flex-col justify-between">
             <div>
               <div className="mb-6">
-                <h3 className="text-xs uppercase tracking-wider text-white font-sans font-semibold mb-1">
-                  {addressLabel}
-                </h3>
-                <p className="font-serif text-xl text-white font-medium leading-snug">
+                <p className="font-serif text-xl sm:text-2xl text-white font-light leading-snug">
                   Aeropuerto de Ibiza Terminal Privada
                 </p>
                 <p className="text-stone-300 text-sm font-sans mt-1">
@@ -67,7 +119,7 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 </p>
               </div>
 
-              <p className="text-white text-xs sm:text-sm leading-relaxed font-light mt-4">
+              <p className="text-stone-300 text-xs sm:text-sm leading-relaxed font-light mt-4">
                 {airportDescription}
               </p>
             </div>
@@ -89,6 +141,43 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
             </div>
           </div>
 
+        </div>
+
+        {/* Ibiza Team Section */}
+        <div className="pt-8 border-t border-neutral-900">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h3 className="font-serif text-2xl sm:text-3xl font-light text-white tracking-tight">
+              {teamSectionTitle}
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="w-32 h-32 sm:w-36 sm:h-36 mb-4 rounded-full overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h4 className="font-serif text-xl font-light text-white mb-1">
+                  {member.name}
+                </h4>
+                <p className="text-stone-400 text-xs sm:text-sm font-sans font-light leading-snug">
+                  {member.role}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
       </div>
