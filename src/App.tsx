@@ -93,6 +93,12 @@ export default function App() {
       setSeoCity(getSeoCity());
       setIsSuccessPage(getIsSuccessPage());
       setIsDepositPage(getIsDepositPage());
+
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('config', 'AW-18387261005', {
+          page_path: window.location.pathname + window.location.search
+        });
+      }
     };
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
