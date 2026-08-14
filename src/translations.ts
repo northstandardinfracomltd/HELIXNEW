@@ -68,8 +68,10 @@ export const translations: Record<string, TranslationContent> = {
     contactSuccessMessage: "Thank you for your request. Our direct flight coordinators will review your itinerary and reply within 15 minutes with a custom quotation.",
     contactDirectEmailText: "For urgent flight requests, contact our flight operations directly at:",
     
-    legalMentionsTitle: "Legal Mentions & Regulations",
-    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. All flight operations require a 45% credit card pre-authorization guarantee deposit to confirm reservations, and a government-issued photo ID from one passenger for luggage registration. Flights are subject to weather conditions and air traffic control clearance.",
+    legalMentionsTitle: "Legal Mentions, Regulations & Flight Prerequisites.",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. Flights are subject to weather conditions and air traffic control clearance.",
+    legalGuaranteeDeposit: "— Guarantee Deposit: A credit card pre-authorization equivalent to 45% of the total amount is required to secure the reservation. On the day of the flight, this hold can either be canceled/refunded or deducted from the final amount paid. Full or remaining payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer.",
+    legalDocumentation: "— Documentation: We will need one government-issued photo ID from one passenger to register all luggage under their name.",
     footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helicopter transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia.",
     topAnnouncementBar: "Summer 2026: During high season, we kindly invite you to book your flight 4 to 6 days prior to your desired date to ensure the ultimate experience."
@@ -141,8 +143,10 @@ export const translations: Record<string, TranslationContent> = {
     contactSuccessMessage: "Vielen Dank für Ihre Anfrage. Wir antworten Ihnen innerhalb von 15 Minuten mit einem maßgeschneiderten Angebot.",
     contactDirectEmailText: "Für dringende Anfragen wenden Sie sich direkt an:",
     
-    legalMentionsTitle: "Rechtliche Hinweise",
-    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) ist ein lizenziertes Luftfahrtunternehmen nach EU-Sicherheitsstandards. Gegründet 2003, betreiben wir unseren zweimotorigen Airbus H135 Helikopter. Alle Flüge erfordern eine Kreditkarten-Pre-Autorisierung von 45 % als Garantiekaution sowie einen amtlichen Lichtbildausweis zur Registrierung des Gepäcks. Flugbetriebe unterliegen Wetterbedingungen und der Freigabe der Flugverkehrskontrolle.",
+    legalMentionsTitle: "Rechtliche Hinweise, Vorschriften & Flugvoraussetzungen",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) ist ein lizenziertes Luftfahrtunternehmen nach EU-Sicherheitsstandards. Gegründet 2003, betreiben wir unseren zweimotorigen Airbus H135 Helikopter. Flugbetriebe unterliegen Wetterbedingungen und der Freigabe der Flugverkehrskontrolle.",
+    legalGuaranteeDeposit: "— Garantiekaution: Zur Sicherung der Reservierung ist eine Kreditkarten-Pre-Autorisierung in Höhe von 45 % des Gesamtbetrags erforderlich. Am Tag des Fluges kann dieser Einbehalt entweder storniert/erstattet oder vom zu zahlenden Endbetrag abgezogen werden. Die vollständige Zahlung oder Restzahlung kann vor Ort per Kreditkarte, bar (bis zu 1.000 € für in Spanien Steueransässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung erfolgen.",
+    legalDocumentation: "— Dokumentation: Wir benötigen einen behördlichen Lichtbildausweis von einem der Passagiere, um das gesamte Gepäck auf seinen Namen zu registrieren.",
     footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikopter-Transfers in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia.",
     topAnnouncementBar: "Sommer 2026: In der Hochsaison bitten wir Sie, Ihren Flug 4 bis 6 Tage vor dem gewünschten Datum zu buchen, um Ihnen das beste Erlebnis zu bieten."
@@ -214,8 +218,10 @@ export const translations: Record<string, TranslationContent> = {
     contactSuccessMessage: "Dank u voor uw aanvraag. Wij reageren binnen 15 minuten met een offerte op maat.",
     contactDirectEmailText: "Voor dringende verzoeken kunt u rechtstreeks mailen naar:",
     
-    legalMentionsTitle: "Juridische Vermeldingen",
-    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is een gelicentieerde luchtvaartmaatschappij volgens EU-veiligheidsprotocollen. Opgericht in 2003, exploiteren we onze tweemotorige Airbus H135 helikopter. Alle vluchten vereisen een creditcard pre-autorisatie van 45% als borgstelling en een officieel identiteitsbewijs met foto voor bagageregistratie. Vluchten zijn onderhevig aan weersomstandigheden en luchtverkeersleiding.",
+    legalMentionsTitle: "Juridische Vermeldingen, Regelgeving & Vluchtvoorwaarden",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is een gelicentieerde luchtvaartmaatschappij volgens EU-veiligheidsprotocollen. Opgericht in 2003, exploiteren we onze tweemotorige Airbus H135 helikopter. Vluchten zijn onderhevig aan weersomstandigheden en luchtverkeersleiding.",
+    legalGuaranteeDeposit: "— Garantieborg: Een creditcard pre-autorisatie van 45% van het totale bedrag is vereist om de reservering te bevestigen. Op de dag van de vlucht kan deze inhouding worden geannuleerd/terugbetaald of worden ingehouden op het definitieve te betalen bedrag. De volledige of resterende betaling kan ter plaatse worden voldaan per creditcard, contant geld (tot € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving.",
+    legalDocumentation: "— Documentatie: We hebben een officieel identiteitsbewijs met foto van één van de passagiers nodig om alle bagage op diens naam te registreren.",
     footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Helikoptertransfers in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia.",
     topAnnouncementBar: "Zomer 2026: In het hoogseizoen raden we u aan uw vlucht 4 tot 6 dagen voor de gewenste datum te boeken voor de beste ervaring."
@@ -287,8 +293,10 @@ export const translations: Record<string, TranslationContent> = {
     contactSuccessMessage: "Gracias por su solicitud. Le responderemos en menos de 15 minutos con un presupuesto a medida.",
     contactDirectEmailText: "Para solicitudes urgentes, contacte directamente con operaciones:",
     
-    legalMentionsTitle: "Menciones Legales",
-    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) es una compañía aérea de transporte autorizada bajo protocolos de seguridad de la UE. Fundada en 2003, operamos nuestro helicóptero bimotor Airbus H135. Todos los vuelos requieren una preautorización con tarjeta del 45% como depósito de garantía y un documento de identidad oficial con foto para el registro de equipaje. Las operaciones están sujetas a condiciones meteorológicas y autorización del control aéreo.",
+    legalMentionsTitle: "Menciones Legales, Normativas y Requisitos del Vuelo",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) es una compañía aérea de transporte autorizada bajo protocolos de seguridad de la UE. Fundada en 2003, operamos nuestro helicóptero bimotor Airbus H135. Las operaciones están sujetas a condiciones meteorológicas y autorización del control aéreo.",
+    legalGuaranteeDeposit: "— Depósito de garantía: Se requiere una preautorización con tarjeta de crédito equivalente al 45% del importe total para asegurar la reserva. El día del vuelo, esta retención puede ser cancelada/reembolsada o deducida del importe final abonado. El pago total o restante se puede liquidar en el lugar con tarjeta de crédito, efectivo (hasta 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea.",
+    legalDocumentation: "— Documentación: Necesitaremos un documento de identidad oficial con foto de uno de los pasajeros para registrar todo el equipaje a su nombre.",
     footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Traslados en helicóptero en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia.",
     topAnnouncementBar: "Verano 2026: En temporada alta, le invitamos a reservar su vuelo de 4 a 6 días antes de la fecha deseada para ofrecerle la mejor experiencia."
@@ -360,8 +368,10 @@ export const translations: Record<string, TranslationContent> = {
     contactSuccessMessage: "Merci pour votre demande. Nos coordinateurs vous transmettront un devis sur-mesure sous 15 minutes.",
     contactDirectEmailText: "Pour toute demande urgente, contactez notre équipe opérationnelle directement sur :",
     
-    legalMentionsTitle: "Mentions Légales",
-    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) est un transporteur aérien certifié selon les normes de sécurité de l'UE. Établie en 2003, la compagnie exploite son hélicoptère bimoteur Airbus H135. Tous les vols nécessitent une pré-autorisation bancaire de 45 % comme dépôt de garantie ainsi qu'une pièce d'identité officielle avec photo pour l'enregistrement des bagages. Les vols sont soumis aux conditions météorologiques et aux autorisations de la circulation aérienne.",
+    legalMentionsTitle: "Mentions Légales, Réglementations & Prérequis du Vol",
+    legalMentionsContent: "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) est un transporteur aérien certifié selon les normes de sécurité de l'UE. Établie en 2003, la compagnie exploite son hélicoptère bimoteur Airbus H135. Les vols sont soumis aux conditions météorologiques et aux autorisations de la circulation aérienne.",
+    legalGuaranteeDeposit: "— Dépôt de garantie : Une pré-autorisation bancaire (carte de crédit) équivalente à 45 % du montant total est requise pour sécuriser la réservation. Le jour du vol, cette empreinte peut soit être annulée/remboursée, soit être déduite du montant final réglé. Le règlement intégral ou du solde peut s'effectuer sur place par carte bancaire, espèces (jusqu'à 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement bancaire instantané.",
+    legalDocumentation: "— Documentation : Nous aurons besoin d'une pièce d'identité officielle avec photo d'un des passagers afin d'enregistrer l'ensemble des bagages à son nom.",
     footerRights: "© 2026 Eliance Civil HIS GROUP S.A. (AOC) ES.AOC.131 — EC 135. All rights reserved.",
     footerOperatorDisclaimer: "Transferts hélicoptère à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence.",
     topAnnouncementBar: "Été 2026 : En haute saison, nous vous invitons à réserver votre vol 4 à 6 jours avant la date souhaitée pour vous offrir la meilleure expérience."

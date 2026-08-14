@@ -91,6 +91,8 @@ export interface TranslationContent {
   
   legalMentionsTitle: string;
   legalMentionsContent: string;
+  legalGuaranteeDeposit?: string;
+  legalDocumentation?: string;
   footerRights: string;
   footerOperatorDisclaimer: string;
   topAnnouncementBar?: string;

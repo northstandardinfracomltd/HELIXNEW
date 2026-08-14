@@ -1,4 +1,3 @@
-import { ShieldAlert, UserCheck, AlertTriangle, BadgeAlert } from 'lucide-react';
 import { TranslationContent } from '../types';
 
 interface SafetyProps {
@@ -117,45 +116,8 @@ export default function Safety({ t }: SafetyProps) {
     ];
   })();
 
-  const alertText = (() => {
-    if (isFr) {
-      return {
-        title: "Prérequis du Vol",
-        guarantee: "Dépôt de garantie : Une pré-autorisation bancaire (carte de crédit) équivalente à 45 % du montant total est requise pour sécuriser la réservation. Le jour du vol, cette empreinte peut soit être annulée/remboursée, soit être déduite du montant final réglé. Le règlement intégral ou du solde peut s'effectuer sur place par carte bancaire, espèces (jusqu'à 1 000 € pour les résidents fiscaux en Espagne et 10 000 € pour les non-résidents) ou virement bancaire instantané.",
-        doc: "Documentation : Nous aurons besoin d'une pièce d'identité officielle avec photo d'un des passagers afin d'enregistrer l'ensemble des bagages à son nom."
-      };
-    }
-    if (isDe) {
-      return {
-        title: "Flugvoraussetzungen",
-        guarantee: "Garantiekaution: Zur Sicherung der Reservierung ist eine Kreditkarten-Pre-Autorisierung in Höhe von 45 % des Gesamtbetrags erforderlich. Am Tag des Fluges kann dieser Einbehalt entweder storniert/erstattet oder vom zu zahlenden Endbetrag abgezogen werden. Die vollständige Zahlung oder Restzahlung kann vor Ort per Kreditkarte, bar (bis zu 1.000 € für in Spanien Steueransässige und 10.000 € für Nichtansässige) oder per Sofortüberweisung erfolgen.",
-        doc: "Dokumentation: Wir benötigen einen behördlichen Lichtbildausweis von einem der Passagiere, um das gesamte Gepäck auf seinen Namen zu registrieren."
-      };
-    }
-    if (isNl) {
-      return {
-        title: "Vluchtvoorwaarden",
-        guarantee: "Garantieborg: Een creditcard pre-autorisatie van 45% van het totale bedrag is vereist om de reservering te bevestigen. Op de dag van de vlucht kan deze inhouding worden geannuleerd/terugbetaald of worden ingehouden op het definitieve te betalen bedrag. De volledige of resterende betaling kan ter plaatse worden voldaan per creditcard, contant geld (tot € 1.000 voor belastingplichtigen in Spanje en € 10.000 voor niet-inwoners) of directe bankoverschrijving.",
-        doc: "Documentatie: We hebben een officieel identiteitsbewijs met foto van één van de passagiers nodig om alle bagage op diens naam te registreren."
-      };
-    }
-    if (isEs) {
-      return {
-        title: "Requisitos del Vuelo",
-        guarantee: "Depósito de garantía: Se requiere una preautorización con tarjeta de crédito equivalente al 45% del importe total para asegurar la reserva. El día del vuelo, esta retención puede ser cancelada/reembolsada o deducida del importe final abonado. El pago total o restante se puede liquidar en el lugar con tarjeta de crédito, efectivo (hasta 1.000 € para residentes fiscales en España y 10.000 € para no residentes) o transferencia bancaria instantánea.",
-        doc: "Documentación: Necesitaremos un documento de identidad oficial con foto de uno de los pasajeros para registrar todo el equipaje a su nombre."
-      };
-    }
-    // Default English
-    return {
-      title: "Flight Prerequisites",
-      guarantee: "Guarantee Deposit: A credit card pre-authorization equivalent to 45% of the total amount is required to secure the reservation. On the day of the flight, this hold can either be canceled/refunded or deducted from the final amount paid. Full or remaining payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer.",
-      doc: "Documentation: We will need one government-issued photo ID from one passenger to register all luggage under their name."
-    };
-  })();
-
   return (
-    <section id="safety" className="pt-24 pb-0 bg-white border-b border-stone-200/60 relative overflow-hidden">
+    <section id="safety" className="pt-24 pb-20 bg-white border-b border-stone-200/60 relative overflow-hidden">
       {/* Visual background accents */}
       <div className="absolute left-0 bottom-0 w-80 h-80 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -243,39 +205,6 @@ export default function Safety({ t }: SafetyProps) {
 
         </div>
 
-      </div>
-
-      {/* Primary Color Warning Alert Banner */}
-      <div className="w-full text-white py-12 mt-16 cursor-default" id="safety-payment-warning">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 cursor-default">
-          <div
-            className="text-white cursor-default"
-            style={{ background: '#000000', borderRadius: '13px', border: 'none', padding: '0px' }}
-          >
-            <div className="p-6 sm:p-8 space-y-3 cursor-default">
-              <h4 className="font-serif text-lg font-normal text-white cursor-default">
-                {alertText.title}
-              </h4>
-              <p className="text-sm font-light text-white leading-relaxed cursor-default">
-                {alertText.guarantee}
-              </p>
-              <p className="text-sm font-light text-white leading-relaxed cursor-default">
-                {alertText.doc}
-              </p>
-            </div>
-          </div>
-
-          {/* Safety & Certification Labels Image */}
-          <div className="mt-8 flex justify-center items-center">
-            <img
-              src="https://civilprom.s3.eu-north-1.amazonaws.com/labels.png"
-              alt="HeliBaleares AOC & Payment Protection Certifications"
-              className="max-w-2xl w-full h-auto object-contain mx-auto"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

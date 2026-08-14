@@ -124,6 +124,12 @@ export default function Footer({ t }: FooterProps) {
               <p>
                 <strong>Operator Compliance:</strong> All aircraft operated by Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131), including our Airbus H135 twin-engine helicopter, are fully certified under European Union Aviation Safety Agency (EASA) and Spanish AESA standards. Flight crew members undergo continuous simulator training and safety audits.
               </p>
+              {t.legalGuaranteeDeposit && (
+                <p>{t.legalGuaranteeDeposit}</p>
+              )}
+              {t.legalDocumentation && (
+                <p>{t.legalDocumentation}</p>
+              )}
             </div>
           )}
         </div>
