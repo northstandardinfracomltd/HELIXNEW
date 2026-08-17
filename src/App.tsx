@@ -343,9 +343,6 @@ export default function App() {
         {/* Company legacy since 2003 & Direct operator pricing benefit */}
         <About t={t} />
 
-        {/* Premium Airport Bases served (Ibiza, Mallorca, Monaco, Malta) */}
-        <Bases t={t} currentLang={currentLang} />
-
         {/* Fleet listing (Helicopters & Business Jets) */}
         <Fleet 
           t={t} 
@@ -353,8 +350,11 @@ export default function App() {
           onSelectAircraft={handleSelectAircraft} 
         />
 
-        {/* Office & Operations Center in Ibiza with Google Maps & Specs */}
+        {/* Office & Operations Center in Ibiza with Google Maps, Specs & Team presentation */}
         <IbizaOperations currentLang={currentLang} />
+
+        {/* Premium Airport Bases served (Ibiza, Mallorca, Monaco, Malta) */}
+        <Bases t={t} currentLang={currentLang} />
 
         {/* Custom use cases (Business, Pleasure, Repatriation, VIP Events) */}
         <UseCases t={t} />

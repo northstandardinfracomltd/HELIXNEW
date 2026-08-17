@@ -64,8 +64,8 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
       {/* Top Announcement Sticky Bar in Primary Brand Background Color */}
       <div 
         id="top-announcement-bar"
-        className="fixed top-0 left-0 right-0 z-50 md:relative md:top-auto md:left-auto md:right-auto md:z-auto w-full py-2 px-3 sm:px-6 text-center text-white text-[11px] sm:text-xs md:text-sm font-medium tracking-normal flex items-center justify-center gap-2 border-b border-purple-900/30 shadow-xs"
-        style={{ backgroundColor: '#721489' }}
+        className="fixed top-0 left-0 right-0 z-50 md:relative md:top-auto md:left-auto md:right-auto md:z-auto w-full py-2 px-3 sm:px-6 text-center text-white text-[11px] sm:text-xs md:text-sm font-medium tracking-normal flex items-center justify-center gap-2 border-b border-[rgb(147_41_74)]/30 shadow-xs"
+        style={{ backgroundColor: 'rgb(147 41 74)' }}
       >
         <span className="max-w-7xl leading-snug">
           {t.topAnnouncementBar || "Été 2026 : En haute saison, nous vous invitons à réserver votre vol 4 à 6 jours avant la date souhaitée pour vous offrir la meilleure expérience."}
@@ -78,15 +78,19 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
           {/* Logo */}
           <div 
             onClick={() => scrollToSection('hero')} 
-            className="flex flex-col justify-center cursor-pointer h-[110px]"
+            className="flex flex-col justify-center cursor-pointer h-[110px] select-none"
             id="logo-container"
           >
-            <img 
-              src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
-              alt="Helibaleares" 
-              className="h-9 sm:h-11 object-contain hover:opacity-95 transition-opacity self-start"
-            />
-            <span className="text-[11px] text-stone-500 font-sans tracking-normal font-normal mt-0.5">
+            <div className="flex items-center gap-2.5 cursor-default select-none">
+              <svg className="w-[30px] h-[19px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9.5" cy="9.5" r="9.5" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+                <circle cx="20.5" cy="9.5" r="9.5" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+              </svg>
+              <span className="font-serif text-2xl lg:text-[26px] font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
+                HELIBALEARES
+              </span>
+            </div>
+            <span className="text-[11px] text-stone-500 font-sans tracking-normal font-normal mt-1 cursor-default select-none selection:bg-transparent selection:text-stone-500">
               A branch of Eliance Civil Spain ES.AOC.131 EC 135
             </span>
           </div>
@@ -176,15 +180,19 @@ export default function Header({ currentLang, onLangChange, t }: HeaderProps) {
           {/* Centered Logo Row */}
           <div 
             onClick={() => scrollToSection('hero')} 
-            className="cursor-pointer flex flex-col justify-center items-center w-full"
+            className="cursor-pointer flex flex-col justify-center items-center w-full select-none"
             id="logo-container-mobile"
           >
-            <img 
-              src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
-              alt="Helibaleares" 
-              className="h-9 object-contain"
-            />
-            <span className="text-[10px] text-stone-500 font-sans tracking-normal font-normal mt-0.5">
+            <div className="flex items-center gap-2 cursor-default select-none">
+              <svg className="w-[26px] h-[16px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8" cy="8" r="8" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+                <circle cx="18" cy="8" r="8" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+              </svg>
+              <span className="font-serif text-xl font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
+                HELIBALEARES
+              </span>
+            </div>
+            <span className="text-[10px] text-stone-500 font-sans tracking-normal font-normal mt-1 text-center cursor-default select-none selection:bg-transparent selection:text-stone-500">
               A branch of Eliance Civil Spain ES.AOC.131 EC 135
             </span>
           </div>

@@ -470,7 +470,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
           className={`relative p-4 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center border ${
             isOpen 
               ? 'bg-black border-black text-white' 
-              : 'bg-[#721489] hover:bg-[#861ca1] border-purple-400/30 text-white shadow-purple-950/30'
+              : 'bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] border-[rgb(147_41_74)]/30 text-white shadow-[rgb(147_41_74)]/30'
           }`}
         >
           {isOpen ? (
@@ -504,7 +504,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                 <div
                   className={`max-w-[85%] rounded-xl px-3.5 py-2.5 shadow-xs leading-relaxed ${
                     msg.sender === 'user'
-                      ? 'bg-[#721489] text-white font-normal rounded-br-none'
+                      ? 'bg-[rgb(147_41_74)] text-white font-normal rounded-br-none'
                       : 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-xs'
                   }`}
                 >
@@ -528,7 +528,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                         </div>
                         <div>
                           <span className="text-slate-500 block">Route:</span>
-                          <span className="font-semibold text-[#721489]">{answers.route || '-'}</span>
+                          <span className="font-semibold text-[rgb(147_41_74)]">{answers.route || '-'}</span>
                         </div>
                         <div>
                           <span className="text-slate-500 block">Aircraft:</span>
@@ -555,7 +555,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                         <button
                           onClick={handleSubmitFinal}
                           disabled={isSubmitting}
-                          className="w-full mt-2 py-2.5 px-3 bg-[#721489] hover:bg-[#861ca1] text-white font-medium rounded-md shadow-xs transition-all flex items-center justify-center gap-2 disabled:opacity-50 text-xs"
+                          className="w-full mt-2 py-2.5 px-3 bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] text-white font-medium rounded-md shadow-xs transition-all flex items-center justify-center gap-2 disabled:opacity-50 text-xs"
                         >
                           {isSubmitting ? (
                             <span>{texts.submitting}</span>
@@ -582,7 +582,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                       <button
                         key={i}
                         onClick={() => handleOptionClick(opt)}
-                        className="text-xs bg-white hover:bg-purple-50 border border-slate-200 hover:border-[#721489] text-slate-800 hover:text-[#721489] px-3 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 active:scale-95 text-left font-medium shadow-2xs"
+                        className="text-xs bg-white hover:bg-[#fbf2f4] border border-slate-200 hover:border-[rgb(147_41_74)] text-slate-800 hover:text-[rgb(147_41_74)] px-3 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 active:scale-95 text-left font-medium shadow-2xs"
                       >
                         <span>{opt.label}</span>
                         <ChevronRight className="w-3 h-3 text-slate-400" />
@@ -614,13 +614,13 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
                     ? (isFr ? "Sélectionnez ci-dessus ou saisissez vos dates..." : "Select above or type custom date...")
                     : texts.inputPlaceholder
                 }
-                className="flex-1 bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[#721489] placeholder-slate-400 disabled:bg-slate-100 disabled:cursor-not-allowed"
+                className="flex-1 bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[rgb(147_41_74)] placeholder-slate-400 disabled:bg-slate-100 disabled:cursor-not-allowed"
               />
 
               <button
                 type="submit"
                 disabled={step === 4 || (!inputVal.trim() && step !== 2 && step !== 7)}
-                className="p-2.5 bg-[#721489] hover:bg-[#861ca1] disabled:opacity-30 text-white font-medium rounded-lg transition-all flex items-center justify-center shrink-0"
+                className="p-2.5 bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] disabled:opacity-30 text-white font-medium rounded-lg transition-all flex items-center justify-center shrink-0"
               >
                 <Send className="w-4 h-4" />
               </button>

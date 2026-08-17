@@ -136,14 +136,18 @@ export default function DepositPage({ onGoHome }: DepositPageProps) {
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div 
             onClick={() => onGoHome ? onGoHome() : (window.location.href = '/')} 
-            className="flex flex-col cursor-pointer"
+            className="flex flex-col cursor-pointer select-none"
           >
-            <img 
-              src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
-              alt="HeliBaleares" 
-              className="h-9 sm:h-11 object-contain self-start"
-            />
-            <span className="text-[11px] text-stone-500 font-sans mt-0.5">
+            <div className="flex items-center gap-2.5 cursor-default select-none">
+              <svg className="w-[28px] h-[18px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9" cy="9" r="9" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+                <circle cx="19" cy="9" r="9" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+              </svg>
+              <span className="font-serif text-xl sm:text-2xl font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
+                HELIBALEARES
+              </span>
+            </div>
+            <span className="text-[11px] text-stone-500 font-sans mt-1 cursor-default select-none selection:bg-transparent selection:text-stone-500">
               A branch of Eliance Civil Spain ES.AOC.131 EC 135
             </span>
           </div>

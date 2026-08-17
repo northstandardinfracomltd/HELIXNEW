@@ -181,12 +181,12 @@ export default function UseCases({ t }: UseCasesProps) {
             return (
               <div
                 key={useCase.id}
-                className="bg-white border border-stone-200 hover:border-[#721489] transition-all duration-300 p-6 sm:p-8 flex gap-6 items-start cursor-default shadow-2xs"
+                className="bg-white border border-stone-200 hover:border-[rgb(147_41_74)] transition-all duration-300 p-6 sm:p-8 flex gap-6 items-start cursor-default shadow-2xs"
                 style={{ borderRadius: '13px' }}
                 id={`usecase-card-${useCase.id}`}
               >
                 {/* Clean Lucide Icon in Primary Brand Circle */}
-                <div className="p-3 bg-[#721489] rounded-full text-white shrink-0 cursor-default shadow-xs">
+                <div className="p-3 bg-[rgb(147_41_74)] rounded-full text-white shrink-0 cursor-default shadow-xs">
                   <IconComponent className="h-5 w-5 stroke-[2]" />
                 </div>
 

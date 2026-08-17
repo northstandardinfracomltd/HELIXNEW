@@ -46,30 +46,32 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-32 sm:pt-28 md:pt-36"
+      className="relative min-h-[80vh] sm:min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#faf8f5] pt-2 sm:pt-6 md:pt-36"
     >
-      {/* Background Image with Overlay */}
+      {/* Background Image with Semi-Opaque Light Luxury Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={bgImage}
           alt="Helibaleares Airbus H135 Helicopter Flight"
           fetchPriority="high"
-          className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
+          className="w-full h-full object-cover filter brightness-[1.0] contrast-[1.02]"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
+        {/* Semi-opaque light overlay layers with well-balanced opacity */}
+        <div className="absolute inset-0 z-10 bg-[#faf8f5]/52 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#faf8f5]/90 via-[#faf8f5]/72 to-[#faf8f5]/28" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#faf8f5]/85 via-transparent to-[#faf8f5]/25" />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:py-20 text-left w-full">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14 sm:py-16 md:py-20 text-left w-full">
         <div className="max-w-3xl">
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1]"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-black tracking-tight leading-[1.1]"
             id="hero-heading"
           >
             {getHeroTitle()}
@@ -80,7 +82,7 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-base sm:text-lg text-stone-200 leading-relaxed font-sans font-light max-w-2xl"
+            className="mt-6 text-base sm:text-lg text-stone-700 leading-relaxed font-sans font-light max-w-2xl"
             id="hero-paragraph"
           >
             {t.heroSubtitle}
@@ -97,10 +99,10 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
               href="https://www.instagram.com/helibaleares" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 text-sm sm:text-base font-sans font-medium text-white bg-black/60 border border-white/20 px-4.5 py-2.5 rounded-full backdrop-blur-md shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 text-sm sm:text-base font-sans font-medium text-stone-900 bg-white/90 border border-stone-300 px-4.5 py-2.5 rounded-full backdrop-blur-md shadow-xs hover:bg-white transition-colors cursor-pointer"
               id="hero-instagram-badge"
             >
-              <Instagram className="h-5 w-5 text-white" />
+              <Instagram className="h-5 w-5 text-stone-900" />
               <span>@helibaleares</span>
             </a>
           </motion.div>
@@ -115,14 +117,14 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
           >
             <button
               onClick={scrollToContact}
-              className="font-sans font-medium transition-all flex items-center justify-center cursor-pointer hover:brightness-110 shadow-lg active:scale-98"
+              className="font-sans font-medium transition-all flex items-center justify-center cursor-pointer hover:brightness-110 shadow-md active:scale-98"
               style={{
                 fontSize: '18px',
                 padding: '12px 26px',
                 fontWeight: 600,
                 borderRadius: '13px',
-                border: '1px solid #721489',
-                background: '#721489',
+                border: '1px solid rgb(147 41 74)',
+                background: 'rgb(147 41 74)',
                 color: '#ffffff',
               }}
             >
@@ -140,15 +142,15 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               }}
-              className="font-sans font-medium transition-all text-center block cursor-pointer hover:opacity-80"
+              className="font-sans font-medium transition-all text-center block cursor-pointer hover:bg-white hover:border-stone-400 shadow-xs"
               style={{
                 fontSize: '18px',
                 padding: '12px 24px',
                 fontWeight: 500,
                 borderRadius: '13px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                background: 'rgba(0, 0, 0, 0.4)',
-                color: '#ffffff',
+                border: '1px solid #d6d3d1',
+                background: 'rgba(255, 255, 255, 0.85)',
+                color: '#1c1917',
                 backdropFilter: 'blur(8px)'
               }}
             >

@@ -86,12 +86,18 @@ export default function SuccessPage({ currentLang = 'fr', onGoHome }: SuccessPag
       <div className="max-w-md w-full mx-auto flex flex-col items-center text-center space-y-8">
         
         {/* Centered Logo */}
-        <a href="/" onClick={(e) => { e.preventDefault(); handleHomeClick(); }} className="inline-block transition-transform hover:scale-105">
-          <img 
-            src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
-            alt="HeliBaleares" 
-            className="h-12 sm:h-14 object-contain mx-auto"
-          />
+        <a 
+          href="/" 
+          onClick={(e) => { e.preventDefault(); handleHomeClick(); }} 
+          className="inline-flex items-center gap-2.5 cursor-default select-none"
+        >
+          <svg className="w-[32px] h-[20px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+            <circle cx="22" cy="10" r="10" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+          </svg>
+          <span className="font-serif text-2xl sm:text-3xl font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
+            HELIBALEARES
+          </span>
         </a>
 
         {/* Minimalist Confirmation Checkmark */}
@@ -115,7 +121,7 @@ export default function SuccessPage({ currentLang = 'fr', onGoHome }: SuccessPag
         {/* Return to Home Button */}
         <button
           onClick={handleHomeClick}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#721489] hover:bg-[#861ca1] text-white text-xs sm:text-sm font-medium tracking-wider uppercase rounded-full shadow-sm hover:shadow-md transition-all cursor-pointer group"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] text-white text-xs sm:text-sm font-medium tracking-wider uppercase rounded-full shadow-sm hover:shadow-md transition-all cursor-pointer group"
         >
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           <span>{buttonText}</span>

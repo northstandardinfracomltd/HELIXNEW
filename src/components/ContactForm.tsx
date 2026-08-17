@@ -232,7 +232,7 @@ Remarques: ${formData.notes || 'N/A'}`;
                 </p>
                 <a
                   href="mailto:infos@helibaleares.com"
-                  className="block w-full bg-[#721489] hover:bg-[#5a106d] text-white font-sans font-medium py-3.5 px-4 text-center transition-all duration-200 shadow active:scale-98"
+                  className="block w-full bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] text-white font-sans font-medium py-3.5 px-4 text-center transition-all duration-200 shadow active:scale-98"
                   style={{ borderRadius: '11px', fontSize: '15px' }}
                 >
                   infos@helibaleares.com
@@ -259,7 +259,7 @@ Remarques: ${formData.notes || 'N/A'}`;
                 </p>
                 <a
                   href="tel:+441416734044"
-                  className="block w-full bg-[#721489] hover:bg-[#5a106d] text-white font-sans font-medium py-3.5 px-4 text-center transition-all duration-200 shadow active:scale-98"
+                  className="block w-full bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] text-white font-sans font-medium py-3.5 px-4 text-center transition-all duration-200 shadow active:scale-98"
                   style={{ borderRadius: '11px', fontSize: '15px' }}
                 >
                   Call us
@@ -417,7 +417,7 @@ Remarques: ${formData.notes || 'N/A'}`;
                       id="twoPilots-toggle"
                       onClick={() => setFormData(prev => ({ ...prev, twoPilots: !prev.twoPilots }))}
                       className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                        formData.twoPilots ? 'bg-[#721489]' : 'bg-stone-200'
+                        formData.twoPilots ? 'bg-[rgb(147_41_74)]' : 'bg-stone-200'
                       }`}
                     >
                       <span
@@ -452,7 +452,7 @@ Remarques: ${formData.notes || 'N/A'}`;
                     className={`w-full text-white font-sans font-semibold py-3.5 shadow active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer hover:brightness-110 ${
                       isSubmitting ? 'opacity-80 cursor-wait' : ''
                     }`}
-                    style={{ borderRadius: '11px', fontSize: '15px', backgroundColor: '#721489' }}
+                    style={{ borderRadius: '11px', fontSize: '15px', backgroundColor: 'rgb(147 41 74)' }}
                   >
                     {isSubmitting ? (
                       <>

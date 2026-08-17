@@ -1,23 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Gochi+Hand&family=Phudu:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'CustomTitleFont';
-  src: url('https://civilprom.s3.eu-north-1.amazonaws.com/vWR7GWx4KqajxwskmIF1feNXg4A.otf') format('opentype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "CustomTitleFont", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Athiti", sans-serif;
+  --font-serif: "Phudu", sans-serif;
+  --font-title: "Phudu", sans-serif;
+  --font-handwriting: "Gochi Hand", cursive;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-stone-500: #000000;
   --color-stone-600: #000000;
   --color-stone-700: #000000;
   --color-stone-800: #000000;
   --color-stone-900: #000000;
+  --color-secondary-1: rgb(147 41 74);
+  --color-secondary-1-hover: rgb(122 34 61);
+}
+
+/* Global body font: Athiti Regular */
+body {
+  font-family: "Athiti", sans-serif;
+  font-weight: 400;
+}
+
+/* Athiti CSS Classes */
+.athiti-extralight {
+  font-family: "Athiti", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.athiti-light {
+  font-family: "Athiti", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.athiti-regular {
+  font-family: "Athiti", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.athiti-medium {
+  font-family: "Athiti", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.athiti-semibold {
+  font-family: "Athiti", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.athiti-bold {
+  font-family: "Athiti", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Specific Font Classes */
+.gochi-hand-regular {
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.phudu-light {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.phudu-regular {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.phudu-medium {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.phudu-semibold {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.phudu-bold {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* Custom scrollbar styling for an ultra-clean minimalist aesthetic */
@@ -38,8 +120,19 @@
   background: #94a3b8; /* slate-400 */
 }
 
-/* All titles and section badges in uppercase */
-h1, h2, h3, h4, h5, h6, span.font-serif.italic {
+/* All titles, headings, and font-serif elements use Phudu with balanced medium weight */
+h1, h2, h3, h4, h5, h6, 
+.font-serif, 
+span.font-serif.italic {
+  font-family: "Phudu", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
+
+h1 {
+  font-weight: 600;
+}
+
+

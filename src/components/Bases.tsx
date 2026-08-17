@@ -69,7 +69,7 @@ export default function Bases({ t, currentLang }: BasesProps) {
           {bases.map((base: BaseInfo) => (
             <div
               key={base.id}
-              className="bg-white border border-stone-200 overflow-hidden group hover:border-[#721489] transition-all duration-300 flex flex-col h-full cursor-default shadow-xs"
+              className="bg-white border border-stone-200 overflow-hidden group hover:border-[rgb(147_41_74)] transition-all duration-300 flex flex-col h-full cursor-default shadow-xs"
               style={{ borderRadius: '13px' }}
               id={`base-card-${base.id}`}
             >
@@ -88,7 +88,7 @@ export default function Bases({ t, currentLang }: BasesProps) {
               {/* Text Body */}
               <div className="p-6 flex flex-col flex-grow space-y-4 cursor-default">
                 <div className="space-y-1 cursor-default">
-                  <div className="text-[#721489] text-xs font-sans font-medium cursor-default">
+                  <div className="text-[rgb(147_41_74)] text-xs font-sans font-medium cursor-default">
                     {base.location}
                   </div>
                   <h3 className="font-serif text-lg font-normal text-black transition-colors cursor-default">
@@ -117,7 +117,7 @@ export default function Bases({ t, currentLang }: BasesProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full font-sans font-medium transition-colors cursor-pointer flex items-center justify-center gap-2 active:scale-98"
-                      style={{ border: 'none', background: '#731489', fontSize: '15px', borderRadius: '13px', height: '50px', color: 'white' }}
+                      style={{ border: 'none', background: 'rgb(147 41 74)', fontSize: '15px', borderRadius: '13px', height: '50px', color: 'white' }}
                       id={`base-map-btn-${base.id}`}
                     >
                       <MapPin className="h-4 w-4 text-white" />

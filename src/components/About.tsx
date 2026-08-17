@@ -182,10 +182,10 @@ export default function About({ t }: AboutProps) {
                     >
                       {route.duration}
                     </span>
-                    {/* Price pill in Primary (#721489) */}
+                    {/* Price pill in Primary rgb(147 41 74) */}
                     <span
                       className="font-sans px-3.5 py-1 rounded-full inline-block whitespace-nowrap cursor-default font-medium text-white text-[12px]"
-                      style={{ border: 'none', background: '#721489' }}
+                      style={{ border: 'none', background: 'rgb(147 41 74)' }}
                     >
                       {route.price}
                     </span>

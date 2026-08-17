@@ -51,12 +51,14 @@ export default function Footer({ t }: FooterProps) {
           
           {/* Brand col (Column 1-5) */}
           <div className="md:col-span-5 space-y-4">
-            <div className="inline-flex items-center">
-              <img 
-                src="https://civilprom.s3.eu-north-1.amazonaws.com/HeliBaleares+Logo+Neo.svg" 
-                alt="Helibaleares" 
-                className="h-10 sm:h-12 object-contain"
-              />
+            <div className="inline-flex items-center gap-2.5 cursor-default select-none" id="footer-logo">
+              <svg className="w-[30px] h-[19px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9.5" cy="9.5" r="9.5" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+                <circle cx="20.5" cy="9.5" r="9.5" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+              </svg>
+              <span className="font-serif text-2xl sm:text-[26px] font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
+                HELIBALEARES
+              </span>
             </div>
             <p className="text-xs text-black max-w-sm leading-relaxed font-sans font-light">
               Operating premium on-demand helicopter transfers across the Balearic Archipelago and mainland Spain since 2003. Direct flight operator featuring our Airbus H135 twin-engine helicopter.
@@ -66,7 +68,7 @@ export default function Footer({ t }: FooterProps) {
                 href="https://www.instagram.com/helibaleares" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 bg-[#721489] text-white text-xs font-sans font-medium py-2.5 px-4 rounded-full shadow-xs active:scale-98"
+                className="inline-flex items-center gap-2 bg-[rgb(147_41_74)] text-white text-xs font-sans font-medium py-2.5 px-4 rounded-full shadow-xs active:scale-98"
                 id="footer-instagram-link"
               >
                 <Instagram className="h-4 w-4 text-white" />

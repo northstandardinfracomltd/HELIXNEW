@@ -144,7 +144,7 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
         </div>
 
         {/* Ibiza Team Section */}
-        <div className="pt-8 border-t border-neutral-900">
+        <div className="pt-6">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h3 className="font-serif text-2xl sm:text-3xl font-light text-white tracking-tight">
               {teamSectionTitle}
