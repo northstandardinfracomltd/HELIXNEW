@@ -52,10 +52,15 @@ export default function Footer({ t }: FooterProps) {
           {/* Brand col (Column 1-5) */}
           <div className="md:col-span-5 space-y-4">
             <div className="inline-flex items-center gap-2.5 cursor-default select-none" id="footer-logo">
-              <svg className="w-[30px] h-[19px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="9.5" cy="9.5" r="9.5" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
-                <circle cx="20.5" cy="9.5" r="9.5" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
-              </svg>
+              <div 
+                className="shrink-0 flex items-center justify-center" 
+                style={{ width: '32px', marginTop: '4px', marginRight: '-4px' }}
+              >
+                <svg className="w-[30px] h-[19px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="9.5" cy="9.5" r="9.5" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+                  <circle cx="20.5" cy="9.5" r="9.5" fill="#13aff0" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+                </svg>
+              </div>
               <span className="font-serif text-2xl sm:text-[26px] font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
                 HELIBALEARES
               </span>

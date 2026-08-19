@@ -26,7 +26,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Balearic Archipelago Destinations",
     basesSubtitle: "Connecting Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia with bespoke helicopter flight and charter operations.",
     
-    fleetTitle: "Our Aircraft: Airbus H135",
+    fleetTitle: "The Private Flight Experience in Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "The twin-engine Airbus H135 is the gold standard for luxury transfers, combining exceptional safety, high speed, quiet cabin comfort, and generous luggage capacity.",
     fleetSpecs: "Specifications",
     fleetPax: "Passengers",
@@ -101,7 +101,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinationen auf den Balearen",
     basesSubtitle: "Verbindung von Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia mit direkten Helikopterflügen.",
     
-    fleetTitle: "Unser Helikopter: Airbus H135",
+    fleetTitle: "Das private Flugerlebnis im Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "Der zweimotorige Airbus H135 ist der Maßstab für Luxustransfers und vereint höchste Sicherheit, Reisegeschwindigkeit, leise Kabine und großzügiges Gepäckvolumen.",
     fleetSpecs: "Spezifikationen",
     fleetPax: "Passagiere",
@@ -176,7 +176,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Bestemmingen op de Balearen",
     basesSubtitle: "Directe helikopterverbindingen tussen Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia.",
     
-    fleetTitle: "Onze Helikopter: Airbus H135",
+    fleetTitle: "De privévlucht ervaring in Airbus H135 op Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "De tweemotorige Airbus H135 is de norm voor luxe helikoptertransfers en combineert optimale veiligheid, snelheid, een stille cabine en een ruime bagageruimte.",
     fleetSpecs: "Specificaties",
     fleetPax: "Passagiers",
@@ -251,7 +251,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinos en el Archipiélago Balear",
     basesSubtitle: "Conexiones directas en helicóptero entre Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia.",
     
-    fleetTitle: "Nuestra Aeronave: Airbus H135",
+    fleetTitle: "La experiencia de vuelo privado en Airbus H135 en Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "El Airbus H135 bimotor es la referencia en traslados de lujo en helicóptero, combinando máxima seguridad, velocidad, cabina insonorizada y amplio compartimento para equipaje.",
     fleetSpecs: "Especificaciones",
     fleetPax: "Pasajeros",
@@ -326,7 +326,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinations de l'Archipel des Baléares",
     basesSubtitle: "Desserte directe en hélicoptère d'Ibiza, Formentera, Majorque, Minorque, Alicante et Valence.",
     
-    fleetTitle: "Notre Appareil : Airbus H135",
+    fleetTitle: "L’expérience de vol privé en Airbus H135 à Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "L'Airbus H135 bimoteur est la référence mondiale du transfert d'exception, alliant sécurité maximale, vitesse de croisière, cabine silencieuse et compartiment bagages dédié.",
     fleetSpecs: "Caractéristiques",
     fleetPax: "Passagers",

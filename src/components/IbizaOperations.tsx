@@ -161,12 +161,12 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-32 h-32 sm:w-36 sm:h-36 mb-4 rounded-full overflow-hidden">
+                <div className="w-32 h-32 sm:w-36 sm:h-36 mb-4 rounded-full overflow-hidden bg-stone-800 border border-stone-700/60 shadow-md">
                   <img
                     src={member.image}
                     alt={member.name}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover filter grayscale contrast-[1.05] brightness-[1.14]"
                   />
                 </div>
                 <h4 className="font-serif text-xl font-light text-white mb-1">

@@ -91,10 +91,15 @@ export default function SuccessPage({ currentLang = 'fr', onGoHome }: SuccessPag
           onClick={(e) => { e.preventDefault(); handleHomeClick(); }} 
           className="inline-flex items-center gap-2.5 cursor-default select-none"
         >
-          <svg className="w-[32px] h-[20px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="10" cy="10" r="10" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
-            <circle cx="22" cy="10" r="10" fill="rgb(26, 133, 229)" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
-          </svg>
+          <div 
+            className="shrink-0 flex items-center justify-center" 
+            style={{ width: '32px', marginTop: '4px', marginRight: '-4px' }}
+          >
+            <svg className="w-[30px] h-[19px] shrink-0 -translate-y-[0.5px]" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="9.5" cy="9.5" r="9.5" fill="rgb(147, 41, 74)" fillOpacity="0.85" />
+              <circle cx="20.5" cy="9.5" r="9.5" fill="#13aff0" fillOpacity="0.85" style={{ mixBlendMode: 'multiply' }} />
+            </svg>
+          </div>
           <span className="font-serif text-2xl sm:text-3xl font-semibold text-black tracking-wider leading-none cursor-default select-none selection:bg-transparent selection:text-black">
             HELIBALEARES
           </span>

@@ -107,6 +107,148 @@ export default function Fleet({ t, currentLang, onSelectAircraft }: FleetProps) 
             </div>
           </div>
 
+          {/* Popular On-Demand Routes (6 Sub-Divs) */}
+          <div className="border-t border-stone-200 p-6 sm:p-8 md:p-10 bg-white" id="fleet-popular-routes">
+            <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+              <h4 className="text-lg sm:text-xl font-serif text-black font-normal tracking-wide">
+                {isFr ? "Liaisons Populaires à la Demande" : isDe ? "Beliebte Strecken auf Abruf" : isNl ? "Populaire Verbindingen op Aanvraag" : isEs ? "Rutas Populares Bajo Demanda" : "Popular On-Demand Routes"}
+              </h4>
+              <p className="text-xs sm:text-sm text-stone-600 font-sans font-light">
+                {isFr ? "Tarifs directs opérateur sans frais d'intermédiaire pour nos liaisons régulières en Airbus H135." : isDe ? "Direkte Betreiberpreise ohne Zwischenhändler für unsere regulären Airbus H135-Verbindungen." : isNl ? "Directe operatortarieven zonder tussenpersonen voor onze vaste Airbus H135-routes." : isEs ? "Precios directos de operador sin intermediarios para nuestras rutas habituales en Airbus H135." : "Direct operator pricing without broker markups for our regular Airbus H135 connections."}
+              </p>
+            </div>
+
+            {/* Hidden SEO Schema for Search Engines */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "OfferCatalog",
+                  "name": "Prix & Tarifs Vols Hélicoptère Baléares Direct Opérateur",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Vol Hélicoptère Ibiza Formentera (IBZ - FOR)",
+                        "description": "Vol direct hélicoptère Ibiza Formentera. Durée 12 minutes.",
+                        "provider": { "@type": "Organization", "name": "Helibaleares S.A." }
+                      },
+                      "price": "220.00",
+                      "priceCurrency": "EUR"
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Vol Hélicoptère Mallorca Ibiza (PMI - IBZ)",
+                        "description": "Prix vol hélicoptère Mallorca Ibiza sur-mesure direct opérateur sans frais d'intermédiaire. Durée 35 minutes.",
+                        "provider": { "@type": "Organization", "name": "Helibaleares S.A." }
+                      },
+                      "price": "390.00",
+                      "priceCurrency": "EUR"
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Vol Hélicoptère Palma Menorca (PMI - MAH)",
+                        "description": "Navette hélicoptère directe Palma de Majorque à Minorque. Durée 30 minutes.",
+                        "provider": { "@type": "Organization", "name": "Helibaleares S.A." }
+                      },
+                      "price": "340.00",
+                      "priceCurrency": "EUR"
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Vol Hélicoptère Ibiza Alicante (IBZ - ALC)",
+                        "description": "Prix vol hélicoptère Ibiza Alicante direct opérateur.",
+                        "provider": { "@type": "Organization", "name": "Helibaleares S.A." }
+                      },
+                      "price": "420.00",
+                      "priceCurrency": "EUR"
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Vol Hélicoptère Valencia Ibiza (VLC - IBZ)",
+                        "description": "Chárter direct hélicoptère Valence Ibiza.",
+                        "provider": { "@type": "Organization", "name": "Helibaleares S.A." }
+                      },
+                      "price": "430.00",
+                      "priceCurrency": "EUR"
+                    }
+                  ]
+                })
+              }}
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              {[
+                { from: "Ibiza", fromIata: "IBZ", to: "Formentera", toIata: "FOR", duration: isFr ? "12 min" : "12 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 220€/siège" : isDe ? "Ab 220€/Sitz" : isNl ? "Vanaf 220€/stoel" : isEs ? "Desde 220€/asiento" : "From 220€/seat", routeKey: "Ibiza (IBZ) → Formentera (FOR)" },
+                { from: "Mallorca", fromIata: "PMI", to: "Ibiza", toIata: "IBZ", duration: isFr ? "35 min" : "35 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 390€/siège" : isDe ? "Ab 390€/Sitz" : isNl ? "Vanaf 390€/stoel" : isEs ? "Desde 390€/asiento" : "From 390€/seat", routeKey: "Mallorca (PMI) → Ibiza (IBZ)" },
+                { from: "Palma", fromIata: "PMI", to: "Menorca", toIata: "MAH", duration: isFr ? "30 min" : "30 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 340€/siège" : isDe ? "Ab 340€/Sitz" : isNl ? "Vanaf 340€/stoel" : isEs ? "Desde 340€/asiento" : "From 340€/seat", routeKey: "Palma (PMI) → Menorca (MAH)" },
+                { from: "Alicante", fromIata: "ALC", to: "Ibiza", toIata: "IBZ", duration: isFr ? "45 min" : "45 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 420€/siège" : isDe ? "Ab 420€/Sitz" : isNl ? "Vanaf 420€/stoel" : isEs ? "Desde 420€/asiento" : "From 420€/seat", routeKey: "Alicante (ALC) → Ibiza (IBZ)" },
+                { from: "Valencia", fromIata: "VLC", to: "Ibiza", toIata: "IBZ", duration: isFr ? "45 min" : "45 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 430€/siège" : isDe ? "Ab 430€/Sitz" : isNl ? "Vanaf 430€/stoel" : isEs ? "Desde 430€/asiento" : "From 430€/seat", routeKey: "Valencia (VLC) → Ibiza (IBZ)" },
+                { from: "Ibiza", fromIata: "IBZ", to: isFr ? "Finca / Villa" : "Villa / Estate", toIata: "HELI", duration: isFr ? "10 min" : "10 mins", type: isFr ? "Hélicoptère" : "Helicopter", price: isFr ? "Dès 190€/siège" : isDe ? "Ab 190€/Sitz" : isNl ? "Vanaf 190€/stoel" : isEs ? "Desde 190€/asiento" : "From 190€/seat", routeKey: "Ibiza (IBZ) → Villa / Helipad" },
+              ].map((route, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      const offset = 80;
+                      const elementPosition = contactSection.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - offset;
+                      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                      const routeInput = document.getElementById('contact-route-input') as HTMLInputElement;
+                      if (routeInput) {
+                        routeInput.value = `${route.routeKey} (${route.duration})`;
+                      }
+                    }
+                  }}
+                  className="flex items-center justify-between p-3.5 transition-all duration-200 cursor-pointer hover:border-stone-400 hover:shadow-xs active:scale-98"
+                  style={{
+                    border: '1px solid #eaecef',
+                    borderRadius: '13px',
+                    background: '#f8fafc',
+                  }}
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1.5 text-[14px] font-sans font-medium text-black">
+                      <span>{route.from} ({route.fromIata})</span>
+                      <span>→</span>
+                      <span>{route.to} ({route.toIata})</span>
+                    </div>
+                    <div className="text-[11px] font-sans font-light text-stone-500">
+                      {route.type}
+                    </div>
+                  </div>
+                  <div className="text-right flex flex-col items-end gap-1.5 shrink-0 ml-2">
+                    {/* Duration pill */}
+                    <span
+                      className="font-sans px-2.5 py-0.5 rounded-full inline-block font-medium whitespace-nowrap text-white text-[11px]"
+                      style={{ border: 'none', background: '#000000' }}
+                    >
+                      {route.duration}
+                    </span>
+                    {/* Price pill */}
+                    <span
+                      className="font-sans px-3 py-0.5 rounded-full inline-block whitespace-nowrap font-medium text-white text-[11px]"
+                      style={{ border: 'none', background: 'rgb(147 41 74)' }}
+                    >
+                      {route.price}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Two-Photo Presentation: Cabin Interior & Luggage Box */}
           <div className="border-t border-stone-200 p-6 sm:p-8 bg-stone-50/50">
             <h4 className="text-sm font-sans font-semibold text-stone-900 uppercase tracking-wider mb-6 text-center">

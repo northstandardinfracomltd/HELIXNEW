@@ -102,7 +102,15 @@ body {
   font-style: normal;
 }
 
-/* Custom scrollbar styling for an ultra-clean minimalist aesthetic */
+/* Apple iOS-like segmented spinner */
+@keyframes ios-spinner-fade {
+  0% { opacity: 1; }
+  100% { opacity: 0.15; }
+}
+
+.animate-ios-blade {
+  animation: ios-spinner-fade 1s linear infinite;
+}
 ::-webkit-scrollbar {
   width: 8px;
 }

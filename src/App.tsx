@@ -3,7 +3,6 @@ import { Language } from './types';
 import { translations } from './translations';
 import Header from './components/Header';
 import Hero, { cityNames } from './components/Hero';
-import About from './components/About';
 import Bases from './components/Bases';
 import PopularRoutes from './components/PopularRoutes';
 import Fleet from './components/Fleet';
@@ -15,6 +14,7 @@ import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import SuccessPage from './components/SuccessPage';
 import DepositPage from './components/DepositPage';
+import Preloader from './components/Preloader';
 
 const getSeoCity = (): string => {
   try {
@@ -327,6 +327,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#fafaf9] text-black selection:bg-black selection:text-white overflow-x-hidden antialiased font-sans">
       
+      {/* 3-Second Minimalist Apple-like Preloader */}
+      <Preloader />
+
       {/* Structural Header Navigation */}
       <Header 
         currentLang={currentLang} 
@@ -340,10 +343,7 @@ export default function App() {
         {/* Hero Banner with target SEO keywords */}
         <Hero t={t} seoCity={seoCity} currentLang={currentLang} />
 
-        {/* Company legacy since 2003 & Direct operator pricing benefit */}
-        <About t={t} />
-
-        {/* Fleet listing (Helicopters & Business Jets) */}
+        {/* Fleet listing (Helicopter & Popular On-Demand Routes) */}
         <Fleet 
           t={t} 
           currentLang={currentLang}
