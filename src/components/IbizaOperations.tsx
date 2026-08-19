@@ -89,7 +89,14 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
   ];
 
   return (
-    <section id="ibiza-operations" className="py-20 bg-black text-stone-100 border-t border-neutral-900">
+    <section 
+      id="ibiza-operations" 
+      className="py-20 text-white"
+      style={{
+        background: 'linear-gradient(45deg, #b24163, #721d37)',
+        border: 'none'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title without tagline and subtext */}
@@ -114,26 +121,29 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 <p className="font-serif text-xl sm:text-2xl text-white font-light leading-snug">
                   Aeropuerto de Ibiza Terminal Privada
                 </p>
-                <p className="text-stone-300 text-sm font-sans mt-1">
+                <p className="text-white/90 text-sm font-sans mt-1">
                   Bloque Técnico / Skyvalet, 07821 Ibiza, Spain
                 </p>
               </div>
 
-              <p className="text-stone-300 text-xs sm:text-sm leading-relaxed font-light mt-4">
+              <p 
+                className="leading-relaxed font-light mt-4 font-sans"
+                style={{ color: '#ffffff', fontSize: '16px' }}
+              >
                 {airportDescription}
               </p>
             </div>
           </div>
 
-          {/* Interactive Google Map Box */}
-          <div className="bg-neutral-900/90 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-auto min-h-[380px]">
-            <div className="w-full h-full bg-black">
+          {/* Interactive Google Map Box (White bg, no border) */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-auto min-h-[380px]" style={{ border: 'none' }}>
+            <div className="w-full h-full bg-white">
               <iframe
                 title="Ibiza Airport Executive Terminal Map"
                 src="https://maps.google.com/maps?q=Aeropuerto%20de%20Ibiza%20Terminal%20Privada%20Bloque%20T%C3%A9cnico%20Skyvalet%2007821%20Ibiza%20Spain&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: 'grayscale(0.15) contrast(1.1)' }}
+                style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -161,7 +171,7 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-32 h-32 sm:w-36 sm:h-36 mb-4 rounded-full overflow-hidden bg-stone-800 border border-stone-700/60 shadow-md">
+                <div className="w-32 h-32 sm:w-36 sm:h-36 mb-4 rounded-full overflow-hidden bg-white shadow-md" style={{ border: 'none' }}>
                   <img
                     src={member.image}
                     alt={member.name}
@@ -172,7 +182,10 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 <h4 className="font-serif text-xl font-light text-white mb-1">
                   {member.name}
                 </h4>
-                <p className="text-stone-400 text-xs sm:text-sm font-sans font-light leading-snug">
+                <p 
+                  className="font-sans font-light leading-snug"
+                  style={{ color: '#ffffff', fontSize: '16px' }}
+                >
                   {member.role}
                 </p>
               </motion.div>

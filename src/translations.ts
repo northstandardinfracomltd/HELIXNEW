@@ -11,7 +11,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Our Legacy",
     navContact: "Inquire Now",
     
-    heroTitle: "Helicopter Flight & Helicopter Charter Ibiza & Mallorca",
+    heroTitle: "Private helicopter flights in the Balearic Islands",
     heroSubtitle: "Book your bespoke helicopter flight in Ibiza or private helicopter charter in Mallorca with HeliBaleares, direct air operator since 2003. We provide direct transfers between Ibiza (IBZ), Formentera, Palma de Mallorca (PMI), Menorca, Alicante, and Valencia with our twin-engine Airbus H135. Enjoy direct operator pricing with zero broker fees.",
     heroCta: "Book Your Flight",
     
@@ -86,7 +86,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Unsere Tradition",
     navContact: "Flug anfragen",
     
-    heroTitle: "Helikopter Charter Flüge Balearen",
+    heroTitle: "Private Hubschrauberflüge auf den Balearen",
     heroSubtitle: "Buchen Sie Ihre maßgeschneiderten Helikopter-Charterflüge mit Helibaleares, gegründet 2003, in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia. Genießen Sie persönlichen Service, Direktpreise ohne Zwischenhändler und die absolute Sicherheit unseres zweimotorigen Airbus H135.",
     heroCta: "Flug anfragen",
     
@@ -161,7 +161,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Onze Erfenis",
     navContact: "Aanvraag indienen",
     
-    heroTitle: "Helikopter Charter Vluchten Balearen",
+    heroTitle: "Privé helikoptervluchten op de Balearen",
     heroSubtitle: "Boek uw helikopter chartervluchten op maat bij Helibaleares, opgericht in 2003, actief in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia. Geniet van persoonlijke service, directe operatortarieven zonder tussenpersonen en de absolute veiligheid van onze tweemotorige Airbus H135.",
     heroCta: "Boek uw vlucht",
     
@@ -236,7 +236,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Nuestra Historia",
     navContact: "Solicitud de Vuelo",
     
-    heroTitle: "Vuelos Chárter de Helicópteros Baleares",
+    heroTitle: "Vuelos privados en helicóptero en las Islas Baleares",
     heroSubtitle: "Reserve sus vuelos chárter privados en helicóptero con Helibaleares, empresa fundada en 2003, operando en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia. Disfrute de un servicio personalizado, precios directos de operador sin comisiones de intermediarios y la máxima seguridad de nuestro helicóptero bimotor Airbus H135.",
     heroCta: "Solicitar Vuelo",
     
@@ -311,7 +311,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Notre Histoire",
     navContact: "Nous Contacter",
     
-    heroTitle: "Vols & Location d’Hélicoptère Charter Baléares",
+    heroTitle: "Vols privés en hélicoptère aux îles Baléares",
     heroSubtitle: "Réservez vos vols charter privés en hélicoptère avec Helibaleares, compagnie établie depuis 2003, opérant à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence. Bénéficiez d'un service sur-mesure, de tarifs directs exploitant sans frais d'intermédiaire et de la sécurité absolue de notre hélicoptère bimoteur Airbus H135.",
     heroCta: "Demander un Vol",
     

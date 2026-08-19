@@ -172,11 +172,18 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
     : "Book this Flight";
 
   return (
-    <section id="popular-routes" className="py-20 bg-stone-900 text-stone-100 relative overflow-hidden border-t border-stone-800">
+    <section 
+      id="popular-routes" 
+      className="py-20 text-white relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(45deg, #b24163, #721d37)',
+        border: 'none'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,9 +192,6 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
           >
             {sectionTitle}
           </motion.h2>
-          <p className="text-stone-300 text-sm sm:text-base font-sans font-light max-w-2xl mx-auto leading-relaxed">
-            {sectionSubtitle}
-          </p>
         </div>
 
         {/* Routes Grid */}
@@ -195,26 +199,29 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
           {routes.map((route) => (
             <div
               key={route.id}
-              className="bg-black/80 border border-stone-800 overflow-hidden flex flex-col justify-between shadow-xl"
-              style={{ borderRadius: '16px' }}
+              className="overflow-hidden flex flex-col justify-between shadow-xl"
+              style={{ 
+                borderRadius: '16px',
+                border: 'none',
+                background: '#ffffff',
+              }}
             >
-              <div className="relative h-56 overflow-hidden bg-stone-950">
+              <div className="relative h-56 overflow-hidden bg-stone-100">
                 <img
                   src={route.image}
                   alt={route.title}
                   loading="lazy"
-                  className="w-full h-full object-cover brightness-[0.85] contrast-[1.1]"
+                  className="w-full h-full object-cover brightness-[0.95] contrast-[1.05]"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               </div>
 
               <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between space-y-4">
                 <div className="space-y-2">
-                  <h3 className="font-serif text-xl sm:text-2xl text-white font-normal">
+                  <h3 className="font-serif text-xl sm:text-2xl text-black font-normal">
                     {route.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans font-light pt-1">
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-sans font-light pt-1">
                     {route.description}
                   </p>
                 </div>
@@ -222,7 +229,7 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
                 <div className="pt-2">
                   <button
                     onClick={() => scrollToContact(`${route.title} (${route.duration})`)}
-                    className="w-full bg-white hover:bg-stone-200 text-black border-none py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center shadow-md cursor-pointer active:scale-98"
+                    className="w-full bg-black hover:bg-stone-800 text-white border-none py-3.5 px-4 font-sans font-medium transition-all duration-200 flex items-center justify-center shadow-md cursor-pointer active:scale-98"
                     style={{ borderRadius: '11px', fontSize: '15px' }}
                   >
                     <span>{btnText}</span>

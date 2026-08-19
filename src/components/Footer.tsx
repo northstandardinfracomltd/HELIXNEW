@@ -43,7 +43,7 @@ export default function Footer({ t }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#fafaf9] text-black py-16 border-t border-stone-200 font-sans text-sm" id="footer-section">
+    <footer className="bg-transparent text-black py-16 font-sans text-sm border-none" style={{ border: 'none', borderTop: 'none', background: 'transparent' }} id="footer-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Top brand grid */}
@@ -150,7 +150,7 @@ export default function Footer({ t }: FooterProps) {
             <div className="flex flex-wrap justify-center gap-x-2 gap-y-1">
               {searchTerms.map((term, index) => (
                 <span key={index} className="inline-flex items-center gap-2">
-                  <span className="hover:font-medium transition-all">{term}</span>
+                  <span>{term}</span>
                   {index < searchTerms.length - 1 && <span className="text-stone-300 font-bold">•</span>}
                 </span>
               ))}

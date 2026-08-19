@@ -37,10 +37,14 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
 
   const getHeroTitle = () => {
     if (seoCity) {
-      const upperCity = seoCity.toUpperCase();
-      return `HELICOPTER CHARTER FLIGHTS ${upperCity}`;
+      const city = cityNames[seoCity.toLowerCase()]?.[currentLang] || seoCity;
+      if (currentLang === 'fr') return `VOLS PRIVÉS EN HÉLICOPTÈRE À ${city.toUpperCase()}`;
+      if (currentLang === 'de') return `PRIVATE HUBSCHRAUBERFLÜGE IN ${city.toUpperCase()}`;
+      if (currentLang === 'nl') return `PRIVÉ HELIKOPTERVLUCHTEN IN ${city.toUpperCase()}`;
+      if (currentLang === 'es') return `VUELOS PRIVADOS EN HELICÓPTERO EN ${city.toUpperCase()}`;
+      return `PRIVATE HELICOPTER FLIGHTS IN ${city.toUpperCase()}`;
     }
-    return "HELICOPTER CHARTER FLIGHTS BALEARIC";
+    return t.heroTitle.toUpperCase();
   };
 
   return (

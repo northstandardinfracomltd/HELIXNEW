@@ -117,7 +117,7 @@ export default function Safety({ t }: SafetyProps) {
   })();
 
   return (
-    <section id="safety" className="pt-24 pb-20 bg-white border-b border-stone-200/60 relative overflow-hidden">
+    <section id="safety" className="pt-24 pb-20 bg-white border-none relative overflow-hidden">
       {/* Visual background accents */}
       <div className="absolute left-0 bottom-0 w-80 h-80 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 

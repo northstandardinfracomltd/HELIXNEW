@@ -466,22 +466,39 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
         <button
           id="chat-widget-trigger-button"
           onClick={handleOpenToggle}
-          aria-label="Open HeliBaleares Concierge Chat"
-          className={`relative p-4 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center border ${
-            isOpen 
-              ? 'bg-black border-black text-white' 
-              : 'bg-[rgb(147_41_74)] hover:bg-[rgb(122_34_61)] border-[rgb(147_41_74)]/30 text-white shadow-[rgb(147_41_74)]/30'
-          }`}
+          aria-label="Contact us"
+          className="font-sans transition-all active:scale-95 cursor-pointer flex items-center gap-2.5 shadow-xl hover:opacity-90"
+          style={{
+            fontSize: '18px',
+            padding: '7px 16px',
+            fontWeight: 500,
+            letterSpacing: '0px',
+            borderRadius: '13px',
+            border: '1px solid rgb(148 42 74)',
+            background: 'rgb(148 42 74)',
+            color: 'rgb(255, 255, 255)',
+          }}
         >
           {isOpen ? (
-            <X className="w-6 h-6 text-white" />
+            <>
+              <X className="w-4 h-4 text-white" />
+              <span>{isFr ? "Fermer" : isDe ? "Schließen" : isNl ? "Sluiten" : isEs ? "Cerrar" : "Close"}</span>
+            </>
           ) : (
             <>
-              <MessageSquare className="w-6 h-6 fill-white stroke-white" />
-              {/* Online pulsing green indicator */}
-              <span className="absolute top-1 right-1 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-white"></span>
+              {/* Online pulsing indicator */}
+              <span className="relative flex h-2.5 w-2.5">
+                <span 
+                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                  style={{ background: 'oklch(0.84 0.1 232.69)' }}
+                ></span>
+                <span 
+                  className="relative inline-flex rounded-full h-2.5 w-2.5"
+                  style={{ background: 'oklch(0.84 0.1 232.69)' }}
+                ></span>
+              </span>
+              <span>
+                {isFr ? "Nous contacter" : isDe ? "Kontaktieren Sie uns" : isNl ? "Neem contact op" : isEs ? "Contáctenos" : "Contact us"}
               </span>
             </>
           )}

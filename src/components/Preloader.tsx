@@ -55,9 +55,6 @@ export default function Preloader() {
                   HELIBALEARES
                 </span>
               </div>
-              <span className="text-xs text-stone-500 font-sans tracking-normal font-normal mt-2 select-none">
-                A branch of Eliance Civil Spain ES.AOC.131 EC 135
-              </span>
             </div>
 
             {/* Apple-like Minimalist Segmented Spinner (12 Blades / Bâtonnets) */}
