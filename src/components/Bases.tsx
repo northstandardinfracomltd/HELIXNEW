@@ -1,4 +1,3 @@
-import { MapPin, PlaneTakeoff, Compass } from 'lucide-react';
 import { TranslationContent, BaseInfo, Language } from '../types';
 import { getBasesData } from '../translations';
 
@@ -116,11 +115,10 @@ export default function Bases({ t, currentLang }: BasesProps) {
                       href={mapUrls[base.id]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full font-sans font-medium transition-colors cursor-pointer flex items-center justify-center gap-2 active:scale-98"
+                      className="w-full font-sans font-medium transition-colors cursor-pointer flex items-center justify-center active:scale-98"
                       style={{ border: 'none', background: 'rgb(147 41 74)', fontSize: '15px', borderRadius: '13px', height: '50px', color: 'white' }}
                       id={`base-map-btn-${base.id}`}
                     >
-                      <MapPin className="h-4 w-4 text-white" />
                       <span>Maps Meeting Point</span>
                     </a>
                   )}

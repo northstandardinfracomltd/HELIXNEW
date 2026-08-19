@@ -121,9 +121,6 @@ export default function IbizaOperations({ currentLang }: IbizaOperationsProps) {
                 <p className="font-serif text-xl sm:text-2xl text-white font-light leading-snug">
                   Aeropuerto de Ibiza Terminal Privada
                 </p>
-                <p className="text-white/90 text-sm font-sans mt-1">
-                  Bloque Técnico / Skyvalet, 07821 Ibiza, Spain
-                </p>
               </div>
 
               <p 

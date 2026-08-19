@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Plane, ChevronDown, ChevronUp, ShieldAlert, Globe, Instagram } from 'lucide-react';
+import { Globe, Instagram } from 'lucide-react';
 import { TranslationContent } from '../types';
 
 interface FooterProps {
@@ -7,8 +6,6 @@ interface FooterProps {
 }
 
 export default function Footer({ t }: FooterProps) {
-  const [showLegal, setShowLegal] = useState(false);
-
   const searchTerms = [
     "Helicopter Flight Ibiza",
     "Helicopter Charter Ibiza",
@@ -115,39 +112,36 @@ export default function Footer({ t }: FooterProps) {
 
         </div>
 
-        {/* Legal collapsible toggle */}
-        <div className="bg-white border border-stone-200 rounded p-6" id="footer-legal-box">
-          <button
-            onClick={() => setShowLegal(!showLegal)}
-            className="w-full flex items-center justify-between text-left text-xs font-sans font-light text-black transition-colors cursor-pointer"
-          >
-            <span>{t.legalMentionsTitle}</span>
-            {showLegal ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          </button>
-
-          {showLegal && (
-            <div className="mt-4 pt-4 border-t border-stone-100 text-xs text-black leading-relaxed font-sans font-light space-y-3" id="legal-content">
-              <p>{t.legalMentionsContent}</p>
-              <p>
-                <strong>Operator Compliance:</strong> All aircraft operated by Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131), including our Airbus H135 twin-engine helicopter, are fully certified under European Union Aviation Safety Agency (EASA) and Spanish AESA standards. Flight crew members undergo continuous simulator training and safety audits.
-              </p>
-              {t.legalGuaranteeDeposit && (
-                <p>{t.legalGuaranteeDeposit}</p>
-              )}
-              {t.legalDocumentation && (
-                <p>{t.legalDocumentation}</p>
-              )}
-            </div>
+        {/* Legal Mentions Text (Left Aligned) */}
+        <div className="text-left text-xs text-black leading-relaxed font-sans font-light space-y-3 pt-4" id="footer-legal-box">
+          <p className="font-semibold text-black text-sm">
+            {t.legalMentionsTitle || "Legal Mentions, Regulations & Flight Prerequisites."}
+          </p>
+          <p>
+            {t.legalMentionsContent || "Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131) is a licensed air carrier operating under EU aviation security protocols. Founded in 2003, we operate our Airbus H135 twin-engine helicopter. Flights are subject to weather conditions and air traffic control clearance."}
+          </p>
+          <p>
+            <strong>Operator Compliance:</strong> All aircraft operated by Eliance Civil HIS GROUP S.A. (AOC ES.AOC.131), including our Airbus H135 twin-engine helicopter, are fully certified under European Union Aviation Safety Agency (EASA) and Spanish AESA standards. Flight crew members undergo continuous simulator training and safety audits.
+          </p>
+          {t.legalGuaranteeDeposit ? (
+            <p>{t.legalGuaranteeDeposit}</p>
+          ) : (
+            <p>— Guarantee Deposit: A credit card pre-authorization equivalent to 45% of the total amount is required to secure the reservation. On the day of the flight, this hold can either be canceled/refunded or deducted from the final amount paid. Full or remaining payment can be settled on-site by credit card, cash (up to €1,000 for tax residents in Spain and €10,000 for non-residents), or instant bank transfer.</p>
+          )}
+          {t.legalDocumentation ? (
+            <p>{t.legalDocumentation}</p>
+          ) : (
+            <p>— Documentation: We will need one government-issued photo ID from one passenger to register all luggage under their name.</p>
           )}
         </div>
 
         {/* Natural SEO Keywords Row */}
-        <div className="text-center space-y-4 pt-8" id="footer-seo-terms-section">
-          <p className="text-xs text-black max-w-2xl mx-auto leading-relaxed font-sans font-light">
+        <div className="text-left space-y-4 pt-8" id="footer-seo-terms-section">
+          <p className="text-xs text-black max-w-4xl leading-relaxed font-sans font-light">
             Providing bespoke, direct operator helicopter flights across the Balearic Archipelago and mainland Spain. Our direct dispatches specialize in <span className="text-black font-semibold">helicopter flight Ibiza</span>, <span className="text-black font-semibold">helicopter charter Ibiza</span>, <span className="text-black font-semibold">helicopter flight Mallorca</span>, and <span className="text-black font-semibold">helicopter charter Mallorca</span> transfers, with direct connections to Formentera, Menorca, Alicante, and Valencia.
           </p>
-          <div className="pt-2 text-[11px] text-black font-sans font-light max-w-4xl mx-auto leading-relaxed text-center" id="footer-search-keywords">
-            <div className="flex flex-wrap justify-center gap-x-2 gap-y-1">
+          <div className="pt-2 text-[11px] text-black font-sans font-light max-w-4xl text-left" id="footer-search-keywords">
+            <div className="flex flex-wrap justify-start gap-x-2 gap-y-1">
               {searchTerms.map((term, index) => (
                 <span key={index} className="inline-flex items-center gap-2">
                   <span>{term}</span>

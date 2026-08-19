@@ -11,7 +11,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Our Legacy",
     navContact: "Inquire Now",
     
-    heroTitle: "Private helicopter flights in the Balearic Islands",
+    heroTitle: "Private & Shared Helicopter Flights in the Balearic Islands",
     heroSubtitle: "Book your bespoke helicopter flight in Ibiza or private helicopter charter in Mallorca with HeliBaleares, direct air operator since 2003. We provide direct transfers between Ibiza (IBZ), Formentera, Palma de Mallorca (PMI), Menorca, Alicante, and Valencia with our twin-engine Airbus H135. Enjoy direct operator pricing with zero broker fees.",
     heroCta: "Book Your Flight",
     
@@ -26,7 +26,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Balearic Archipelago Destinations",
     basesSubtitle: "Connecting Ibiza, Formentera, Mallorca, Menorca, Alicante, and Valencia with bespoke helicopter flight and charter operations.",
     
-    fleetTitle: "The Private Flight Experience in Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
+    fleetTitle: "The Private or Shared Flight Experience in Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "The twin-engine Airbus H135 is the gold standard for luxury transfers, combining exceptional safety, high speed, quiet cabin comfort, and generous luggage capacity.",
     fleetSpecs: "Specifications",
     fleetPax: "Passengers",
@@ -86,7 +86,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Unsere Tradition",
     navContact: "Flug anfragen",
     
-    heroTitle: "Private Hubschrauberflüge auf den Balearen",
+    heroTitle: "Private & Geteilte Hubschrauberflüge auf den Balearen",
     heroSubtitle: "Buchen Sie Ihre maßgeschneiderten Helikopter-Charterflüge mit Helibaleares, gegründet 2003, in Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia. Genießen Sie persönlichen Service, Direktpreise ohne Zwischenhändler und die absolute Sicherheit unseres zweimotorigen Airbus H135.",
     heroCta: "Flug anfragen",
     
@@ -101,7 +101,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinationen auf den Balearen",
     basesSubtitle: "Verbindung von Ibiza, Formentera, Mallorca, Menorca, Alicante und Valencia mit direkten Helikopterflügen.",
     
-    fleetTitle: "Das private Flugerlebnis im Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
+    fleetTitle: "Das private oder geteilte Flugerlebnis im Airbus H135 in Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "Der zweimotorige Airbus H135 ist der Maßstab für Luxustransfers und vereint höchste Sicherheit, Reisegeschwindigkeit, leise Kabine und großzügiges Gepäckvolumen.",
     fleetSpecs: "Spezifikationen",
     fleetPax: "Passagiere",
@@ -161,7 +161,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Onze Erfenis",
     navContact: "Aanvraag indienen",
     
-    heroTitle: "Privé helikoptervluchten op de Balearen",
+    heroTitle: "Privé en Gedeelde Helikoptervluchten op de Balearen",
     heroSubtitle: "Boek uw helikopter chartervluchten op maat bij Helibaleares, opgericht in 2003, actief in Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia. Geniet van persoonlijke service, directe operatortarieven zonder tussenpersonen en de absolute veiligheid van onze tweemotorige Airbus H135.",
     heroCta: "Boek uw vlucht",
     
@@ -176,7 +176,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Bestemmingen op de Balearen",
     basesSubtitle: "Directe helikopterverbindingen tussen Ibiza, Formentera, Mallorca, Menorca, Alicante en Valencia.",
     
-    fleetTitle: "De privévlucht ervaring in Airbus H135 op Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
+    fleetTitle: "De privé of gedeelde vlucht ervaring in Airbus H135 op Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "De tweemotorige Airbus H135 is de norm voor luxe helikoptertransfers en combineert optimale veiligheid, snelheid, een stille cabine en een ruime bagageruimte.",
     fleetSpecs: "Specificaties",
     fleetPax: "Passagiers",
@@ -236,7 +236,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Nuestra Historia",
     navContact: "Solicitud de Vuelo",
     
-    heroTitle: "Vuelos privados en helicóptero en las Islas Baleares",
+    heroTitle: "Vuelos Privados y Compartidos en Helicóptero en las Islas Baleares",
     heroSubtitle: "Reserve sus vuelos chárter privados en helicóptero con Helibaleares, empresa fundada en 2003, operando en Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia. Disfrute de un servicio personalizado, precios directos de operador sin comisiones de intermediarios y la máxima seguridad de nuestro helicóptero bimotor Airbus H135.",
     heroCta: "Solicitar Vuelo",
     
@@ -251,7 +251,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinos en el Archipiélago Balear",
     basesSubtitle: "Conexiones directas en helicóptero entre Ibiza, Formentera, Mallorca, Menorca, Alicante y Valencia.",
     
-    fleetTitle: "La experiencia de vuelo privado en Airbus H135 en Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
+    fleetTitle: "La experiencia de vuelo privado o compartido en Airbus H135 en Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "El Airbus H135 bimotor es la referencia en traslados de lujo en helicóptero, combinando máxima seguridad, velocidad, cabina insonorizada y amplio compartimento para equipaje.",
     fleetSpecs: "Especificaciones",
     fleetPax: "Pasajeros",
@@ -311,7 +311,7 @@ export const translations: Record<string, TranslationContent> = {
     navAbout: "Notre Histoire",
     navContact: "Nous Contacter",
     
-    heroTitle: "Vols privés en hélicoptère aux îles Baléares",
+    heroTitle: "Vols Privés et Partagés en Hélicoptère aux Îles Baléares",
     heroSubtitle: "Réservez vos vols charter privés en hélicoptère avec Helibaleares, compagnie établie depuis 2003, opérant à Ibiza, Formentera, Majorque, Minorque, Alicante et Valence. Bénéficiez d'un service sur-mesure, de tarifs directs exploitant sans frais d'intermédiaire et de la sécurité absolue de notre hélicoptère bimoteur Airbus H135.",
     heroCta: "Demander un Vol",
     
@@ -326,7 +326,7 @@ export const translations: Record<string, TranslationContent> = {
     basesTitle: "Destinations de l'Archipel des Baléares",
     basesSubtitle: "Desserte directe en hélicoptère d'Ibiza, Formentera, Majorque, Minorque, Alicante et Valence.",
     
-    fleetTitle: "L’expérience de vol privé en Airbus H135 à Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
+    fleetTitle: "L’expérience de vol privé ou partagé en Airbus H135 à Ibiza, Palma de Mallorca, Menorca, Alicante & Valencia",
     fleetSubtitle: "L'Airbus H135 bimoteur est la référence mondiale du transfert d'exception, alliant sécurité maximale, vitesse de croisière, cabine silencieuse et compartiment bagages dédié.",
     fleetSpecs: "Caractéristiques",
     fleetPax: "Passagers",

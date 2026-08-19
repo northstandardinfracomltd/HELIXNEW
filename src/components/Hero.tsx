@@ -38,11 +38,11 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
   const getHeroTitle = () => {
     if (seoCity) {
       const city = cityNames[seoCity.toLowerCase()]?.[currentLang] || seoCity;
-      if (currentLang === 'fr') return `VOLS PRIVÉS EN HÉLICOPTÈRE À ${city.toUpperCase()}`;
-      if (currentLang === 'de') return `PRIVATE HUBSCHRAUBERFLÜGE IN ${city.toUpperCase()}`;
-      if (currentLang === 'nl') return `PRIVÉ HELIKOPTERVLUCHTEN IN ${city.toUpperCase()}`;
-      if (currentLang === 'es') return `VUELOS PRIVADOS EN HELICÓPTERO EN ${city.toUpperCase()}`;
-      return `PRIVATE HELICOPTER FLIGHTS IN ${city.toUpperCase()}`;
+      if (currentLang === 'fr') return `VOLS PRIVÉS ET PARTAGÉS EN HÉLICOPTÈRE À ${city.toUpperCase()}`;
+      if (currentLang === 'de') return `PRIVATE & GETEILTE HUBSCHRAUBERFLÜGE IN ${city.toUpperCase()}`;
+      if (currentLang === 'nl') return `PRIVÉ EN GEDEELDE HELIKOPTERVLUCHTEN IN ${city.toUpperCase()}`;
+      if (currentLang === 'es') return `VUELOS PRIVADOS Y COMPARTIDOS EN HELICÓPTERO EN ${city.toUpperCase()}`;
+      return `PRIVATE & SHARED HELICOPTER FLIGHTS IN ${city.toUpperCase()}`;
     }
     return t.heroTitle.toUpperCase();
   };
@@ -68,14 +68,14 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14 sm:py-16 md:py-20 text-left w-full">
-        <div className="max-w-3xl">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14 sm:py-16 md:py-20 text-center w-full flex flex-col items-center">
+        <div className="max-w-5xl lg:max-w-6xl flex flex-col items-center text-center">
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-black tracking-tight leading-[1.1]"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-black tracking-tight leading-[1.1] text-center"
             id="hero-heading"
           >
             {getHeroTitle()}
@@ -86,7 +86,7 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-base sm:text-lg text-stone-700 leading-relaxed font-sans font-light max-w-2xl"
+            className="mt-6 text-base sm:text-lg text-stone-700 leading-relaxed font-sans font-light max-w-4xl mx-auto text-center"
             id="hero-paragraph"
           >
             {t.heroSubtitle}
@@ -97,8 +97,11 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6"
+            className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
           >
+            <span className="text-xs sm:text-sm font-sans font-medium text-stone-700">
+              Follow us on Instagram:
+            </span>
             <a 
               href="https://www.instagram.com/helibaleares" 
               target="_blank" 
@@ -116,7 +119,7 @@ export default function Hero({ t, seoCity, currentLang }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 flex flex-col sm:flex-row gap-4"
+            className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center"
             id="hero-cta-buttons"
           >
             <button

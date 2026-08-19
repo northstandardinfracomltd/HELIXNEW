@@ -12,14 +12,14 @@ export default function PopularRoutes({ currentLang }: PopularRoutesProps) {
   const isEs = currentLang === 'es';
 
   const sectionTitle = isFr
-    ? "Liaisons & Trajets Inter-Îles Principaux"
+    ? "Trajets & Liaisons Populaires"
     : isDe
-    ? "Beliebteste Insel-zu-Insel Helikopter-Routen"
+    ? "Beliebte Routen"
     : isNl
-    ? "Populaire Inter-Eiland Helikopterroutes"
+    ? "Populaire Routes"
     : isEs
-    ? "Rutas e Itinerarios Principales entre Islas"
-    : "Popular Inter-Island Helicopter Routes";
+    ? "Rutas Populares"
+    : "Popular Routes";
 
   const sectionSubtitle = isFr
     ? "Vols directs en hélicoptère entre Majorque, Ibiza, Formentera et Minorque avec notre Airbus H135 bimoteur."
