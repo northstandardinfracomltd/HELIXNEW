@@ -127,7 +127,7 @@ Remarques: ${formData.notes || 'N/A'}`;
     };
 
     // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbzHvoCTSkSJdkMK-ixfpjYAxCpu59EZVfK5PhYcEyLDyiQcoKxXk2B68gV7YusDSEwmrw/exec";
     if (appsScriptUrl) {
       try {
         await fetch(appsScriptUrl, {
@@ -143,36 +143,7 @@ Remarques: ${formData.notes || 'N/A'}`;
       }
     }
 
-    // 2. Direct client backup email relay to infos@helibaleares.com via FormSubmit
-    try {
-      await fetch('https://formsubmit.co/ajax/infos@helibaleares.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `⚠️ Demande de vol HeliBaleares - ${formData.name || 'Client'}`,
-          _template: 'table',
-          _replyto: formData.email || "infos@helibaleares.com",
-          _sender: "infos@helibaleares.com",
-          "Expéditeur": "infos@helibaleares.com",
-          "Nom Client": formData.name,
-          "Email": formData.email,
-          "Telephone": formData.phone,
-          "Itineraire": formData.route,
-          "Appareil": formData.aircraft,
-          "Date et Creneau": dateTimeStr,
-          "Passagers": formData.passengers,
-          "Double Pilote": formData.twoPilots ? 'Oui' : 'Non',
-          "Exigences": formData.notes || 'Aucune'
-        })
-      });
-    } catch (fsErr) {
-      console.warn('FormSubmit backup relay handled:', fsErr);
-    }
-
-    // 3. Optional Node Express backend call if hosted on full-stack server
+    // 2. Node Express backend call if hosted on full-stack server (handles SMTP/Resend)
     try {
       await fetch('/api/send-email', {
         method: 'POST',
@@ -182,7 +153,7 @@ Remarques: ${formData.notes || 'N/A'}`;
         body: JSON.stringify(payload)
       });
     } catch (error) {
-      // Ignore 405 on static hosting
+      // Ignore on static hosting
     }
 
     setIsSubmitting(false);

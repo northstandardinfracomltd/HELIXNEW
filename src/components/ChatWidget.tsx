@@ -383,7 +383,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     };
 
     // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbzHvoCTSkSJdkMK-ixfpjYAxCpu59EZVfK5PhYcEyLDyiQcoKxXk2B68gV7YusDSEwmrw/exec";
     if (appsScriptUrl) {
       try {
         await fetch(appsScriptUrl, {
@@ -399,36 +399,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
       }
     }
 
-    // 2. Direct client backup email relay to infos@helibaleares.com via FormSubmit
-    try {
-      await fetch('https://formsubmit.co/ajax/infos@helibaleares.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `⚠️ Demande LiveChat HeliBaleares - ${answers.name || 'Client'}`,
-          _template: 'table',
-          _replyto: answers.email || "infos@helibaleares.com",
-          _sender: "infos@helibaleares.com",
-          "Expéditeur": "infos@helibaleares.com",
-          "Nom Client": answers.name,
-          "Email": answers.email,
-          "Telephone": answers.phone,
-          "Itineraire": answers.route,
-          "Appareil": answers.aircraft,
-          "Date et Creneau": dateTimeStr,
-          "Passagers": answers.passengers,
-          "Double Pilote": answers.twoPilots ? 'Oui' : 'Non',
-          "Exigences": answers.notes || 'Aucune'
-        })
-      });
-    } catch (fsErr) {
-      console.warn('FormSubmit backup relay handled:', fsErr);
-    }
-
-    // 3. Optional Node Express backend call if hosted on full-stack server
+    // 2. Node Express backend call if hosted on full-stack server (handles SMTP/Resend)
     try {
       await fetch('/api/send-email', {
         method: 'POST',
@@ -438,7 +409,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
         body: JSON.stringify(payload)
       });
     } catch (err) {
-      // Ignore 405 on static hosting
+      // Ignore on static hosting
     }
 
     setIsSubmitting(false);

@@ -104,7 +104,7 @@ async function startServer() {
       }
 
       // Method 3: Google Apps Script Web App (Inserts directly into Google Sheet)
-      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
+      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbzHvoCTSkSJdkMK-ixfpjYAxCpu59EZVfK5PhYcEyLDyiQcoKxXk2B68gV7YusDSEwmrw/exec";
       if (appScriptUrl) {
         try {
           const gasPayload = {
@@ -125,45 +125,6 @@ async function startServer() {
         } catch (err: any) {
           console.error("Google Apps Script Error:", err.message);
           errors.push(`Google Apps Script: ${err.message}`);
-        }
-      }
-
-      // Method 4: Automated server-to-server FormSubmit relay to infos@helibaleares.com
-      if (!sent) {
-        try {
-          const fsResp = await fetch("https://formsubmit.co/ajax/infos@helibaleares.com", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
-            },
-            body: JSON.stringify({
-              _subject: subject,
-              _template: "table",
-              _replyto: email !== "Non spécifié" ? email : "infos@helibaleares.com",
-              _sender: "infos@helibaleares.com",
-              "Expediteur": "infos@helibaleares.com",
-              "Nom Client": fullName,
-              "Email": email,
-              "Telephone": phone,
-              "Itineraire": route,
-              "Appareil": aircraft,
-              "Date et Creneau": dateTime,
-              "Passagers": passengers,
-              "Double Pilote": dual,
-              "Exigences": requirements
-            })
-          });
-          if (fsResp.ok) {
-            sent = true;
-            console.log("Email dispatched via FormSubmit relay to infos@helibaleares.com.");
-          } else {
-            const fsErr = await fsResp.text();
-            console.warn("FormSubmit relay response:", fsErr);
-          }
-        } catch (err: any) {
-          console.error("FormSubmit Error:", err.message);
-          errors.push(`FormSubmit: ${err.message}`);
         }
       }
 
