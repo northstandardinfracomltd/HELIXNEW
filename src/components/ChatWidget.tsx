@@ -383,7 +383,7 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
     };
 
     // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbzHvoCTSkSJdkMK-ixfpjYAxCpu59EZVfK5PhYcEyLDyiQcoKxXk2B68gV7YusDSEwmrw/exec";
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbzoHHX-7mFUz1gREINwvUIGhWrcig4kyBWfhGidq6rR2kknbx_oSAVZu6iNw8JGX2h6Ew/exec";
     if (appsScriptUrl) {
       try {
         await fetch(appsScriptUrl, {
