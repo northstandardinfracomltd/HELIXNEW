@@ -114,17 +114,20 @@ Remarques: ${formData.notes || 'N/A'}`;
     const payload = {
       FullName: formData.name,
       EmailAddress: formData.email,
-      PhoneWhatsApp: "",
+      PhoneWhatsApp: formData.phone || "",
       RouteDest: formData.route,
       Aircraft: formData.aircraft || (isFr ? "Non spécifié" : "Not specified"),
       DateTime: dateTimeStr || (isFr ? "Non spécifié" : "Not specified"),
       Passengers: formData.passengers,
       Dual: formData.twoPilots ? (isFr ? "Oui" : "Yes") : (isFr ? "Non" : "No"),
-      Requirements: formData.notes || ""
+      Requirements: formData.notes || "",
+      SenderEmail: "infos@helibaleares.com",
+      FromEmail: "infos@helibaleares.com",
+      ReplyToEmail: formData.email || "infos@helibaleares.com"
     };
 
     // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
     if (appsScriptUrl) {
       try {
         await fetch(appsScriptUrl, {
@@ -151,6 +154,9 @@ Remarques: ${formData.notes || 'N/A'}`;
         body: JSON.stringify({
           _subject: `⚠️ Demande de vol HeliBaleares - ${formData.name || 'Client'}`,
           _template: 'table',
+          _replyto: formData.email || "infos@helibaleares.com",
+          _sender: "infos@helibaleares.com",
+          "Expéditeur": "infos@helibaleares.com",
           "Nom Client": formData.name,
           "Email": formData.email,
           "Telephone": formData.phone,

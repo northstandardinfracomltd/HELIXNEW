@@ -56,10 +56,11 @@ async function startServer() {
               pass: process.env.SMTP_PASS,
             },
           });
+          const fromSender = process.env.SMTP_FROM || `"HeliBaleares Dispatch" <infos@helibaleares.com>`;
           await transporter.sendMail({
-            from: `"HeliBaleares Dispatch" <${process.env.SMTP_USER}>`,
+            from: fromSender,
             to: recipient,
-            replyTo: email !== "Non spécifié" ? email : undefined,
+            replyTo: email !== "Non spécifié" ? email : "infos@helibaleares.com",
             subject,
             text: textContent,
           });
@@ -74,6 +75,7 @@ async function startServer() {
       // Method 2: Resend API if RESEND_API_KEY is configured
       if (!sent && process.env.RESEND_API_KEY) {
         try {
+          const fromSender = process.env.RESEND_FROM || "HeliBaleares Dispatch <infos@helibaleares.com>";
           const resendResp = await fetch("https://api.resend.com/emails", {
             method: "POST",
             headers: {
@@ -81,8 +83,9 @@ async function startServer() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              from: "HeliBaleares Dispatch <onboarding@resend.dev>",
+              from: fromSender,
               to: recipient,
+              reply_to: email !== "Non spécifié" ? email : "infos@helibaleares.com",
               subject,
               text: textContent,
             }),
@@ -101,13 +104,19 @@ async function startServer() {
       }
 
       // Method 3: Google Apps Script Web App (Inserts directly into Google Sheet)
-      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
+      const appScriptUrl = process.env.VITE_APPSCRIPT_URL || process.env.APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
       if (appScriptUrl) {
         try {
+          const gasPayload = {
+            ...data,
+            SenderEmail: "infos@helibaleares.com",
+            FromEmail: "infos@helibaleares.com",
+            ReplyToEmail: email !== "Non spécifié" ? email : "infos@helibaleares.com",
+          };
           const gasResp = await fetch(appScriptUrl, {
             method: "POST",
             headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(data),
+            body: JSON.stringify(gasPayload),
           });
           if (gasResp.ok) {
             sent = true;
@@ -131,6 +140,9 @@ async function startServer() {
             body: JSON.stringify({
               _subject: subject,
               _template: "table",
+              _replyto: email !== "Non spécifié" ? email : "infos@helibaleares.com",
+              _sender: "infos@helibaleares.com",
+              "Expediteur": "infos@helibaleares.com",
               "Nom Client": fullName,
               "Email": email,
               "Telephone": phone,

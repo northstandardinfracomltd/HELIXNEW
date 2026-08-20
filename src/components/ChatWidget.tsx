@@ -376,11 +376,14 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
       DateTime: dateTimeStr || (isFr ? "À convenir" : "To be scheduled"),
       Passengers: answers.passengers || "2",
       Dual: answers.twoPilots ? (isFr ? "Oui (2 Pilotes)" : "Yes (2 Pilots)") : (isFr ? "Non (1 Pilote)" : "No (1 Pilot)"),
-      Requirements: answers.notes ? `[Chatbot Inquiry] ${answers.notes}` : "[Submitted via Live Chat Widget]"
+      Requirements: answers.notes ? `[Chatbot Inquiry] ${answers.notes}` : "[Submitted via Live Chat Widget]",
+      SenderEmail: "infos@helibaleares.com",
+      FromEmail: "infos@helibaleares.com",
+      ReplyToEmail: answers.email || "infos@helibaleares.com"
     };
 
     // 1. Direct client fetch to Google Apps Script Web App (Inserts directly into Google Sheet)
-    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbwNuoIaRCoMdr2MVdzgIC5S2CygPwOSu-Z8_ecSoiDm_PgYar354okAaUQElAGkRdKZWw/exec";
+    const appsScriptUrl = (import.meta as any).env?.VITE_APPSCRIPT_URL || "https://script.google.com/macros/s/AKfycbw8_-7P4i1goMSS2ikUMNGLhacwwIRDpLqn0Lao1ImNPRZMBV6uQBM_0uVCwgqjSM7znA/exec";
     if (appsScriptUrl) {
       try {
         await fetch(appsScriptUrl, {
@@ -407,6 +410,9 @@ export default function ChatWidget({ currentLang, selectedAircraft, onClearSelec
         body: JSON.stringify({
           _subject: `⚠️ Demande LiveChat HeliBaleares - ${answers.name || 'Client'}`,
           _template: 'table',
+          _replyto: answers.email || "infos@helibaleares.com",
+          _sender: "infos@helibaleares.com",
+          "Expéditeur": "infos@helibaleares.com",
           "Nom Client": answers.name,
           "Email": answers.email,
           "Telephone": answers.phone,
